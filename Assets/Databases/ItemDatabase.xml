@@ -1,0 +1,217 @@
+<Item>
+	<Name>Draught of Glibness</Name>
+	<ID>1</ID>
+	<Type>CONSUMABLE</Type>
+		<UseText>Restores 10 AP.</UseText>
+	<Description>A bottle filled with a strange blue goop. Don't tell me you're gonna drink this?</Description>
+	<Value>10</Value>
+	<Stats>AMBITION</Stats>
+		<Modifier>10</Modifier>
+</Item>
+
+<Item>
+	<Name>Draught of Vivaciousness</Name>
+	<ID>2</ID>
+	<Type>CONSUMABLE</Type>
+		<UseText>Restores 10 HP.</UseText>
+	<Description>A bottle filled with an effervescent red substance. It looks like it's alive.</Description>
+	<Value>10</Value>
+	<Stats>HEALTH</Stats>
+		<Modifier>10</Modifier>
+</Item>
+
+<Item>
+	<Name>Suit of Silver</Name>
+	<ID>3</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>BODY</Subtype>
+	<Description>A resplendent suit of silver. Don't look too closely at it or you might go blind.</Description>
+	<Value>30</Value>
+	<Stats>IMAGE</Stats>
+		<Modifier>1</Modifier>
+</Item>
+
+<Item>
+	<Name>Double-breasted Suit</Name>
+	<ID>4</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>BODY</Subtype>
+	<Description>If suits were sentient and able to form a military, you're pretty sure this one would be the general.</Description>
+	<Value>30</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>1</Modifier>
+</Item>
+
+<Item>
+	<Name>Corduroy Suit</Name>
+	<ID>5</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>BODY</Subtype>
+	<Description>Nothing screams erudition like padded elbows.</Description>
+	<Value>30</Value>
+	<Stats>RHETORIC</Stats>
+		<Modifier>1</Modifier>
+</Item>
+
+<Item>
+	<Name>Snakeskin Briefcase</Name>
+	<ID>6</ID>
+	<Type>WEAPON</Type>
+		<Subtype>BRIEFCASE</Subtype>
+	<Description>With this briefcase, no one will notice how ignorant you are--they'll be too distracted by all the red paint.</Description>
+	<Value>35</Value>
+	<Stats>RHETORIC</Stats>
+		<Modifier>-1</Modifier>
+	<Stats>IMAGE</Stats>
+		<Modifier>1</Modifier>
+</Item>
+
+<Item>
+	<Name>Mighty Microphone</Name>
+	<ID>7</ID>
+	<Type>WEAPON</Type>
+		<Subtype>MICROPHONE</Subtype>
+	<Description>A powerfully amped microphone, guaranteed to make sure you're the loudest idiot in the room.</Description>
+	<Value>35</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>1</Modifier>
+	<Stats>IMAGE</Stats>
+		<Modifier>-1</Modifier>
+</Item>
+
+<Item>
+	<Name>Pipe of Plato</Name>
+	<ID>8</ID>
+	<Type>WEAPON</Type>
+		<Subtype>PIPE</Subtype>
+	<Description>The fumes coming from this will make even your most stalwart enemies faint in submission.</Description>
+	<Value>35</Value>
+	<Stats>RHETORIC</Stats>
+		<Modifier>1</Modifier>
+	<Stats>IMAGE</Stats>
+		<Modifier>-1</Modifier>
+</Item>
+
+<Item>
+	<Name>Leisure Shoes of Commonness</Name>
+	<ID>9</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>FEET</Subtype>
+	<Description>Stylish, comfy, and delightfully bourgeois. Show those middle-classers that you can connect with them.</Description>
+	<Value>40</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>-1</Modifier>
+	<Stats>IMAGE</Stats>
+		<Modifier>2</Modifier>
+</Item>
+
+<Item>
+	<Name>Polished Boots</Name>
+	<ID>10</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>FEET</Subtype>
+	<Description>Clean, intimidating, and slightly reminiscent of your days in the war.</Description>
+	<Value>40</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>2</Modifier>
+	<Stats>RHETORIC</Stats>
+		<Modifier>-1</Modifier>
+</Item>
+
+<Item>
+	<Name>Tidy-looking Oxfords</Name>
+	<ID>11</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>FEET</Subtype>
+	<Description>Not to be confused with the shirts, of course.</Description>
+	<Value>40</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>-1</Modifier>
+	<Stats>RHETORIC</Stats>
+		<Modifier>2</Modifier>
+</Item>
+
+<Item>
+	<Name>Literal Military Commendation</Name>
+	<ID>12</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>ACCESSORY</Subtype>
+	<Description>The name kinda says it all.</Description>
+	<Value>40</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>2</Modifier>
+	<Stats>RHETORIC</Stats>
+		<Modifier>-1</Modifier>
+</Item>
+
+<Item>
+	<Name>Dazzling Power Tie</Name>
+	<ID>13</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>ACCESSORY</Subtype>
+	<Description>The bold, bright crimson of this tie consumes all else surrounding it.</Description>
+	<Value>40</Value>
+	<Stats>IMAGE</Stats>
+		<Modifier>2</Modifier>
+	<Stats>RHETORIC</Stats>
+		<Modifier>-1</Modifier>
+</Item>
+
+<Item>
+	<Name>Spectacles of Magnification</Name>
+	<ID>14</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>ACCESSORY</Subtype>
+	<Description>Well, what else would spectacles do?</Description>
+	<Value>40</Value>
+	<Stats>IMAGE</Stats>
+		<Modifier>-1</Modifier>
+	<Stats>RHETORIC</Stats>
+		<Modifier>2</Modifier>
+</Item>
+
+<Item>
+	<Name>Thinkin' Cap</Name>
+	<ID>15</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>HEAD</Subtype>
+	<Description>Distinct and yet, in its wornness, relatable.</Description>
+	<Value>45</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>-1</Modifier>
+	<Stats>RHETORIC</Stats>
+		<Modifier>2</Modifier>
+</Item>
+
+<Item>
+	<Name>Crumpled Fedora</Name>
+	<ID>16</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>HEAD</Subtype>
+	<Description>Haven't we, as a society, gotten past this meme yet?</Description>
+	<Value>45</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>-1</Modifier>
+	<Stats>IMAGE</Stats>
+		<Modifier>2</Modifier>
+</Item>
+
+<Item>
+	<Name>Spiked Helmet</Name>
+	<ID>17</ID>
+	<Type>EQUIPMENT</Type>
+		<Subtype>HEAD</Subtype>
+	<Description>Calm down, there, Kaiser Wilhelm. No one's at war just yet. Yet.</Description>
+	<Value>45</Value>
+	<Stats>DIPLOMACY</Stats>
+		<Modifier>2</Modifier>
+	<Stats>IMAGE</Stats>
+		<Modifier>-1</Modifier>
+</Item>
+
+
+
+
+
+
+

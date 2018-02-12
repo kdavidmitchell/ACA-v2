@@ -1,0 +1,118 @@
+<Quest>
+	<Title>Appearance at the Wang</Title>
+	<Description>It's time to get down and dirty--your first public speech. Say the right things, smile a lot, and don't trip on your way off the stage. You'll have them eating out of the palms of your hands.</Description>
+	<ID>1</ID>
+	<Text1>The theatre is packed tonight. It's a good opportunity to bring some more folks into the fold. They're a tough crowd to sell to, here in Puritannica, but you're well-equipped to handle them. In a few moments, you'll be starting. Better get that opener ready.</Text1>
+	<Responses1>
+		<Option1>"Good evening, everyone..."</Option1>
+			<Check1>1</Check1>
+		<Option2>"Uh..."</Option2>
+			<Check2>0</Check2>
+	</Responses1>
+	<Text2>Not a bad start, you think, for such hardened folks as these. You look up from the podium, and are blinded by the stage lights. You realize you've been silent for the past five seconds. Everyone stares at you. Someone sneezes loudly in the back of the auditorium.</Text2>
+	<Responses2>
+		<Option1>"God bless you, and god bless these United States!"</Option1>
+			<Check1>2</Check1>
+		<Option2>"What a fine city you have here..."</Option2>
+			<Check2>0</Check2>
+	</Responses2>
+	<Text3>The rest of your speech seems to flow without any hiccups, sneezes, coughs, or derisive snorts. For not really knowing what you're doing, you think you did an admirable job. Only a few folks walked out, grunting in disapproval. But hey--that's just politics, right? You win some, you lose a lot. But tonight, you think you might just have won some.</Text3>
+	<Responses3>
+		<Option1>Great. I'm so thrilled.</Option1>
+			<Check1>0</Check1>
+	</Responses3>
+	<Combat>False</Combat>
+	<XP>
+		<Tier1>50</Tier1>
+		<Tier2>25</Tier2>
+		<Tier3>10</Tier3>
+	</XP>
+	<Followers>
+		<Tier1>10</Tier1>
+		<Tier2>5</Tier2>
+		<Tier3>2</Tier3>
+	</Followers>
+	<Item>Null</Item>
+</Quest>
+
+<Quest>
+	<Title>The President's New Clothes</Title>
+	<Description>If you're gonna be the next president of the United States, you gotta look the part. Your campaign manager wants you to head down to the tailor on Newbury Street and get yourself some new duds.</Description>
+	<ID>2</ID>
+	<Text1>As you walk into the tailor's, a mousy looking man with spectacles eyes you up and down. "Ah, yes, we've been expecting you. Well, come on now, let's get you something more presidential looking, shall we?" You follow him to the fitting room, where he takes a series of quick measurements and mutters under his breath. "Now, what exactly are your sartorial proclivities?"</Text1>
+	<Responses1>
+		<Option1>"Something flashy, perhaps."</Option1>
+			<Check1>0</Check1>
+		<Option2>"Something intimidating."</Option2>
+			<Check2>0</Check2>
+		<Option3>"I'm going for the professorial look."</Option3>
+			<Check3>0</Check3>
+	</Responses1>
+	<Text2>The mousy man mutters again. "Yes, yes, of course. I think we can do that just fine. Just fine indeed." He disappears, leaving you alone with your thoughts, and the mirror that stands before you. You stare at your reflection.</Text2>
+	<Responses2>
+		<Option1>"What are you looking at?"</Option1>
+			<Check1>0</Check1>
+		<Option2>"I need to cut back on those cheesy things."</Option2>
+			<Check2>0</Check2>
+		<Option3>"At least I can talk good."</Option3>
+			<Check3>0</Check3>
+	</Responses2>
+	<Text3>The tailor reappears with a new suit in hand and offers it to you. "That should do fine, I think. Try it on, I'll leave you to it." Damn. It is one fine looking suit. Is this why  people become politicians? You try it on, and turn around a few times, looking at yourself in the mirror. Yes. Yes, you think. This is certainly what the president should look like.</Text3>
+	<Responses3>
+		<Option1>Whatever you say, pal.</Option1>
+			<Check1>0</Check1>
+	</Responses3>
+	<Combat>False</Combat>
+	<XP>
+		<Tier1>10</Tier1>
+	</XP>
+	<Followers>
+		<Tier1>0</Tier1>
+	</Followers>
+	<Item>
+		<Option1>3</Option1>
+		<Option2>4</Option2>
+		<Option3>5</Option3>
+	</Item>
+</Quest>
+
+<Quest>
+	<Title>Meet 'n' Greet</Title>
+	<Description>Being new to the area, your campaign manager advises that you go out and meet some of the local folks, talk to them, get their stories so you know what things you should say to get their vote. There's a local watering hole down by the harbor, The Black Rose, that you might wanna check out.</Description>
+	<ID>3</ID>
+	<Text1>Why on God's green earth your manager suggested you come to this bar, of all bars, is beyond you. It's a complete dive. Grizzled patrons stumble in and out, sneering at you, dressed in your clearly out-of-place duds. But you're here now. And future presidents don't back down from situations like these, right? Right. You do your best swagger through the doorway and seat yourself at the bar. A bald, portly man cleaning a glass behind the bar looks at you for a moment. "Get you somethin'?" he asks.</Text1>
+	<Responses1>
+		<Option1>"Whiskey. Neat."</Option1>
+			<Check1>2</Check1>
+		<Option2>"Whatever he's having."</Option2>
+			<Check2>1</Check2>
+		<Option3>"I would prefer some water, thank you."</Option3>
+			<Check3>0</Check3>
+	</Responses1>
+	<Text2>The bartender eyes you, then grunts and pours your drink. You settle down at the bar, holding your glass tightly with both hands. Well. Time to start chatting up the patrons. There's a man sitting next to you at the bar, starting despondently down at his glass. He totters slightly as he breathes in and out.</Text2>
+	<Responses2>
+		<Option1>"So what's your story?"</Option1>
+			<Check1>3</Check1>
+		<Option2>"Lovely day for it, isn't it?"</Option2>
+			<Check2>0</Check2>
+	</Responses2>
+	<Text3>The man turns to you and grumbles in a slurred tone, "You think you're some kinda funny person, tryina come here and laugh and smile and shit like that? Well tough shit for you. I got five words for you." He begins to count out his fingers, and then rolls them all into a fist. This man wants fisticuffs.</Text3>
+	<Responses3>
+		<Option1>"Now, now, let's be civil..."</Option1>
+			<Check1>2</Check1>
+		<Option2>DEBATE!</Option2>
+			<Check2>0</Check2>
+	</Responses3>
+	<Combat>True</Combat>
+	<XP>
+		<Tier1>50</Tier1>
+		<Tier2>25</Tier2>
+		<Tier3>10</Tier3>
+	</XP>
+	<Followers>
+		<Tier1>10</Tier1>
+		<Tier2>5</Tier2>
+		<Tier3>2</Tier3>
+	</Followers>
+	<Item>Null</Item>
+</Quest>
