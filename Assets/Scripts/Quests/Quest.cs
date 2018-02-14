@@ -6,6 +6,7 @@ using UnityEngine;
 public class Quest 
 {
 
+	private int _ID;
 	private string _title;
 	private string _description;
 	private string _text1;
@@ -22,6 +23,12 @@ public class Quest
 	public Quest()
 	{
 		// constructor
+	}
+
+	public int QuestID
+	{
+		get { return _ID; }
+		set {_ID = value; }
 	}
 
 	public string QuestTitle 
