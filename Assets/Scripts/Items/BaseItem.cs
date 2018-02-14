@@ -13,9 +13,14 @@ public class BaseItem
 	private List<BaseStat> _stats;
 	private ItemTypes _type;
 
-	public BaseItem()
+	public BaseItem(Dictionary<string,string> itemDictionary)
 	{
-		//constructor
+		// _name 
+		// _description
+		// _ID
+		// _value
+		// _stats
+		// _type
 	}
 
 	public enum ItemTypes
