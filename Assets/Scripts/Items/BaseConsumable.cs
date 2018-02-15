@@ -8,9 +8,9 @@ public class BaseConsumable : BaseItem
 
 	private int _power;
 
-	public BaseConsumable()
+	public BaseConsumable(Dictionary<string,string> itemDictionary) : base(itemDictionary)
 	{
-		//constructor
+		_power = base.ItemModifiers[0];
 	}
 
 	public int Power

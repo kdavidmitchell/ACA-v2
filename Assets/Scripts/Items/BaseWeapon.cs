@@ -15,6 +15,11 @@ public class BaseWeapon : BaseItem
 		PIPE
 	}
 
+	public BaseWeapon(Dictionary<string,string> itemDictionary) : base(itemDictionary)
+	{
+		_type = (WeaponTypes)System.Enum.Parse(typeof(BaseItem.ItemTypes), itemDictionary["Type"].ToString());
+	}
+
 	public WeaponTypes WeaponType
 	{
 		get { return _type; }

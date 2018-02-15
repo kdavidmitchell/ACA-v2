@@ -16,6 +16,11 @@ public class BaseEquipment : BaseItem
 		ACCESSORY
 	}
 
+	public BaseEquipment(Dictionary<string,string> itemDictionary) : base(itemDictionary)
+	{
+		_type = (EquipmentTypes)System.Enum.Parse(typeof(BaseItem.ItemTypes), itemDictionary["Type"].ToString());
+	}
+
 	public EquipmentTypes EquipmentType
 	{
 		get { return _type; }

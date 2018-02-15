@@ -22,6 +22,23 @@ public class BaseStat
 		ELOQUENCE
 	}
 
+	public static BaseStat Parse(string name)
+	{
+		if (name == "RHETORIC")
+		{
+			return new BaseRhetoric();
+		} else if (name == "IMAGE")
+		{
+			return new BaseImage();
+		} else if (name == "DIPLOMACY")
+		{
+			return new BaseDiplomacy();
+		} else 
+		{
+			return null;
+		}
+	}
+
 	public string StatName 
 	{
 		get { return _name; }

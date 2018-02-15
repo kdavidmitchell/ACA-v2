@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
 using System.IO;
+using System;
 
 public class ItemDB : MonoBehaviour 
 {
 
 	private List<Dictionary<string, string>> itemDictionaries = new List<Dictionary<string, string>>();
 	private Dictionary<string, string> itemDictionary = new Dictionary<string, string>();
+	private List<string> itemStats = new List<string>();
+	private List<string> itemModifiers = new List<string>();
+
 
 	public TextAsset itemDatabase;
 	public static List<BaseItem> items;
@@ -20,6 +24,11 @@ public class ItemDB : MonoBehaviour
 		for (int i = 0; i < itemDictionaries.Count; i++)
 		{
 			items.Add(new BaseItem(itemDictionaries[i]));
+		}
+
+		foreach (BaseItem item in items)
+		{
+			Debug.Log(item.ItemName);
 		}
 	}
 
@@ -33,6 +42,8 @@ public class ItemDB : MonoBehaviour
 		{
 			XmlNodeList itemContent = itemInfo.ChildNodes;
 			itemDictionary = new Dictionary<string, string>();
+			itemStats = new List<string>();
+			itemModifiers = new List<string>();
 
 			foreach (XmlNode content in itemContent)
 			{
@@ -47,6 +58,9 @@ public class ItemDB : MonoBehaviour
 					case "Type":
 						itemDictionary.Add("Type", content.InnerText);
 						break;
+					case "Subype":
+						itemDictionary.Add("Subtype", content.InnerText);
+						break;
 					case "UseText":
 						itemDictionary.Add("UseText", content.InnerText);
 						break;
@@ -57,15 +71,17 @@ public class ItemDB : MonoBehaviour
 						itemDictionary.Add("Value", content.InnerText);
 						break;
 					case "Stats":
-						itemDictionary.Add("Stats", content.InnerText);
+						itemStats.Add(content.InnerText);
+						itemDictionary.Add("Stats", string.Join(" ", itemStats.ToArray()));
 						break;
 					case "Modifier":
-						itemDictionary.Add("Modifier", content.InnerText);
+						itemModifiers.Add(content.InnerText);
+						itemDictionary.Add("Modifier", string.Join(" ", itemModifiers.ToArray()));
 						break;			
 				}
 			}
 
-			itemDictionaries.Add(inventoryDictionary);
+			itemDictionaries.Add(itemDictionary);
 		}
 	}
 

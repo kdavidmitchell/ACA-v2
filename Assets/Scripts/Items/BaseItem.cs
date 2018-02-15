@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class BaseItem 
@@ -10,17 +11,32 @@ public class BaseItem
 	private string _description;
 	private int _ID;
 	private int _value;
-	private List<BaseStat> _stats;
+	private List<BaseStat> _stats = new List<BaseStat>();
+	private List<int> _modifiers = new List<int>();
 	private ItemTypes _type;
+
 
 	public BaseItem(Dictionary<string,string> itemDictionary)
 	{
-		// _name 
-		// _description
-		// _ID
-		// _value
-		// _stats
-		// _type
+		string[] delimiter = new string[] {" "};
+
+		_name = itemDictionary["Name"];
+		_description = itemDictionary["Description"];
+		_ID = int.Parse(itemDictionary["ID"]);
+		_value = int.Parse(itemDictionary["Value"]);
+		_type = (ItemTypes)System.Enum.Parse(typeof(BaseItem.ItemTypes), itemDictionary["Type"].ToString());
+
+		string[] tempStats = itemDictionary["Stats"].Split(delimiter, StringSplitOptions.None);
+		for (int i = 0; i < tempStats.Length; i++)
+		{
+			_stats.Add(BaseStat.Parse(tempStats[i]));	
+		}
+
+		string[] tempModifiers = itemDictionary["Modifier"].Split(delimiter, StringSplitOptions.None);
+		for (int i = 0; i < tempModifiers.Length; i++)
+		{
+			_modifiers.Add(int.Parse(tempModifiers[i]));
+		}
 	}
 
 	public enum ItemTypes
@@ -58,6 +74,12 @@ public class BaseItem
 	{
 		get { return _stats; }
 		set { _stats = value;}
+	}
+
+	public List<int> ItemModifiers
+	{
+		get { return _modifiers; }
+		set { _modifiers = value;}
 	}
 
 	public ItemTypes ItemType
