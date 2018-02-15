@@ -33,7 +33,13 @@ public class BaseStat
 		} else if (name == "DIPLOMACY")
 		{
 			return new BaseDiplomacy();
-		} else 
+		} else if (name == "HEALTH") 
+		{
+			return new BaseHealth();
+		} else if (name == "AMBITION") 
+		{
+			return new BaseAmbition();
+		} else
 		{
 			return null;
 		}
