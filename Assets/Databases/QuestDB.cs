@@ -10,6 +10,7 @@ public class QuestDB : MonoBehaviour
 
 	private List<Dictionary<string, string>> questDictionaries = new List<Dictionary<string, string>>();
 	private Dictionary<string, string> questDictionary = new Dictionary<string, string>();
+	private Dictionary<string, string> responseDictionary = new Dictionary<string, string>();
 
 	public TextAsset questDatabase;
 	public static List<Quest> quests = new List<Quest>();
@@ -42,7 +43,21 @@ public class QuestDB : MonoBehaviour
 						questDictionary.Add("Text1", content.InnerText);
 						break;
 					case "Responses1":
-						questDictionary.Add("Responses1", content.InnerText);
+						XmlNodeList responsesContent = content.ChildNodes;
+						responseDictionary = new Dictionary<string, string>();
+
+						foreach (XmlNode responseContent in responsesContent)
+						{
+							switch(responseContent.Name)
+							{
+								case "Option1":
+									responseDictionary.Add("Option1", responseContent.InnerText);
+									break;
+								case "Option1":
+									responseDictionary.Add("Option1", responseContent.InnerText);
+									break;
+							}
+						}
 						break;
 					case "Option1":
 						questDictionary.Add("Option1", content.InnerText);
