@@ -53,8 +53,20 @@ public class QuestDB : MonoBehaviour
 								case "Option1":
 									responseDictionary.Add("Option1", responseContent.InnerText);
 									break;
-								case "Option1":
-									responseDictionary.Add("Option1", responseContent.InnerText);
+								case "Option2":
+									responseDictionary.Add("Option2", responseContent.InnerText);
+									break;
+								case "Option3":
+									responseDictionary.Add("Option3", responseContent.InnerText);
+									break;
+								case "Check1":
+									responseDictionary.Add("Check1", responseContent.InnerText);
+									break;
+								case "Check2":
+									responseDictionary.Add("Check2", responseContent.InnerText);
+									break;
+								case "Check3":
+									responseDictionary.Add("Check3", responseContent.InnerText);
 									break;
 							}
 						}
