@@ -25,23 +25,23 @@ public class ItemDB : MonoBehaviour
 			items.Add(new BaseItem(itemDictionaries[i]));
 		}
 
-		foreach (BaseItem item in items)
-		{
-			Debug.Log(item.ItemName);
-			Debug.Log(item.ItemID);
-			Debug.Log(item.ItemDescription);
-			Debug.Log(item.ItemValue);
+		// foreach (BaseItem item in items)
+		// {
+		// 	Debug.Log(item.ItemName);
+		// 	Debug.Log(item.ItemID);
+		// 	Debug.Log(item.ItemDescription);
+		// 	Debug.Log(item.ItemValue);
 
-			foreach (BaseStat stat in item.ItemStats)
-			{
-				Debug.Log(stat.StatName);
-			}
+		// 	foreach (BaseStat stat in item.ItemStats)
+		// 	{
+		// 		Debug.Log(stat.StatName);
+		// 	}
 
-			foreach (int modifier in item.ItemModifiers)
-			{
-				Debug.Log(modifier);
-			}
-		}
+		// 	foreach (int modifier in item.ItemModifiers)
+		// 	{
+		// 		Debug.Log(modifier);
+		// 	}
+		// }
 	}
 
 	public void ReadItemsFromDatabase()

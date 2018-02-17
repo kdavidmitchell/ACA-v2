@@ -33,7 +33,9 @@
 			<Tier2>5</Tier2>
 			<Tier3>2</Tier3>
 		</Followers>
-		<Item>Null</Item>
+		<Item>
+			<Tier1>Null</Tier1>
+		</Item>
 	</Quest>
 
 	<Quest>
@@ -71,9 +73,9 @@
 			<Tier1>0</Tier1>
 		</Followers>
 		<Item>
-			<Option1>3</Option1>
-			<Option2>4</Option2>
-			<Option3>5</Option3>
+			<Tier1>3</Tier1>
+			<Tier2>4</Tier2>
+			<Tier3>5</Tier3>
 		</Item>
 	</Quest>
 
@@ -115,6 +117,8 @@
 			<Tier2>5</Tier2>
 			<Tier3>2</Tier3>
 		</Followers>
-		<Item>Null</Item>
+		<Item>
+			<Tier1>Null</Tier1>
+		</Item>
 	</Quest>
 </Quests>
