@@ -1,169 +1,171 @@
-<Event>
-	<Title>An opportunity arises!</Title>
-	<ID>1</ID>
-	<Type>OPPORTUNITY</Type>
-	<Description>A well-dressed young woman approaches you. She claims to be a representative of a nonprofit interested in backing your campaign. Instead of offering scathing remarks about your political views on the sustainability of the rainforests, she invites you to join her and her peers at their headquarters in the Financial District.</Description>
-	<Option1>See what these plebeians have to say.</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>1</Check>
-	<Resolution1>As you listen to the presentation the woman and her peers have arranged for you, you simply nod absently. After two hours, your patience is finally rewarded.</Resolution1>
-	<Resolution2>You follow the woman to her office building, whereupon you show them the glory of the new world order you wish to establish when you finally get elected. They are incredibly impressed with the content of your character, and immediately donate a sizable sum to your campaign.</Resolution2>
-	<XP>10</XP>
-	<Money>25</Money>
-	<Followers>5</Followers>
-	<Item>101</Item>
-</Event>
+<Events>
+	<Event>
+		<Title>An opportunity arises!</Title>
+		<ID>1</ID>
+		<Type>OPPORTUNITY</Type>
+		<Description>A well-dressed young woman approaches you. She claims to be a representative of a nonprofit interested in backing your campaign. Instead of offering scathing remarks about your political views on the sustainability of the rainforests, she invites you to join her and her peers at their headquarters in the Financial District.</Description>
+		<Option1>See what these plebeians have to say.</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>1</Check2>
+		<Resolution1>As you listen to the presentation the woman and her peers have arranged for you, you simply nod absently. After two hours, your patience is finally rewarded.</Resolution1>
+		<Resolution2>You follow the woman to her office building, whereupon you show them the glory of the new world order you wish to establish when you finally get elected. They are incredibly impressed with the content of your character, and immediately donate a sizable sum to your campaign.</Resolution2>
+		<XP>10</XP>
+		<Money>25</Money>
+		<Followers>5</Followers>
+		<Item>101</Item>
+	</Event>
 
-<Event>
-	<Title>An opportunity arises!</Title>
-	<ID>2</ID>
-	<Type>OPPORTUNITY</Type>
-	<Description>While passing in front of the First Catholic Church of Puritannica, you are startled by a priest. The man smiles at you and says, "I think I know your face. I've seen it on TV, haven't I?" You explain brusquely that yes, you have appeared on TV, because you're a big political deal campaigning in this city. The priest offers you to join him for the evening mass, to pray for the Lord's protection and guidance on your journey.</Description>
-	<Option1>"I think I'll do fine without his help, thanks."</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>1</Check>
-	<Resolution1>You wave off the priest and walk past him, all the while feeling the sadness of his eyes. Phew. Dodged a bullet there. And you saved, like, 2 whole dollars, probably.</Resolution1>
-	<Resolution2>Knowing that it's good to have the almighty on your side, generally, you follow the priest inside the church and sit through the service. You aren't happy that it's taken up some of your time, but hey, other people seeing you there will probably do wonders for your image. As you leave the church, a few attendees wish you well and slip you a few dollars to help with your campaign. And they say Christians aren't like their Christ.</Resolution2>
-	<XP>10</XP>
-	<Money>10</Money>
-	<Followers>5</Followers>
-	<Item>0</Item>
-</Event>
+	<Event>
+		<Title>An opportunity arises!</Title>
+		<ID>2</ID>
+		<Type>OPPORTUNITY</Type>
+		<Description>While passing in front of the First Catholic Church of Puritannica, you are startled by a priest. The man smiles at you and says, "I think I know your face. I've seen it on TV, haven't I?" You explain brusquely that yes, you have appeared on TV, because you're a big political deal campaigning in this city. The priest offers you to join him for the evening mass, to pray for the Lord's protection and guidance on your journey.</Description>
+		<Option1>"I think I'll do fine without his help, thanks."</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>1</Check2>
+		<Resolution1>You wave off the priest and walk past him, all the while feeling the sadness of his eyes. Phew. Dodged a bullet there. And you saved, like, 2 whole dollars, probably.</Resolution1>
+		<Resolution2>Knowing that it's good to have the almighty on your side, generally, you follow the priest inside the church and sit through the service. You aren't happy that it's taken up some of your time, but hey, other people seeing you there will probably do wonders for your image. As you leave the church, a few attendees wish you well and slip you a few dollars to help with your campaign. And they say Christians aren't like their Christ.</Resolution2>
+		<XP>10</XP>
+		<Money>10</Money>
+		<Followers>5</Followers>
+		<Item>0</Item>
+	</Event>
 
-<Event>
-	<Title>An opportunity arises!</Title>
-	<ID>3</ID>
-	<Type>OPPORTUNITY</Type>
-	<Description>An adorable child stops you in the street, tugging at your pant leg. "Excuse me, excuse me," the little rascal says. "I think I lost my parents. Could you help me find them?"</Description>
-	<Option1>"Why don't you bother the cops with this one, little Timmy."</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>1</Check>
-	<Resolution1>"My name's not Timmy," the boy says, confused. From behind you, you hear a loud gasp followed by a woman screaming "Tommy!" She rushes towards the boy and scoops him up. Her embarrassed, wheezing husband slowly makes his way to this meeting. She says to you, "Thank you for keeping an eye on our boy. Harold, give the man a little something for his trouble. Harold, barely breathing, fumbles around in his pockets for some spare change. Another good turn.</Resolution1>
-	<Resolution2>You nod to the boy, asking him what his parents' names are. You begin shouting those names into the cold air, and it isn't long before a small crowd has amassed. The boy holds your hand gently and says, "This person's helping me find my parents!" The crowd swoons. Soon after, the child's embarrassed parents arrive on the scene, collecting their little troublemaker and offering you a small reward for your nobility and willingness to help.</Resolution2>
-	<XP>10</XP>
-	<Money>5</Money>
-	<Followers>10</Followers>
-	<Item>100</Item>
-</Event>
+	<Event>
+		<Title>An opportunity arises!</Title>
+		<ID>3</ID>
+		<Type>OPPORTUNITY</Type>
+		<Description>An adorable child stops you in the street, tugging at your pant leg. "Excuse me, excuse me," the little rascal says. "I think I lost my parents. Could you help me find them?"</Description>
+		<Option1>"Why don't you bother the cops with this one, little Timmy."</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>1</Check2>
+		<Resolution1>"My name's not Timmy," the boy says, confused. From behind you, you hear a loud gasp followed by a woman screaming "Tommy!" She rushes towards the boy and scoops him up. Her embarrassed, wheezing husband slowly makes his way to this meeting. She says to you, "Thank you for keeping an eye on our boy. Harold, give the man a little something for his trouble. Harold, barely breathing, fumbles around in his pockets for some spare change. Another good turn.</Resolution1>
+		<Resolution2>You nod to the boy, asking him what his parents' names are. You begin shouting those names into the cold air, and it isn't long before a small crowd has amassed. The boy holds your hand gently and says, "This person's helping me find my parents!" The crowd swoons. Soon after, the child's embarrassed parents arrive on the scene, collecting their little troublemaker and offering you a small reward for your nobility and willingness to help.</Resolution2>
+		<XP>10</XP>
+		<Money>5</Money>
+		<Followers>10</Followers>
+		<Item>100</Item>
+	</Event>
 
-<Event>
-	<Title>An opportunity arises!</Title>
-	<ID>4</ID>
-	<Type>OPPORTUNITY</Type>
-	<Description>As you're coming out of the bathroom of a local restaurant, a woman in sunglasses and a dark, wide-brimmed hat jerks your arm towards her. She leans into your ear and whispers, "Been followin' you a long time. I know what you did back in '89. And so will the whole wide world if you don't give me $10,000 in cash by tomorrow night."</Description>
-	<Option1>"I don't even think I can remember what happened in '89. You sure you got the right politician?"</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>2</Check>
-	<Resolution1>She lowers her sunglasses a bit and says, "Are you not Sam Wainwrong?" You shake your head. She releases you immediately and dusts herself off, saying, "Oh jeez. I sure am sorry about that. I'll give you 20 bucks if you don't tell a soul about this. 'Specially not Sam Wainwrong." You nod, and take her money. That'll buy you a whole 'nother drink!</Resolution1>
-	<Resolution2>No one can know the truth about '89. You nod to her and make promises that you'll deliver the money to wherever she asks by tomorrow night. It's a lie, of course, you've never seen $10,000 in your life, but nonetheless the cops are pleased when they discover the same woman has been wanted in connection for multiple armed robberies in the area. Crime never pays. Except for that $20 bill you took from her purse when she wasn't looking.</Resolution2>
-	<XP>20</XP>
-	<Money>20</Money>
-	<Followers>0</Followers>
-	<Item>0</Item>
-</Event>
+	<Event>
+		<Title>An opportunity arises!</Title>
+		<ID>4</ID>
+		<Type>OPPORTUNITY</Type>
+		<Description>As you're coming out of the bathroom of a local restaurant, a woman in sunglasses and a dark, wide-brimmed hat jerks your arm towards her. She leans into your ear and whispers, "Been followin' you a long time. I know what you did back in '89. And so will the whole wide world if you don't give me $10,000 in cash by tomorrow night."</Description>
+		<Option1>"I don't even think I can remember what happened in '89. You sure you got the right politician?"</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>2</Check2>
+		<Resolution1>She lowers her sunglasses a bit and says, "Are you not Sam Wainwrong?" You shake your head. She releases you immediately and dusts herself off, saying, "Oh jeez. I sure am sorry about that. I'll give you 20 bucks if you don't tell a soul about this. 'Specially not Sam Wainwrong." You nod, and take her money. That'll buy you a whole 'nother drink!</Resolution1>
+		<Resolution2>No one can know the truth about '89. You nod to her and make promises that you'll deliver the money to wherever she asks by tomorrow night. It's a lie, of course, you've never seen $10,000 in your life, but nonetheless the cops are pleased when they discover the same woman has been wanted in connection for multiple armed robberies in the area. Crime never pays. Except for that $20 bill you took from her purse when she wasn't looking.</Resolution2>
+		<XP>20</XP>
+		<Money>20</Money>
+		<Followers>0</Followers>
+		<Item>0</Item>
+	</Event>
 
-<Event>
-	<Title>An opportunity arises!</Title>
-	<ID>5</ID>
-	<Type>OPPORTUNITY</Type>
-	<Description>You receive a phone call from a vitriolic old man, claiming you wouldn’t know the first thing about running the country, and that you should just give up and go back home to Northwest Dakota.</Description>
-	<Option1>Tell the man that Northwest Dakota is actually a myth.</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>2</Check>
-	<Resolution1>The man on the other end seems flabbergasted by your response. What can only be described as an intense moment of cognitive dissonance results in him apologizing profusely for his rudeness, and a small donation to your campaign.</Resolution1>
-	<Resolution2>You rattle off the tenets of good government impressively, reading off points that your campaign manager assembled for you just the other day in a shiny blue folder marked "Governing and Stuff." The man seems taken aback, and due to your apparent extensive knowledge of government, sends you a useful donation to your campaign office.</Resolution2>
-	<XP>20</XP>
-	<Money>20</Money>
-	<Followers>1</Followers>
-	<Item>102</Item>
-</Event>
+	<Event>
+		<Title>An opportunity arises!</Title>
+		<ID>5</ID>
+		<Type>OPPORTUNITY</Type>
+		<Description>You receive a phone call from a vitriolic old man, claiming you wouldn’t know the first thing about running the country, and that you should just give up and go back home to Northwest Dakota.</Description>
+		<Option1>Tell the man that Northwest Dakota is actually a myth.</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>2</Check2>
+		<Resolution1>The man on the other end seems flabbergasted by your response. What can only be described as an intense moment of cognitive dissonance results in him apologizing profusely for his rudeness, and a small donation to your campaign.</Resolution1>
+		<Resolution2>You rattle off the tenets of good government impressively, reading off points that your campaign manager assembled for you just the other day in a shiny blue folder marked "Governing and Stuff." The man seems taken aback, and due to your apparent extensive knowledge of government, sends you a useful donation to your campaign office.</Resolution2>
+		<XP>20</XP>
+		<Money>20</Money>
+		<Followers>1</Followers>
+		<Item>102</Item>
+	</Event>
 
-<Event>
-	<Title>A challenger approaches!</Title>
-	<ID>6</ID>
-	<Type>CHALLENGE</Type>
-	<Description>A disgruntled looking man in a dirty suit swaggers in your direction, shouting something about cryptocurrency. He swivels his unsettling gaze on you, and before you know it, he has his arms on your shoulders. You can smell the liquor on his breath.</Description>
-	<Option1>DEBATE!</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>1</Check>
-	<Resolution1>You quickly make short work of the man's lesser opinions, and, defeated, he shrugs and begins to terrorize someone else on the street.</Resolution1>
-	<Resolution2>N/A</Resolution2>
-	<XP>10</XP>
-	<Money>0</Money>
-	<Followers>5</Followers>
-	<Item>101</Item>
-</Event>
+	<Event>
+		<Title>A challenger approaches!</Title>
+		<ID>6</ID>
+		<Type>CHALLENGE</Type>
+		<Description>A disgruntled looking man in a dirty suit swaggers in your direction, shouting something about cryptocurrency. He swivels his unsettling gaze on you, and before you know it, he has his arms on your shoulders. You can smell the liquor on his breath.</Description>
+		<Option1>DEBATE!</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>1</Check2>
+		<Resolution1>You quickly make short work of the man's lesser opinions, and, defeated, he shrugs and begins to terrorize someone else on the street.</Resolution1>
+		<Resolution2>N/A</Resolution2>
+		<XP>10</XP>
+		<Money>0</Money>
+		<Followers>5</Followers>
+		<Item>101</Item>
+	</Event>
 
-<Event>
-	<Title>A challenger approaches!</Title>
-	<ID>7</ID>
-	<Type>CHALLENGE</Type>
-	<Description>While enjoying a brisk constitutional around the park, a young man begins stomping towards you in a fury. He holds a picket sign depicting your face with a red X painted over it. He appears to dislike you.</Description>
-	<Option1>DEBATE!</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>1</Check>
-	<Resolution1>You show the young man the error of his ideas, and that the ideas of your opponents are actually your own ideas. The only difference is that you can do better than they can. He strokes his patchy chin, nodding up and down as you speak. Then he snaps his sign in two, shakes your hand, and walks away whistling.</Resolution1>
-	<Resolution2>N/A</Resolution2>
-	<XP>10</XP>
-	<Money>0</Money>
-	<Followers>5</Followers>
-	<Item>103</Item>
-</Event>
+	<Event>
+		<Title>A challenger approaches!</Title>
+		<ID>7</ID>
+		<Type>CHALLENGE</Type>
+		<Description>While enjoying a brisk constitutional around the park, a young man begins stomping towards you in a fury. He holds a picket sign depicting your face with a red X painted over it. He appears to dislike you.</Description>
+		<Option1>DEBATE!</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>1</Check2>
+		<Resolution1>You show the young man the error of his ideas, and that the ideas of your opponents are actually your own ideas. The only difference is that you can do better than they can. He strokes his patchy chin, nodding up and down as you speak. Then he snaps his sign in two, shakes your hand, and walks away whistling.</Resolution1>
+		<Resolution2>N/A</Resolution2>
+		<XP>10</XP>
+		<Money>0</Money>
+		<Followers>5</Followers>
+		<Item>103</Item>
+	</Event>
 
-<Event>
-	<Title>A challenger approaches!</Title>
-	<ID>8</ID>
-	<Type>CHALLENGE</Type>
-	<Description>A millennial-looking woman throws a rotting head of lettuce at you while you are proselytizing to anyone who will listen. You turn back at her. Ah, shit. She looks like she has tomatoes, too.</Description>
-	<Option1>DEBATE!</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>2</Check>
-	<Resolution1>Whatever the source of her ire may be, you convince her through an incoherent, intimidating, yet charming dialogue that it isn't you. You offer that perhaps if she spent more time making friends with her vegetables, and fruits, she might be a happier person. She says she never thought about it that way before, and walks away, holding her tomateos lovingly.</Resolution1>
-	<Resolution2>N/A</Resolution2>
-	<XP>20</XP>
-	<Money>0</Money>
-	<Followers>10</Followers>
-	<Item>104</Item>
-</Event>
+	<Event>
+		<Title>A challenger approaches!</Title>
+		<ID>8</ID>
+		<Type>CHALLENGE</Type>
+		<Description>A millennial-looking woman throws a rotting head of lettuce at you while you are proselytizing to anyone who will listen. You turn back at her. Ah, shit. She looks like she has tomatoes, too.</Description>
+		<Option1>DEBATE!</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>2</Check2>
+		<Resolution1>Whatever the source of her ire may be, you convince her through an incoherent, intimidating, yet charming dialogue that it isn't you. You offer that perhaps if she spent more time making friends with her vegetables, and fruits, she might be a happier person. She says she never thought about it that way before, and walks away, holding her tomateos lovingly.</Resolution1>
+		<Resolution2>N/A</Resolution2>
+		<XP>20</XP>
+		<Money>0</Money>
+		<Followers>10</Followers>
+		<Item>104</Item>
+	</Event>
 
-<Event>
-	<Title>A challenger approaches!</Title>
-	<ID>9</ID>
-	<Type>CHALLENGE</Type>
-	<Description>As luck would have it, you bump into one of your political opponents in the middle of the street. They look less than thrilled to see you. Ah, well. Time to show them what they're up against.</Description>
-	<Option1>DEBATE!</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>2</Check>
-	<Resolution1>It doesn't take you long before you're wiping the floor with them, combatting every malformed idea they ever came up with--if they even ever came up with them. Visibly and mentally shaken, your opponent grimaces and stumbles away. Everyone around applauds your greater intelligence. Don't worry. You'll fight--debate--them again, probably.</Resolution1>
-	<Resolution2>N/A</Resolution2>
-	<XP>20</XP>
-	<Money>0</Money>
-	<Followers>10</Followers>
-	<Item>105</Item>
-</Event>
+	<Event>
+		<Title>A challenger approaches!</Title>
+		<ID>9</ID>
+		<Type>CHALLENGE</Type>
+		<Description>As luck would have it, you bump into one of your political opponents in the middle of the street. They look less than thrilled to see you. Ah, well. Time to show them what they're up against.</Description>
+		<Option1>DEBATE!</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>2</Check2>
+		<Resolution1>It doesn't take you long before you're wiping the floor with them, combatting every malformed idea they ever came up with--if they even ever came up with them. Visibly and mentally shaken, your opponent grimaces and stumbles away. Everyone around applauds your greater intelligence. Don't worry. You'll fight--debate--them again, probably.</Resolution1>
+		<Resolution2>N/A</Resolution2>
+		<XP>20</XP>
+		<Money>0</Money>
+		<Followers>10</Followers>
+		<Item>105</Item>
+	</Event>
 
-<Event>
-	<Title>A challenger approaches!</Title>
-	<ID>10</ID>
-	<Type>CHALLENGE</Type>
-	<Description>You find yourself lost in one of the city's many narrow, cobbled steets. Ahead in the alleyway is nothing but brick and sadness. You turn around to go back the way you came, but are accosted by a stranger in a mask holding a knife out. It looks like a robbery, which the stranger then confirms, by demanding your wallet.</Description>
-	<Option1>DEBATE!</Option1>
-		<Check>0</Check>
-	<Option2>Passive skill</Option2>
-		<Check>2</Check>
-	<Resolution1>You show this masked stranger that money really isn't everything, it's only useful in the hands of people who can make good with it. And someone like that, you explain, is you. By transferring X investment into our country's workforce, you'll be able to create Y jobs that this masked stranger might be able to get--if they work hard enough and, you know, stop robbing people blind. The stranger begins sobbing, and puts away the knife. You hug. And then they leave you, more lost than ever.</Resolution1>
-	<Resolution2>N/A</Resolution2>
-	<XP>20</XP>
-	<Money>0</Money>
-	<Followers>10</Followers>
-	<Item>100</Item>
-</Event>
+	<Event>
+		<Title>A challenger approaches!</Title>
+		<ID>10</ID>
+		<Type>CHALLENGE</Type>
+		<Description>You find yourself lost in one of the city's many narrow, cobbled steets. Ahead in the alleyway is nothing but brick and sadness. You turn around to go back the way you came, but are accosted by a stranger in a mask holding a knife out. It looks like a robbery, which the stranger then confirms, by demanding your wallet.</Description>
+		<Option1>DEBATE!</Option1>
+		<Check1>0</Check1>
+		<Option2>Passive skill</Option2>
+		<Check2>2</Check2>
+		<Resolution1>You show this masked stranger that money really isn't everything, it's only useful in the hands of people who can make good with it. And someone like that, you explain, is you. By transferring X investment into our country's workforce, you'll be able to create Y jobs that this masked stranger might be able to get--if they work hard enough and, you know, stop robbing people blind. The stranger begins sobbing, and puts away the knife. You hug. And then they leave you, more lost than ever.</Resolution1>
+		<Resolution2>N/A</Resolution2>
+		<XP>20</XP>
+		<Money>0</Money>
+		<Followers>10</Followers>
+		<Item>100</Item>
+	</Event>
+</Events>

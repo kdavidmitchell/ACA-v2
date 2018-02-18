@@ -9,7 +9,10 @@ public class RandomEvent
 	private int _ID;
 	private string _title;
 	private string _description;
-	private List<Dictionary<string, int>> _options;
+	private string _option1;
+	private string _option2;
+	private int _check1;
+	private int _check2;
 	private string _resolution1;
 	private string _resolution2;
 	private int _xp;
@@ -24,9 +27,21 @@ public class RandomEvent
 		CHALLENGE
 	}
 
-	public RandomEvent()
+	public RandomEvent(Dictionary<string, string> eventDictionary)
 	{
-		// constructor
+		_ID = int.Parse(eventDictionary["ID"]);
+		_title = eventDictionary["Title"];
+		_description = eventDictionary["Description"];
+		_option1 = eventDictionary["Option1"];
+		_option2 = eventDictionary["Option2"];
+		_check1 = int.Parse(eventDictionary["Check1"]);
+		_check2 = int.Parse(eventDictionary["Check2"]);
+		_resolution1 = eventDictionary["Resolution1"];
+		_resolution2 = eventDictionary["Resolution2"];
+		_xp = int.Parse(eventDictionary["XP"]);
+		_money = int.Parse(eventDictionary["Followers"]);
+		_item = int.Parse(eventDictionary["Item"]);
+		_type = (EventTypes)System.Enum.Parse(typeof(RandomEvent.EventTypes), eventDictionary["Type"].ToString());
 	}
 
 	public int EventID
@@ -43,14 +58,32 @@ public class RandomEvent
 
 	public string EventDescription
 	{
-		get { return _title; }
-		set {_title = value; }
+		get { return _description; }
+		set {_description = value; }
 	}
 
-	public List<Dictionary<string, int>> EventOptions 
+	public string EventOption1 
 	{
-		get { return _options; }
-		set {_options = value; }
+		get { return _option1; }
+		set {_option1 = value; }
+	}
+
+	public string EventOption2 
+	{
+		get { return _option2; }
+		set {_option2 = value; }
+	}
+
+	public int EventCheck1 
+	{
+		get { return _check1; }
+		set {_check1 = value; }
+	}
+
+	public int EventCheck2 
+	{
+		get { return _check2; }
+		set {_check2 = value; }
 	}
 
 	public string EventResolution1
