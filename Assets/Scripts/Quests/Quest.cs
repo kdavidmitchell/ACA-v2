@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class Quest 
@@ -12,19 +13,22 @@ public class Quest
 	private string _text1;
 	private string _text2;
 	private string _text3;
-	private List<Dictionary<string, int>> _responses1 = new List<Dictionary<string, int>>();
-	private List<Dictionary<string, int>> _responses2 = new List<Dictionary<string, int>>();
-	private List<Dictionary<string, int>> _responses3 = new List<Dictionary<string, int>>();
+	private List<string> _responses1 = new List<string>();
+	private List<string> _responses2 = new List<string>();
+	private List<string> _responses3 = new List<string>();
+	private List<int> _checks1 = new List<int>();
+	private List<int> _checks2 = new List<int>();
+	private List<int> _checks3 = new List<int>();
 	private bool _combat;
 	private List<int> _xp = new List<int>();
 	private List<int> _followers = new List<int>();
-	private List<int> _item = new List<int>();
+	private List<int> _items = new List<int>();
 
-	public Quest(Dictionary<string, string> questDictionary, Dictionary<string, string> response1Dictionary, 
-		Dictionary<string, string> response2Dictionary, Dictionary<string, string> response3Dictionary,
-		Dictionary<string, string> xpDictionary, Dictionary<string, string> followersDictionary, 
-		Dictionary<string, string> itemDictionary)
+	public Quest(Dictionary<string, string> questDictionary)
 	{
+		string[] delimiter1 = new string[] {" "};
+		string[] delimiter2 = new string[] {";"};
+
 		_ID = int.Parse(questDictionary["ID"]);
 		_title = questDictionary["Title"];
 		_description = questDictionary["Description"];
@@ -32,25 +36,40 @@ public class Quest
 		_text2 = questDictionary["Text2"];
 		_text3 = questDictionary["Text3"];
 		
-		for (int i = 1; i < response1Dictionary.Count + 1; i++)
+		string[] tempResponses1 = questDictionary["Responses1"].Split(delimiter2, StringSplitOptions.None);
+		for (int i = 0; i < tempResponses1.Length; i++)
 		{
-			Dictionary<string, int> tempResponse1Dictionary = new Dictionary<string, int>();
-			tempResponse1Dictionary.Add(response1Dictionary["Option" + i], int.Parse(response1Dictionary["Check" + i]));
-			_responses1.Add(tempResponse1Dictionary);
+			_responses1.Add(tempResponses1[i]);	
 		}
 
-		for (int i = 1; i < response2Dictionary.Count + 1; i++)
+		string[] tempResponses2 = questDictionary["Responses2"].Split(delimiter2, StringSplitOptions.None);
+		for (int i = 0; i < tempResponses2.Length; i++)
 		{
-			Dictionary<string, int> tempResponse2Dictionary = new Dictionary<string, int>();
-			tempResponse2Dictionary.Add(response2Dictionary["Option" + i], int.Parse(response2Dictionary["Check" + i]));
-			_responses2.Add(tempResponse2Dictionary);
+			_responses2.Add(tempResponses2[i]);	
 		}
 
-		for (int i = 1; i < response3Dictionary.Count + 1; i++)
+		string[] tempResponses3 = questDictionary["Responses3"].Split(delimiter2, StringSplitOptions.None);
+		for (int i = 0; i < tempResponses3.Length; i++)
 		{
-			Dictionary<string, int> tempResponse3Dictionary = new Dictionary<string, int>();
-			tempResponse3Dictionary.Add(response3Dictionary["Option" + i], int.Parse(response3Dictionary["Check" + i]));
-			_responses3.Add(tempResponse3Dictionary);
+			_responses3.Add(tempResponses3[i]);	
+		}
+
+		string[] tempChecks1 = questDictionary["Checks1"].Split(delimiter1, StringSplitOptions.None);
+		for (int i = 0; i < tempChecks1.Length; i++)
+		{
+			_checks1.Add(int.Parse(tempChecks1[i]));	
+		}
+
+		string[] tempChecks2 = questDictionary["Checks2"].Split(delimiter1, StringSplitOptions.None);
+		for (int i = 0; i < tempChecks2.Length; i++)
+		{
+			_checks2.Add(int.Parse(tempChecks2[i]));	
+		}
+
+		string[] tempChecks3 = questDictionary["Checks3"].Split(delimiter1, StringSplitOptions.None);
+		for (int i = 0; i < tempChecks3.Length; i++)
+		{
+			_checks3.Add(int.Parse(tempChecks3[i]));	
 		}
 
 		_combat = false;
@@ -59,22 +78,22 @@ public class Quest
 			_combat = true;
 		}
 
-		for (int i = 1; i < xpDictionary.Count + 1; i++)
+		string[] tempXP = questDictionary["XP"].Split(delimiter1, StringSplitOptions.None);
+		for (int i = 0; i < tempXP.Length; i++)
 		{
-			_xp.Add(int.Parse(xpDictionary["Tier" + i]));
+			_xp.Add(int.Parse(tempXP[i]));	
 		}
 
-		for (int i = 1; i < followersDictionary.Count + 1; i++)
+		string[] tempFollowers = questDictionary["Followers"].Split(delimiter1, StringSplitOptions.None);
+		for (int i = 0; i < tempFollowers.Length; i++)
 		{
-			_followers.Add(int.Parse(followersDictionary["Tier" + i]));
+			_followers.Add(int.Parse(tempFollowers[i]));	
 		}
 
-		for (int i = 1; i < itemDictionary.Count + 1; i++)
+		string[] tempItems = questDictionary["Items"].Split(delimiter1, StringSplitOptions.None);
+		for (int i = 0; i < tempItems.Length; i++)
 		{
-			if (itemDictionary["Tier" + i] != "Null")
-			{
-				_item.Add(int.Parse(itemDictionary["Tier" + i]));
-			}
+			_items.Add(int.Parse(tempItems[i]));	
 		}
 	}	
 
@@ -114,22 +133,40 @@ public class Quest
 		set {_text3 = value; }
 	}
 
-	public List<Dictionary<string, int>> QuestResponses1 
+	public List<string> QuestResponses1 
 	{
 		get { return _responses1; }
 		set {_responses1 = value; }
 	}
 
-	public List<Dictionary<string, int>> QuestResponses2 
+	public List<string> QuestResponses2 
 	{
 		get { return _responses2; }
 		set {_responses2 = value; }
 	}
 
-	public List<Dictionary<string, int>> QuestResponses3 
+	public List<string> QuestResponses3 
 	{
 		get { return _responses3; }
 		set {_responses3 = value; }
+	}
+
+	public List<int> QuestChecks1 
+	{
+		get { return _checks1; }
+		set {_checks1 = value; }
+	}
+
+	public List<int> QuestChecks2 
+	{
+		get { return _checks2; }
+		set {_checks2 = value; }
+	}
+
+	public List<int> QuestChecks3 
+	{
+		get { return _checks3; }
+		set {_checks3 = value; }
 	}
 
 	public bool QuestCombat
@@ -152,7 +189,7 @@ public class Quest
 
 	public List<int> QuestItemReward
 	{
-		get { return _item; }
-		set {_item = value; }
+		get { return _items; }
+		set {_items = value; }
 	}
 }

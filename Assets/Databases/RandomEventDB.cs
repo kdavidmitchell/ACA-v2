@@ -25,19 +25,19 @@ public class RandomEventDB : MonoBehaviour
 
 		foreach (RandomEvent randomEvent in events)
 		{
-			Debug.Log(randomEvent.EventTitle);
-			Debug.Log(randomEvent.EventDescription);
-			Debug.Log(randomEvent.EventID);
-			Debug.Log(randomEvent.EventOption1);
-			Debug.Log(randomEvent.EventCheck1);
-			Debug.Log(randomEvent.EventOption2);
-			Debug.Log(randomEvent.EventCheck2);
-			Debug.Log(randomEvent.EventResolution1);
-			Debug.Log(randomEvent.EventResolution2);
-			Debug.Log(randomEvent.EventXPReward);
-			Debug.Log(randomEvent.EventMoneyReward);
-			Debug.Log(randomEvent.EventFollowersReward);
-			Debug.Log(randomEvent.EventItemReward);
+			// Debug.Log(randomEvent.EventTitle);
+			// Debug.Log(randomEvent.EventDescription);
+			// Debug.Log(randomEvent.EventID);
+			// Debug.Log(randomEvent.EventOption1);
+			// Debug.Log(randomEvent.EventCheck1);
+			// Debug.Log(randomEvent.EventOption2);
+			// Debug.Log(randomEvent.EventCheck2);
+			// Debug.Log(randomEvent.EventResolution1);
+			// Debug.Log(randomEvent.EventResolution2);
+			// Debug.Log(randomEvent.EventXPReward);
+			// Debug.Log(randomEvent.EventMoneyReward);
+			// Debug.Log(randomEvent.EventFollowersReward);
+			// Debug.Log(randomEvent.EventItemReward);
 		}
 	}
 

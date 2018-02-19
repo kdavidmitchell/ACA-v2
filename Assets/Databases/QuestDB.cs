@@ -9,19 +9,16 @@ public class QuestDB : MonoBehaviour
 {
 
 	private List<Dictionary<string, string>> questDictionaries = new List<Dictionary<string, string>>();
-	private List<Dictionary<string, string>> response1Dictionaries = new List<Dictionary<string, string>>();
-	private List<Dictionary<string, string>> response2Dictionaries = new List<Dictionary<string, string>>();
-	private List<Dictionary<string, string>> response3Dictionaries = new List<Dictionary<string, string>>();
-	private List<Dictionary<string, string>> xpDictionaries = new List<Dictionary<string, string>>();
-	private List<Dictionary<string, string>> followersDictionaries = new List<Dictionary<string, string>>();
-	private List<Dictionary<string, string>> itemDictionaries = new List<Dictionary<string, string>>();
 	private Dictionary<string, string> questDictionary = new Dictionary<string, string>();
-	private Dictionary<string, string> response1Dictionary = new Dictionary<string, string>();
-	private Dictionary<string, string> response2Dictionary = new Dictionary<string, string>();
-	private Dictionary<string, string> response3Dictionary = new Dictionary<string, string>();
-	private Dictionary<string, string> xpDictionary = new Dictionary<string, string>();
-	private Dictionary<string, string> followersDictionary = new Dictionary<string, string>();
-	private Dictionary<string, string> itemDictionary = new Dictionary<string, string>();
+	private List<string> responses1 = new List<string>();
+	private List<string> checks1 = new List<string>();
+	private List<string> responses2 = new List<string>();
+	private List<string> checks2 = new List<string>();
+	private List<string> responses3 = new List<string>();
+	private List<string> checks3 = new List<string>();
+	private List<string> xp = new List<string>();
+	private List<string> followers = new List<string>();
+	private List<string> items = new List<string>();
 
 	public TextAsset questDatabase;
 	public static List<Quest> quests = new List<Quest>();
@@ -32,9 +29,64 @@ public class QuestDB : MonoBehaviour
 
 		for (int i = 0; i < questDictionaries.Count; i++)
 		{
-			quests.Add(new Quest(questDictionaries[i], response1Dictionaries[i], response2Dictionaries[i], 
-				response3Dictionaries[i], xpDictionaries[i], followersDictionaries[i], itemDictionaries[i]));
+			quests.Add(new Quest(questDictionaries[i]));
 
+			foreach (Quest quest in quests)
+			{
+				Debug.Log(quest.QuestTitle);
+				Debug.Log(quest.QuestDescription);
+				Debug.Log(quest.QuestID);
+				Debug.Log(quest.QuestText1);
+
+				foreach (string option in quest.QuestResponses1)
+				{
+					Debug.Log(option);
+				}
+
+				foreach (int check in quest.QuestChecks1)
+				{
+					Debug.Log(check);
+				}
+
+				Debug.Log(quest.QuestText2);
+				
+				foreach (string option in quest.QuestResponses2)
+				{
+					Debug.Log(option);
+				}
+
+				foreach (int check in quest.QuestChecks2)
+				{
+					Debug.Log(check);
+				}
+
+				Debug.Log(quest.QuestText3);
+				
+				foreach (string option in quest.QuestResponses3)
+				{
+					Debug.Log(option);
+				}
+
+				foreach (int check in quest.QuestChecks3)
+				{
+					Debug.Log(check);
+				}
+
+				foreach (int xp in quest.QuestXPReward)
+				{
+					Debug.Log(xp);
+				}
+
+				foreach (int followers in quest.QuestFollowerReward)
+				{
+					Debug.Log(followers);
+				}
+
+				foreach (int item in quest.QuestItemReward)
+				{
+					Debug.Log(item);
+				}
+			}
 		}
 	}
 
@@ -48,6 +100,15 @@ public class QuestDB : MonoBehaviour
 		{
 			XmlNodeList questContent = questInfo.ChildNodes;
 			questDictionary = new Dictionary<string, string>();
+			responses1 = new List<string>();
+			checks1 = new List<string>();
+			responses2 = new List<string>();
+			checks2 = new List<string>();
+			responses3 = new List<string>();
+			checks3 = new List<string>();
+			xp = new List<string>();
+			followers = new List<string>();
+			items = new List<string>();
 
 			foreach (XmlNode content in questContent)
 			{
@@ -72,163 +133,46 @@ public class QuestDB : MonoBehaviour
 						questDictionary.Add("Text3", content.InnerText);
 						break;
 					case "Responses1":
-						XmlNodeList responses1Content = content.ChildNodes;
-						response1Dictionary = new Dictionary<string, string>();
-
-						foreach (XmlNode responseContent in responses1Content)
-						{
-							switch(responseContent.Name)
-							{
-								case "Option1":
-									response1Dictionary.Add("Option1", responseContent.InnerText);
-									break;
-								case "Option2":
-									response1Dictionary.Add("Option2", responseContent.InnerText);
-									break;
-								case "Option3":
-									response1Dictionary.Add("Option3", responseContent.InnerText);
-									break;
-								case "Check1":
-									response1Dictionary.Add("Check1", responseContent.InnerText);
-									break;
-								case "Check2":
-									response1Dictionary.Add("Check2", responseContent.InnerText);
-									break;
-								case "Check3":
-									response1Dictionary.Add("Check3", responseContent.InnerText);
-									break;
-							}
-						}
-						response1Dictionaries.Add(response1Dictionary);
+						responses1.Add(content.InnerText);
 						break;
 					case "Responses2":
-						XmlNodeList responses2Content = content.ChildNodes;
-						response2Dictionary = new Dictionary<string, string>();
-
-						foreach (XmlNode responseContent in responses2Content)
-						{
-							switch(responseContent.Name)
-							{
-								case "Option1":
-									response2Dictionary.Add("Option1", responseContent.InnerText);
-									break;
-								case "Option2":
-									response2Dictionary.Add("Option2", responseContent.InnerText);
-									break;
-								case "Option3":
-									response2Dictionary.Add("Option3", responseContent.InnerText);
-									break;
-								case "Check1":
-									response2Dictionary.Add("Check1", responseContent.InnerText);
-									break;
-								case "Check2":
-									response2Dictionary.Add("Check2", responseContent.InnerText);
-									break;
-								case "Check3":
-									response2Dictionary.Add("Check3", responseContent.InnerText);
-									break;
-							}
-						}
-						response2Dictionaries.Add(response2Dictionary);
+						responses2.Add(content.InnerText);
 						break;
 					case "Responses3":
-						XmlNodeList responses3Content = content.ChildNodes;
-						response3Dictionary = new Dictionary<string, string>();
-
-						foreach (XmlNode responseContent in responses3Content)
-						{
-							switch(responseContent.Name)
-							{
-								case "Option1":
-									response3Dictionary.Add("Option1", responseContent.InnerText);
-									break;
-								case "Option2":
-									response3Dictionary.Add("Option2", responseContent.InnerText);
-									break;
-								case "Option3":
-									response3Dictionary.Add("Option3", responseContent.InnerText);
-									break;
-								case "Check1":
-									response3Dictionary.Add("Check1", responseContent.InnerText);
-									break;
-								case "Check2":
-									response3Dictionary.Add("Check2", responseContent.InnerText);
-									break;
-								case "Check3":
-									response3Dictionary.Add("Check3", responseContent.InnerText);
-									break;
-							}
-						}
-						response3Dictionaries.Add(response3Dictionary);
+						responses3.Add(content.InnerText);
+						break;
+					case "Checks1":
+						checks1.Add(content.InnerText);
+						break;
+					case "Checks2":
+						checks2.Add(content.InnerText);
+						break;
+					case "Checks3":
+						checks3.Add(content.InnerText);
 						break;
 					case "Combat":
 						questDictionary.Add("Combat", content.InnerText);
 						break;
 					case "XP":
-						XmlNodeList xpContent = content.ChildNodes;
-						xpDictionary = new Dictionary<string, string>();
-						
-						foreach(XmlNode xpTier in xpContent)
-						{
-							switch(xpTier.Name)
-							{
-								case "Tier1":
-									xpDictionary.Add("Tier1", xpTier.InnerText);
-									break;
-								case "Tier2":
-									xpDictionary.Add("Tier2", xpTier.InnerText);
-									break;
-								case "Tier3":
-									xpDictionary.Add("Tier3", xpTier.InnerText);
-									break;
-							}
-						}
-						xpDictionaries.Add(xpDictionary);
+						xp.Add(content.InnerText);
 						break;
 					case "Followers":
-						XmlNodeList followersContent = content.ChildNodes;
-						followersDictionary = new Dictionary<string, string>();
-
-						foreach(XmlNode followersTier in followersContent)
-						{
-							switch(followersTier.Name)
-							{
-								case "Tier1":
-									followersDictionary.Add("Tier1", followersTier.InnerText);
-									break;
-								case "Tier2":
-									followersDictionary.Add("Tier2", followersTier.InnerText);
-									break;
-								case "Tier3":
-									followersDictionary.Add("Tier3", followersTier.InnerText);
-									break;
-							}
-						}
-						followersDictionaries.Add(followersDictionary);
+						followers.Add(content.InnerText);
 						break;
 					case "Item":
-						XmlNodeList itemContent = content.ChildNodes;
-						itemDictionary = new Dictionary<string, string>();
-
-						foreach(XmlNode itemTier in itemContent)
-						{
-							switch(itemTier.Name)
-							{
-								case "Tier1":
-									itemDictionary.Add("Tier1", itemTier.InnerText);
-									break;
-								case "Tier2":
-									itemDictionary.Add("Tier2", itemTier.InnerText);
-									break;
-								case "Tier3":
-									itemDictionary.Add("Tier3", itemTier.InnerText);
-									break;
-							}
-						}
-						itemDictionaries.Add(itemDictionary);
+						items.Add(content.InnerText);
 						break;
 				}
 			}
+			questDictionary.Add("Responses1", string.Join(";", responses1.ToArray()));
+			questDictionary.Add("Responses2", string.Join(";", responses2.ToArray()));
+			questDictionary.Add("Responses3", string.Join(";", responses3.ToArray()));
+			questDictionary.Add("Checks1", string.Join(" ", checks1.ToArray()));
+			questDictionary.Add("Checks2", string.Join(" ", checks2.ToArray()));
+			questDictionary.Add("Checks3", string.Join(" ", checks3.ToArray()));
+			questDictionary.Add("XP", string.Join(" ", xp.ToArray()));
+			questDictionary.Add("Followers", string.Join(" ", followers.ToArray()));
+			questDictionary.Add("Items", string.Join(" ", items.ToArray()));
 			questDictionaries.Add(questDictionary);
 		}
 	}
