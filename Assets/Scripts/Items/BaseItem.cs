@@ -15,7 +15,6 @@ public class BaseItem
 	private List<int> _modifiers = new List<int>();
 	private ItemTypes _type;
 
-
 	public BaseItem(Dictionary<string,string> itemDictionary)
 	{
 		string[] delimiter = new string[] {" "};

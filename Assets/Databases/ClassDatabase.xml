@@ -1,0 +1,40 @@
+<Classes>
+	<Class>
+		<Name>Gladhander</Name>
+		<Description>You are a well of infinite charm. A good smile, a strong chin, and a head of neatly coifed hair: these are the tools of the gladhander. Make friends out of enemies, summon your most devout constituents to aid you, and flash those pearly whites.</Description>
+		<ID>1</ID>
+		<Type>GLADHANDER</Type>
+		<Stat>7</Stat>
+		<Stat>9</Stat>
+		<Stat>8</Stat>
+		<Ability>1</Ability>
+		<Ability>2</Ability>
+		<Ability>3</Ability>
+	</Class>
+
+	<Class>
+		<Name>Chief-of-Staff</Name>
+		<Description>You have no need to speak softly, because you have the biggest stick around. Militarily minded and calculatingly cold, you, and you alone, have the strength to do what needs to be done. Shout at your enemies until they fall into a daze, guard yourself with an army of aides, and show that diplomacy really just means 'force'.</Description>
+		<ID>2</ID>
+		<Type>CHIEF</Type>
+		<Stat>8</Stat>
+		<Stat>7</Stat>
+		<Stat>9</Stat>
+		<Ability>1</Ability>
+		<Ability>4</Ability>
+		<Ability>5</Ability>
+	</Class>
+
+	<Class>
+		<Name>Sophist</Name>
+		<Description>You've always known that the pen is mightier than the sword. In vocal power and eloquence, you have no equal. Bore your enemies to death with long speeches, lull them to sleep with the rich cadence of your voice, or outsmart their every move.</Description>
+		<ID>3</ID>
+		<Type>SOPHIST</Type>
+		<Stat>9</Stat>
+		<Stat>8</Stat>
+		<Stat>7</Stat>
+		<Ability>1</Ability>
+		<Ability>6</Ability>
+		<Ability>7</Ability>
+	</Class>
+</Classes>
