@@ -12,6 +12,7 @@ public class BaseClass
 	private int _ID;
 	private ClassTypes _type;
 	private List<BaseStat> _stats = new List<BaseStat>();
+	private List<BaseAbility> _abilities = new List<BaseAbility>();
 
 	public enum ClassTypes
 	{
@@ -37,7 +38,8 @@ public class BaseClass
 		string[] tempStats = classDictionary["Stats"].Split(delimiter, StringSplitOptions.None);
 		for (int i = 0; i < tempStats.Length; i++)
 		{
-			_stats[i].StatBaseValue = int.Parse(tempStats[i]);	
+			_stats[i].StatBaseValue = int.Parse(tempStats[i]);
+			_stats[i].StatModifiedValue = int.Parse(tempStats[i]);	
 		}
 	}
 
@@ -69,6 +71,12 @@ public class BaseClass
 	{
 		get { return _stats; }
 		set { _stats = value; }
+	}
+
+	public List<BaseAbility> ClassAbilities
+	{
+		get { return _abilities; }
+		set { _abilities = value; }
 	}
 
 }

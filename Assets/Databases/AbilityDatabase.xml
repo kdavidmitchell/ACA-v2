@@ -1,0 +1,138 @@
+<Abilities>
+	<Ability>
+		<Name>Ad Hominem</Name>
+		<Description>A normal attack. However you would like to interpret that.</Description>
+		<ID>1</ID>
+		<Type>COMBAT</Type>
+		<Damage>2</Damage>
+		<Damage>4</Damage>
+		<Damage>6</Damage>
+		<Damage>8</Damage>
+		<Damage>10</Damage>
+		<Cost>0</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>5</MaxRank>
+		<XPToLevel>10</XPToLevel>
+		<XPToLevel>25</XPToLevel>
+		<XPToLevel>40</XPToLevel>
+		<XPToLevel>55</XPToLevel>
+		<StatusEffect>EMPTY</StatusEffect>
+	</Ability>
+
+	<Ability>
+		<Name>To My Aide!</Name>
+		<Description>Summons an underpaid, overworked intern to harass your enemies with requests for overdue paperwork.</Description>
+		<ID>2</ID>
+		<Type>COMBAT</Type>
+		<Damage>4</Damage>
+		<Damage>5</Damage>
+		<Damage>8</Damage>
+		<Damage>10</Damage>
+		<Damage>12</Damage>
+		<Cost>10</Cost>
+		<Cost>12</Cost>
+		<Cost>15</Cost>
+		<Cost>18</Cost>
+		<Cost>20</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>5</MaxRank>
+		<XPToLevel>25</XPToLevel>
+		<XPToLevel>50</XPToLevel>
+		<XPToLevel>100</XPToLevel>
+		<XPToLevel>200</XPToLevel>
+		<StatusEffect>HARASSED</StatusEffect>
+	</Ability>
+
+	<Ability>
+		<Name>The Ol' Razzle Dazzle</Name>
+		<Description>With a flashy smile, you can get out of the stickiest of situations.</Description>
+		<ID>3</ID>
+		<Type>PASSIVE</Type>
+		<Damage>0</Damage>
+		<Cost>0</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>3</MaxRank>
+		<XPToLevel>75</XPToLevel>
+		<XPToLevel>150</XPToLevel>
+		<XPToLevel>300</XPToLevel>
+		<StatusEffect>EMPTY</StatusEffect>
+	</Ability>
+
+	<Ability>
+		<Name>The Big Stick of Diplomacy</Name>
+		<Description>You brandish your weapon of choice menacingly and bash your opponent, stunning them for 1 turn.</Description>
+		<ID>4</ID>
+		<Type>COMBAT</Type>
+		<Damage>2</Damage>
+		<Damage>4</Damage>
+		<Damage>8</Damage>
+		<Damage>12</Damage>
+		<Damage>15</Damage>
+		<Cost>10</Cost>
+		<Cost>12</Cost>
+		<Cost>15</Cost>
+		<Cost>20</Cost>
+		<Cost>25</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>5</MaxRank>
+		<XPToLevel>25</XPToLevel>
+		<XPToLevel>50</XPToLevel>
+		<XPToLevel>100</XPToLevel>
+		<XPToLevel>200</XPToLevel>
+		<StatusEffect>DAZED</StatusEffect>
+	</Ability>
+
+	<Ability>
+		<Name>The Glower of Hate</Name>
+		<Description>Your eyes alone are enough to make your foes quake in fear.</Description>
+		<ID>5</ID>
+		<Type>PASSIVE</Type>
+		<Damage>0</Damage>
+		<Cost>0</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>3</MaxRank>
+		<XPToLevel>75</XPToLevel>
+		<XPToLevel>150</XPToLevel>
+		<XPToLevel>300</XPToLevel>
+		<StatusEffect>EMPTY</StatusEffect>
+	</Ability>
+
+	<Ability>
+		<Name>Long-Winded Tirade</Name>
+		<Description>Your skill in filibustering is legend, and almost all of your speeches have been known to put your foes into a deep sleep.</Description>
+		<ID>6</ID>
+		<Type>COMBAT</Type>
+		<Damage>2</Damage>
+		<Damage>3</Damage>
+		<Damage>4</Damage>
+		<Damage>5</Damage>
+		<Damage>6</Damage>
+		<Cost>10</Cost>
+		<Cost>12</Cost>
+		<Cost>15</Cost>
+		<Cost>18</Cost>
+		<Cost>25</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>5</MaxRank>
+		<XPToLevel>25</XPToLevel>
+		<XPToLevel>50</XPToLevel>
+		<XPToLevel>100</XPToLevel>
+		<XPToLevel>200</XPToLevel>
+		<StatusEffect>SNOOZE</StatusEffect>
+	</Ability>
+
+	<Ability>
+		<Name>Questionable Logic</Name>
+		<Description>Within a single conversation, you can convince someone that a rectangle has actually been a square this whole time.</Description>
+		<ID>7</ID>
+		<Type>PASSIVE</Type>
+		<Damage>0</Damage>
+		<Cost>0</Cost>
+		<CurrentRank>1</CurrentRank>
+		<MaxRank>3</MaxRank>
+		<XPToLevel>75</XPToLevel>
+		<XPToLevel>150</XPToLevel>
+		<XPToLevel>300</XPToLevel>
+		<StatusEffect>EMPTY</StatusEffect>
+	</Ability>
+</Abilities>
