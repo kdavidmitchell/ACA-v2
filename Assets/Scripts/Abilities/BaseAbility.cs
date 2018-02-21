@@ -11,11 +11,11 @@ public class BaseAbility
 	private string _description;
 	private int _ID;
 	private AbilityTypes _type;
-	private List<int> _damage;
-	private List<int> _cost;
+	private List<int> _damage = new List<int>();
+	private List<int> _cost = new List<int>();
 	private int _currentRank;
 	private int _maxRank;
-	private List<int> _xpToLevel;
+	private List<int> _xpToLevel = new List<int>();
 
 	public enum AbilityTypes
 	{
