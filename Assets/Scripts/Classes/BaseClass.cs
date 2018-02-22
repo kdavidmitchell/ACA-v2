@@ -18,7 +18,8 @@ public class BaseClass
 	{
 		GLADHANDER,
 		CHIEF,
-		SOPHIST
+		SOPHIST,
+		NULL
 	}
 
 	public BaseClass(Dictionary<string, string> classDictionary)
@@ -41,6 +42,22 @@ public class BaseClass
 			_stats[i].StatBaseValue = int.Parse(tempStats[i]);
 			_stats[i].StatModifiedValue = int.Parse(tempStats[i]);	
 		}
+
+		string[] tempAbilities = classDictionary["Abilities"].Split(delimiter, StringSplitOptions.None);
+		for (int i = 0; i < tempAbilities.Length; i++)
+		{
+			_abilities.Add(AbilityDB.abilities[int.Parse(tempAbilities[i]) - 1]);
+		}
+	}
+
+	public BaseClass()
+	{
+		_name = "Default";
+		_description = "Default";
+		_ID = 0;
+		_type = ClassTypes.NULL;
+		_stats = null;
+		_abilities = null;
 	}
 
 	public string ClassName

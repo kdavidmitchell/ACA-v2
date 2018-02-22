@@ -24,6 +24,15 @@ public class ClassDB : MonoBehaviour
 		{
 			classes.Add(new BaseClass(classDictionaries[i]));
 		}
+
+		foreach (BaseClass baseClass in classes)
+		{
+			foreach (BaseAbility ability in baseClass.ClassAbilities)
+			{
+				Debug.Log(ability.AbilityName);
+				Debug.Log(ability.AbilityID);
+			}
+		}
 	}
 
 	public void ReadClassesFromDatabase()
