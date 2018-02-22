@@ -37,6 +37,11 @@ public class SaveInformation
         {
             PPSerialization.Save("PLAYER_INVENTORY", GameInformation.PlayerInventory);
         }
+
+        if (GameInformation.PlayerPortrait != null)
+        {
+            PPSerialization.Save("PLAYER_PORTRAIT", GameInformation.PlayerPortrait);
+        }
         
         Debug.Log("SAVED ALL INFORMATION.");
         Debug.Log(GameInformation.PlayerClass.ClassName);

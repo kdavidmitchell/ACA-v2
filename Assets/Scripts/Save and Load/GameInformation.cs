@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class GameInformation : MonoBehaviour 
@@ -15,6 +16,7 @@ public class GameInformation : MonoBehaviour
     private static List<Quest> _playerCompletedQuests;
     private static List<BaseItem> _playerEquippedItems;
     private static List<BaseItem> _playerInventory;
+    private static Image _playerPortrait;
 
     public static string PlayerName
     {
@@ -68,6 +70,12 @@ public class GameInformation : MonoBehaviour
     {
         get { return _playerInventory; }
         set { _playerInventory = value; }
+    }
+
+    public static Image PlayerPortrait
+    {
+        get { return _playerPortrait; }
+        set { _playerPortrait = value; }
     }
 
     void Awake()

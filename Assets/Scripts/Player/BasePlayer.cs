@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class BasePlayer : BaseClass 
@@ -8,13 +9,14 @@ public class BasePlayer : BaseClass
 
 	private string _name;
 	private BaseClass _class = new BaseClass();
-	private List<BaseStat> _stats = new List<BaseStat>();
+	private List<BaseStat> _playerStats = new List<BaseStat>();
 	private int _xp;
 	private int _money;
 	private int _followers;
 	private List<BaseItem> _equippedItems = new List<BaseItem>();
 	private List<BaseItem> _inventory = new List<BaseItem>();
 	private List<Quest> _completedQuests = new List<Quest>();
+	private Image _portrait;
 
 	public string PlayerName
 	{
@@ -30,8 +32,8 @@ public class BasePlayer : BaseClass
 
 	public List<BaseStat> PlayerStats
 	{
-		get { return _stats; }
-		set { _stats = value; }
+		get { return _playerStats; }
+		set { _playerStats = value; }
 	}
 
 	public int PlayerXP
@@ -68,6 +70,12 @@ public class BasePlayer : BaseClass
 	{
 		get { return _completedQuests; }
 		set { _completedQuests = value; }
+	}
+
+	public Image PlayerPortrait
+	{
+		get { return _portrait; }
+		set { _portrait = value; }
 	}
 
 }
