@@ -95,6 +95,26 @@ public class Quest
 		{
 			_items.Add(int.Parse(tempItems[i]));	
 		}
+	}
+
+	public Quest()
+	{
+		_ID = 0;
+		_title = "";
+		_description = "";
+		_text1 = "";
+		_text2 = "";
+		_text3 = "";
+		_responses1 = null;
+		_responses2 = null;
+		_responses3 = null;
+		_checks1 = null;
+		_checks2 = null;
+		_checks3 = null;
+		_combat = false;
+		_xp = null;
+		_followers = null;
+		_items = null;
 	}	
 
 	public int QuestID
