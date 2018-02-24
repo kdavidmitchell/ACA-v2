@@ -22,7 +22,9 @@ public class MapManager : MonoBehaviour
 
 			Text description;
 			description = GameObject.Find("Quest_Pin_" + (i+1) + "_Description").GetComponent<Text>();
-			description.text = pin.PinQuest.QuestDescription;	
+			description.text = pin.PinQuest.QuestDescription;
+
+			pin._hoverMenu.SetActive(false);	
 		}	
 	}
 	

@@ -14,7 +14,7 @@ public class QuestPin : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	// Use this for initialization
 	void Start () 
 	{
-		_hoverMenu.SetActive(false);	
+			
 	}
 	
 	// Update is called once per frame
