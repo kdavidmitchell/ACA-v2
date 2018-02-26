@@ -19,12 +19,17 @@ public class QuestManager : MonoBehaviour
 	private string _playerPassiveName;
 	private int _playerPassiveRank;
 
-	private int _nextCounter = 0;
+	private int _nextCounter = 1;
+
+	private int _xpReward;
+	private int _followerReward;
 
 	public GameObject questFrame;
 	public Text questTitle;
 	public Text questText;
 	public Button buttonPrefab;
+	public Text moneyLabel;
+	public Text followerLabel;
 
 	// Use this for initialization
 	void Start () 
@@ -41,7 +46,7 @@ public class QuestManager : MonoBehaviour
 
 	public void LoadQuest(int index)
 	{
-		_nextCounter = 0;
+		_nextCounter = 1;
 		_quest = QuestDB.quests[index];
 
 		questFrame.SetActive(true);
@@ -109,17 +114,23 @@ public class QuestManager : MonoBehaviour
 			button.transform.parent = questFrame.transform;
 			
 			Vector2 temp = new Vector2();
-			temp.y = questFrame.transform.position.y - 50 - (30 * i);
+			temp.y = questFrame.transform.position.y - 50 - (50 * i);
 			temp.x = questFrame.transform.position.x;
 			button.transform.position = temp;
+			button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
 
 			Text buttonText = button.GetComponentInChildren<Text>();
+			buttonText.fontSize = 8;
 			if (tempCheck != 0)
 			{
 				buttonText.text = responses.Dequeue() + " " + "(" + _playerPassiveName + " " + checks.Dequeue() + ")";
 				if (_playerPassiveRank < tempCheck)
 				{
 					button.interactable = false;
+				} else
+				{
+					button.interactable = true;
+					button.onClick.AddListener(() => _passedChecks++);
 				}
 			} else if (tempCheck == 0)
 			{
@@ -127,14 +138,18 @@ public class QuestManager : MonoBehaviour
 				checks.Dequeue();
 			}
 
-			_nextCounter++;
 			button.onClick.AddListener(() => Next());
 		}
 	}
 
 	private void Next()
 	{
-		questText.text = _questText.Dequeue();
+		DestroyButtons();
+
+		if (_nextCounter != 3)
+		{
+			questText.text = _questText.Dequeue();
+		}
 
 		if (_nextCounter == 1)
 		{
@@ -142,6 +157,100 @@ public class QuestManager : MonoBehaviour
 		} else if (_nextCounter == 2)
 		{
 			CreateButtons(_quest.QuestResponses3.Count, _questResponses3, _questChecks3);
+		} else 
+		{
+			CalculateXPReward();
+			CalculateFollowerReward();
+			DisplayRewards();	
 		}
+
+		_nextCounter++;
+	}
+
+
+
+	private void DestroyButtons()
+	{
+		GameObject[] buttons;
+		buttons = GameObject.FindGameObjectsWithTag("Button");
+
+		foreach (GameObject button in buttons)
+		{
+			Destroy(button);
+		}
+	}
+
+	private void DisplayRewards()
+	{
+		questTitle.text = "Favor completed!";
+		questText.text = "You've earned: " + _xpReward + " XP, " + _followerReward + " followers!";
+
+		Button exitButton = Instantiate(buttonPrefab);
+		exitButton.transform.parent = questFrame.transform;
+			
+		Vector2 temp = new Vector2();
+		temp.y = questFrame.transform.position.y - 50;
+		temp.x = questFrame.transform.position.x;
+		exitButton.transform.position = temp;
+		exitButton.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+
+		Text buttonText = exitButton.GetComponentInChildren<Text>();
+		buttonText.fontSize = 8;
+		buttonText.text = "Moving on!";
+		exitButton.onClick.AddListener(() => SaveAndUpdateHUD());
+		exitButton.onClick.AddListener(() => MapManager.RemovePinFromActiveList(_quest.QuestID));
+		exitButton.onClick.AddListener(() => MapManager.EnableActivePins());
+		exitButton.onClick.AddListener(() => DisableQuest());
+
+	}
+
+	private void CalculateXPReward()
+	{
+		if (_quest.QuestXPReward.Count > 1)
+		{
+			if (_passedChecks == 0)
+			{
+				_xpReward = _quest.QuestXPReward[2];
+			} else if (_passedChecks == 1)
+			{
+				_xpReward = _quest.QuestXPReward[1];
+			} else if (_passedChecks >= 2)
+			{
+				_xpReward = _quest.QuestXPReward[0];
+			}
+		}
+	}
+
+	private void CalculateFollowerReward()
+	{
+		if (_quest.QuestFollowerReward.Count > 1)
+		{
+			if (_passedChecks == 0)
+			{
+				_followerReward = _quest.QuestFollowerReward[2];
+			} else if (_passedChecks == 1)
+			{
+				_followerReward = _quest.QuestFollowerReward[1];
+			} else if (_passedChecks >= 2)
+			{
+				_followerReward = _quest.QuestFollowerReward[0];
+			}
+		}
+	}
+
+	private void SaveAndUpdateHUD()
+	{
+		GameInformation.PlayerXP += _xpReward;
+		GameInformation.PlayerFollowers += _followerReward;
+
+		SaveInformation.SaveAllInformation();
+
+		followerLabel.text = GameInformation.PlayerFollowers.ToString();
+		Debug.Log(GameInformation.PlayerXP);
+	}
+
+	private void DisableQuest()
+	{
+		questFrame.SetActive(false);
 	}
 }

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class MapManager : MonoBehaviour 
 {
 
+	public static List<GameObject> _pins = new List<GameObject>();
+	
 	public GameObject _questFrame;
 
 	void Awake()
@@ -16,6 +18,11 @@ public class MapManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	
+		for (int i = 0; i < QuestDB.quests.Count; i++) 
+		{
+			_pins.Add(GameObject.Find("Quest_Pin_" + (i+1)));
+		}
+
 		QuestPinSetup();
 		DisableAllPinHovers();	
 	}
@@ -46,20 +53,30 @@ public class MapManager : MonoBehaviour
 
 	public void DisableAllPinHovers()
 	{
-		for (int i = 0; i < QuestDB.quests.Count; i++) 
+		foreach (GameObject pin in _pins)
 		{
-			QuestPin pin;
-			pin = GameObject.Find("Quest_Pin_" + (i+1)).GetComponent<QuestPin>();
-			pin._hoverMenu.SetActive(false);
+			pin.GetComponent<QuestPin>()._hoverMenu.SetActive(false);
 		}
 	}
 
 	public void DisableAllPins()
 	{
-		for (int i = 0; i < QuestDB.quests.Count; i++) 
+		foreach (GameObject pin in _pins)
 		{
-			GameObject pin = GameObject.Find("Quest_Pin_" + (i+1));
 			pin.SetActive(false);
 		}
+	}
+
+	public static void EnableActivePins()
+	{
+		foreach (GameObject pin in _pins)
+		{
+			pin.SetActive(true);
+		}
+	}
+
+	public static void RemovePinFromActiveList(int index)
+	{
+		_pins.RemoveAt(index - 1);
 	}
 }
