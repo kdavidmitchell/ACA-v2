@@ -10,4 +10,9 @@ public class ButtonFunctions : MonoBehaviour
 	{
 		SceneManager.LoadScene(1);
 	}
+
+	public void LoadArea1()
+	{
+		SceneManager.LoadScene(2);
+	}
 }

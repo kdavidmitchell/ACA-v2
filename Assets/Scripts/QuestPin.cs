@@ -10,6 +10,12 @@ public class QuestPin : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	private Quest _quest = new Quest();
 
 	public GameObject _hoverMenu;
+
+	public Quest PinQuest
+	{
+		get { return _quest; }
+		set { _quest = value; }
+	}
 	
 	// Use this for initialization
 	void Start () 
@@ -30,11 +36,5 @@ public class QuestPin : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	public void OnPointerExit(PointerEventData data)
 	{
 		_hoverMenu.SetActive(false);
-	}
-
-	public Quest PinQuest
-	{
-		get { return _quest; }
-		set { _quest = value; }
 	}
 }

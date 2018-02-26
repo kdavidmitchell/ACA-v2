@@ -6,9 +6,27 @@ using UnityEngine.UI;
 public class MapManager : MonoBehaviour 
 {
 
+	public GameObject _questFrame;
+
+	void Awake()
+	{
+		LoadInformation.LoadAllInformation();
+	}
+
 	// Use this for initialization
 	void Start () 
-	{
+	{	
+		QuestPinSetup();
+		DisableAllPinHovers();	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+	private void QuestPinSetup()
+	{	
 		for (int i = 0; i < QuestDB.quests.Count; i++) 
 		{
 			QuestPin pin;
@@ -23,13 +41,25 @@ public class MapManager : MonoBehaviour
 			Text description;
 			description = GameObject.Find("Quest_Pin_" + (i+1) + "_Description").GetComponent<Text>();
 			description.text = pin.PinQuest.QuestDescription;
-
-			pin._hoverMenu.SetActive(false);	
-		}	
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void DisableAllPinHovers()
+	{
+		for (int i = 0; i < QuestDB.quests.Count; i++) 
+		{
+			QuestPin pin;
+			pin = GameObject.Find("Quest_Pin_" + (i+1)).GetComponent<QuestPin>();
+			pin._hoverMenu.SetActive(false);
+		}
+	}
+
+	public void DisableAllPins()
+	{
+		for (int i = 0; i < QuestDB.quests.Count; i++) 
+		{
+			GameObject pin = GameObject.Find("Quest_Pin_" + (i+1));
+			pin.SetActive(false);
+		}
 	}
 }
