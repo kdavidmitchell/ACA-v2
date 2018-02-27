@@ -7,6 +7,7 @@ public class MapManager : MonoBehaviour
 {
 
 	public static List<GameObject> _pins = new List<GameObject>();
+	public static List<RandomEvent> _events = new List<RandomEvent>();
 	
 	public GameObject _questFrame;
 
@@ -23,8 +24,12 @@ public class MapManager : MonoBehaviour
 			_pins.Add(GameObject.Find("Quest_Pin_" + (i+1)));
 		}
 
+		_events = RandomEventDB.events;
+
 		QuestPinSetup();
-		DisableAllPinHovers();	
+		DisableAllPinHovers();
+
+		DontDestroyOnLoad(gameObject);	
 	}
 	
 	// Update is called once per frame
@@ -78,5 +83,10 @@ public class MapManager : MonoBehaviour
 	public static void RemovePinFromActiveList(int index)
 	{
 		_pins.RemoveAt(index - 1);
+	}
+
+	public static void RemoveEventFromActiveList(int index)
+	{
+		_events.RemoveAt(index - 1);
 	}
 }

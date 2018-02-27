@@ -39,7 +39,8 @@ public class RandomEvent
 		_resolution1 = eventDictionary["Resolution1"];
 		_resolution2 = eventDictionary["Resolution2"];
 		_xp = int.Parse(eventDictionary["XP"]);
-		_money = int.Parse(eventDictionary["Followers"]);
+		_money = int.Parse(eventDictionary["Money"]);
+		_followers = int.Parse(eventDictionary["Followers"]);
 		_item = int.Parse(eventDictionary["Item"]);
 		_type = (EventTypes)System.Enum.Parse(typeof(RandomEvent.EventTypes), eventDictionary["Type"].ToString());
 	}

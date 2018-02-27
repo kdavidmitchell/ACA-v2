@@ -47,6 +47,7 @@ public class QuestManager : MonoBehaviour
 	public void LoadQuest(int index)
 	{
 		_nextCounter = 1;
+		_passedChecks = 0;
 		_quest = QuestDB.quests[index];
 
 		questFrame.SetActive(true);
@@ -58,6 +59,7 @@ public class QuestManager : MonoBehaviour
 
 		questText.text = _questText.Dequeue();
 
+		DestroyButtons();
 		CreateButtons(_quest.QuestResponses1.Count, _questResponses1, _questChecks1);
 	}
 
@@ -166,8 +168,6 @@ public class QuestManager : MonoBehaviour
 
 		_nextCounter++;
 	}
-
-
 
 	private void DestroyButtons()
 	{
