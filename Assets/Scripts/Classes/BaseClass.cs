@@ -35,6 +35,7 @@ public class BaseClass
 		_stats.Add(new BaseDiplomacy());
 		_stats.Add(new BaseHealth());
 		_stats.Add(new BaseAmbition());
+		_stats.Add(new BaseEloquence());
 
 		string[] tempStats = classDictionary["Stats"].Split(delimiter, StringSplitOptions.None);
 		for (int i = 0; i < tempStats.Length; i++)

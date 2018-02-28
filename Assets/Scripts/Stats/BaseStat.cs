@@ -11,6 +11,7 @@ public class BaseStat
 	private int _baseValue;
 	private int _modifiedValue;
 	private StatTypes _type;
+	private List<int> _cost;
 
 	public enum StatTypes 
 	{
@@ -39,6 +40,9 @@ public class BaseStat
 		} else if (name == "AMBITION") 
 		{
 			return new BaseAmbition();
+		} else if (name == "ELOQUENCE")
+		{
+			return new BaseEloquence();
 		} else
 		{
 			return null;
@@ -73,5 +77,11 @@ public class BaseStat
 	{
 		get { return _type; }
 		set { _type = value; }
+	}
+
+	public List<int> StatCost
+	{
+		get { return _cost; }
+		set { _cost = value; }
 	}	
 }

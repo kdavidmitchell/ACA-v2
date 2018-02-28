@@ -3099,7 +3099,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 509864298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722796790}
+        m_MethodName: IncreaseStatScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &509864298
@@ -4325,7 +4336,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 759276408}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722796790}
+        m_MethodName: IncreaseStatScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &759276408
@@ -5848,7 +5870,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 992087192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722796790}
+        m_MethodName: IncreaseStatScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &992087192
@@ -7994,7 +8027,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1409542167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722796790}
+        m_MethodName: IncreaseStatScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1409542167
@@ -9688,6 +9732,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enhancementPanel: {fileID: 545104411}
+  playerName: {fileID: 583400336}
+  playerClass: {fileID: 854544417}
+  experienceLabel: {fileID: 1884966536}
+  rhetoricLabel: {fileID: 1169116785}
+  imageLabel: {fileID: 1527234428}
+  diplomacyLabel: {fileID: 274667096}
+  healthLabel: {fileID: 2003758861}
+  ambitionLabel: {fileID: 1799365281}
+  eloquenceLabel: {fileID: 1193117527}
+  rhetoricCost: {fileID: 1700094764}
+  imageCost: {fileID: 967677076}
+  diplomacyCost: {fileID: 1437211428}
+  healthCost: {fileID: 1001898581}
+  ambitionCost: {fileID: 530471243}
+  eloquenceCost: {fileID: 565592910}
 --- !u!4 &1722796791
 Transform:
   m_ObjectHideFlags: 0
@@ -10040,7 +10099,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1744322868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722796790}
+        m_MethodName: IncreaseStatScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1744322868
@@ -11099,7 +11169,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1923453341}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722796790}
+        m_MethodName: IncreaseStatScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1923453341
