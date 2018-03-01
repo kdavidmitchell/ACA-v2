@@ -17,7 +17,6 @@ public class QuestManager : MonoBehaviour
 
 	private int _passedChecks = 0;
 	private string _playerPassiveName;
-	private int _playerPassiveRank;
 
 	private int _nextCounter = 1;
 
@@ -36,7 +35,6 @@ public class QuestManager : MonoBehaviour
 	{
 		questFrame.SetActive(false);
 		_playerPassiveName = GameInformation.PlayerClass.ClassAbilities[2].AbilityName;
-		_playerPassiveRank = GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank;	
 	}
 	
 	// Update is called once per frame
@@ -126,7 +124,7 @@ public class QuestManager : MonoBehaviour
 			if (tempCheck != 0)
 			{
 				buttonText.text = responses.Dequeue() + " " + "(" + _playerPassiveName + " " + checks.Dequeue() + ")";
-				if (_playerPassiveRank < tempCheck)
+				if (GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank < tempCheck)
 				{
 					button.interactable = false;
 				} else

@@ -37,5 +37,10 @@ public class LoadInformation
         {
         	GameInformation.PlayerInventory = (List<BaseItem>)PPSerialization.Load("PLAYER_INVENTORY");
         }
+
+        if (PlayerPrefs.GetString("PLAYER_BOOSTS") != null)
+        {
+            GameInformation.PlayerBoosts = (int[])PPSerialization.Load("PLAYER_BOOSTS");
+        }
     }
 }

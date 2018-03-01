@@ -26,6 +26,7 @@
 		<ID>3</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>BODY</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>A resplendent suit of silver. Don't look too closely at it or you might go blind.</Description>
 		<Value>30</Value>
 		<Stats>IMAGE</Stats>
@@ -37,6 +38,7 @@
 		<ID>4</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>BODY</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>If suits were sentient and able to form a military, you're pretty sure this one would be the general.</Description>
 		<Value>30</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -48,6 +50,7 @@
 		<ID>5</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>BODY</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Nothing screams erudition like padded elbows.</Description>
 		<Value>30</Value>
 		<Stats>RHETORIC</Stats>
@@ -59,6 +62,7 @@
 		<ID>6</ID>
 		<Type>WEAPON</Type>
 			<Subtype>BRIEFCASE</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>With this briefcase, no one will notice how ignorant you are--they'll be too distracted by all the red paint.</Description>
 		<Value>35</Value>
 		<Stats>RHETORIC</Stats>
@@ -72,6 +76,7 @@
 		<ID>7</ID>
 		<Type>WEAPON</Type>
 			<Subtype>MICROPHONE</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>A powerfully amped microphone, guaranteed to make sure you're the loudest idiot in the room.</Description>
 		<Value>35</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -85,6 +90,7 @@
 		<ID>8</ID>
 		<Type>WEAPON</Type>
 			<Subtype>PIPE</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>The fumes coming from this will make even your most stalwart enemies faint in submission.</Description>
 		<Value>35</Value>
 		<Stats>RHETORIC</Stats>
@@ -98,6 +104,7 @@
 		<ID>9</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>FEET</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Stylish, comfy, and delightfully bourgeois. Show those middle-classers that you can connect with them.</Description>
 		<Value>40</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -111,6 +118,7 @@
 		<ID>10</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>FEET</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Clean, intimidating, and slightly reminiscent of your days in the war.</Description>
 		<Value>40</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -124,6 +132,7 @@
 		<ID>11</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>FEET</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Not to be confused with the shirts, of course.</Description>
 		<Value>40</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -137,6 +146,7 @@
 		<ID>12</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>ACCESSORY</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>The name kinda says it all.</Description>
 		<Value>40</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -150,6 +160,7 @@
 		<ID>13</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>ACCESSORY</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>The bold, bright crimson of this tie consumes all else surrounding it.</Description>
 		<Value>40</Value>
 		<Stats>IMAGE</Stats>
@@ -163,6 +174,7 @@
 		<ID>14</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>ACCESSORY</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Well, what else would spectacles do?</Description>
 		<Value>40</Value>
 		<Stats>IMAGE</Stats>
@@ -176,6 +188,7 @@
 		<ID>15</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>HEAD</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Distinct and yet, in its wornness, relatable.</Description>
 		<Value>45</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -189,6 +202,7 @@
 		<ID>16</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>HEAD</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Haven't we, as a society, gotten past this meme yet?</Description>
 		<Value>45</Value>
 		<Stats>DIPLOMACY</Stats>
@@ -202,6 +216,7 @@
 		<ID>17</ID>
 		<Type>EQUIPMENT</Type>
 			<Subtype>HEAD</Subtype>
+			<UseText>You can equip this.</UseText>
 		<Description>Calm down, there, Kaiser Wilhelm. No one's at war just yet. Yet.</Description>
 		<Value>45</Value>
 		<Stats>DIPLOMACY</Stats>

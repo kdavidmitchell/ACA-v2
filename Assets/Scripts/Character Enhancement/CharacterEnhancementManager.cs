@@ -13,6 +13,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 	private int _healthBoosts = 0;
 	private int _ambitionBoosts = 0;
 	private int _eloquenceBoosts = 0;
+	private int _activeBoosts = 0;
+	private int _passiveBoosts = 0;
 
 	public GameObject enhancementPanel;
 	public Text playerName;
@@ -32,13 +34,29 @@ public class CharacterEnhancementManager : MonoBehaviour
 	public Text ambitionCost;
 	public Text eloquenceCost;
 
+	public Text activeAbilityName;
+	public Text passiveAbilityName;
+	public Text activeAbilityCost;
+	public Text passiveAbilityCost;
+	public Text activeAbilityRank;
+	public Text passiveAbilityRank;
+
 	// Use this for initialization
 	void Start () 
 	{
+		GameInformation.PlayerXP += 100;
+
 		enhancementPanel.SetActive(false);
 		_enhancementIsActive = false;
 
-		GameInformation.PlayerXP += 100;	
+		_rhetoricBoosts = GameInformation.PlayerBoosts[0];
+		_imageBoosts = GameInformation.PlayerBoosts[1];
+		_diplomacyBoosts = GameInformation.PlayerBoosts[2];
+		_healthBoosts = GameInformation.PlayerBoosts[3];
+		_ambitionBoosts = GameInformation.PlayerBoosts[4];
+		_eloquenceBoosts = GameInformation.PlayerBoosts[5];
+		_activeBoosts = GameInformation.PlayerBoosts[6];
+		_passiveBoosts = GameInformation.PlayerBoosts[7];	
 	}
 	
 	// Update is called once per frame
@@ -68,6 +86,13 @@ public class CharacterEnhancementManager : MonoBehaviour
 			healthCost.text = GameInformation.PlayerStats[3].StatCost[_healthBoosts].ToString();
 			ambitionCost.text = GameInformation.PlayerStats[4].StatCost[_ambitionBoosts].ToString();
 			eloquenceCost.text = GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts].ToString();
+
+			activeAbilityName.text = GameInformation.PlayerClass.ClassAbilities[1].AbilityName;
+			passiveAbilityName.text = GameInformation.PlayerClass.ClassAbilities[2].AbilityName;
+			activeAbilityRank.text = GameInformation.PlayerClass.ClassAbilities[1].AbilityCurrentRank.ToString();
+			passiveAbilityRank.text = GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank.ToString();
+			activeAbilityCost.text = GameInformation.PlayerClass.ClassAbilities[1].AbilityXPToLevel[_activeBoosts].ToString();
+			passiveAbilityCost.text = GameInformation.PlayerClass.ClassAbilities[2].AbilityXPToLevel[_passiveBoosts].ToString();
 		}	
 	}
 
@@ -75,36 +100,110 @@ public class CharacterEnhancementManager : MonoBehaviour
 	{
 		if (ID == 0)
 		{
-			GameInformation.PlayerStats[0].StatBaseValue++;
-			GameInformation.PlayerXP -= GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts];
-			_rhetoricBoosts++;
+			if (_rhetoricBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts])
+			{
+				GameInformation.PlayerStats[0].StatBaseValue++;
+				GameInformation.PlayerXP -= GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts];
+				_rhetoricBoosts++;
+				GameInformation.PlayerBoosts[0] = _rhetoricBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
 		} else if (ID == 1) 
 		{
-			GameInformation.PlayerStats[1].StatBaseValue++;
-			GameInformation.PlayerXP -= GameInformation.PlayerStats[1].StatCost[_imageBoosts];
-			_imageBoosts++;
+			if (_imageBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[1].StatCost[_imageBoosts])
+			{
+				GameInformation.PlayerStats[1].StatBaseValue++;
+				GameInformation.PlayerXP -= GameInformation.PlayerStats[1].StatCost[_imageBoosts];
+				_imageBoosts++;
+				GameInformation.PlayerBoosts[1] = _imageBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
 		} else if (ID == 2) 
 		{
-			GameInformation.PlayerStats[2].StatBaseValue++;
-			GameInformation.PlayerXP -= GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts];
-			_diplomacyBoosts++;
+			if (_diplomacyBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts])
+			{
+				GameInformation.PlayerStats[2].StatBaseValue++;
+				GameInformation.PlayerXP -= GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts];
+				_diplomacyBoosts++;
+				GameInformation.PlayerBoosts[2] = _diplomacyBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
 		} else if (ID == 3) 
 		{
-			GameInformation.PlayerStats[3].StatBaseValue += 15;
-			GameInformation.PlayerXP -= GameInformation.PlayerStats[3].StatCost[_healthBoosts];
-			_healthBoosts++;
+			if (_healthBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[3].StatCost[_healthBoosts])
+			{
+				GameInformation.PlayerStats[3].StatBaseValue++;
+				GameInformation.PlayerXP -= GameInformation.PlayerStats[3].StatCost[_healthBoosts];
+				_healthBoosts++;
+				GameInformation.PlayerBoosts[3] = _healthBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
 		} else if (ID == 4) 
 		{
-			GameInformation.PlayerStats[4].StatBaseValue += 10;
-			GameInformation.PlayerXP -= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts];
-			_ambitionBoosts++;
+			if (_ambitionBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[4].StatCost[_ambitionBoosts])
+			{
+				GameInformation.PlayerStats[4].StatBaseValue++;
+				GameInformation.PlayerXP -= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts];
+				_ambitionBoosts++;
+				GameInformation.PlayerBoosts[4] = _ambitionBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
 		} else if (ID == 5) 
 		{
-			GameInformation.PlayerStats[5].StatBaseValue++;
-			GameInformation.PlayerXP -= GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts];
-			_eloquenceBoosts++;
+			if (_eloquenceBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts])
+			{
+				GameInformation.PlayerStats[5].StatBaseValue++;
+				GameInformation.PlayerXP -= GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts];
+				_eloquenceBoosts++;
+				GameInformation.PlayerBoosts[5] = _eloquenceBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
 		}
 		
+		SaveInformation.SaveAllInformation();
+	}
+
+	public void IncreaseAbilityScore(int ID)
+	{
+		if (ID == 1)
+		{
+			if (_activeBoosts < GameInformation.PlayerClass.ClassAbilities[1].AbilityMaxRank && 
+				GameInformation.PlayerXP > GameInformation.PlayerClass.ClassAbilities[1].AbilityXPToLevel[_activeBoosts])
+			{
+				GameInformation.PlayerClass.ClassAbilities[1].AbilityCurrentRank++;
+				GameInformation.PlayerXP -= GameInformation.PlayerClass.ClassAbilities[1].AbilityXPToLevel[_activeBoosts];
+				_activeBoosts++;
+				GameInformation.PlayerBoosts[6] = _activeBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
+		} else if (ID == 2)
+		{
+			if (_passiveBoosts < GameInformation.PlayerClass.ClassAbilities[2].AbilityMaxRank && 
+				GameInformation.PlayerXP > GameInformation.PlayerClass.ClassAbilities[2].AbilityXPToLevel[_passiveBoosts])
+			{
+				GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank++;
+				GameInformation.PlayerXP -= GameInformation.PlayerClass.ClassAbilities[2].AbilityXPToLevel[_passiveBoosts];
+				_passiveBoosts++;
+				GameInformation.PlayerBoosts[7] = _passiveBoosts;
+			} else 
+			{
+				Debug.Log("max rank reached or not enough xp");	
+			}
+		}
 
 		SaveInformation.SaveAllInformation();
 	}

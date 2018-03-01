@@ -9,6 +9,7 @@ public class BaseItem
 
 	private string _name;
 	private string _description;
+	private string _useText;
 	private int _ID;
 	private int _value;
 	private List<BaseStat> _stats = new List<BaseStat>();
@@ -21,6 +22,7 @@ public class BaseItem
 
 		_name = itemDictionary["Name"];
 		_description = itemDictionary["Description"];
+		_useText = itemDictionary["UseText"];
 		_ID = int.Parse(itemDictionary["ID"]);
 		_value = int.Parse(itemDictionary["Value"]);
 		_type = (ItemTypes)System.Enum.Parse(typeof(BaseItem.ItemTypes), itemDictionary["Type"].ToString());
@@ -55,6 +57,12 @@ public class BaseItem
 	{
 		get { return _description; }
 		set { _description = value;}
+	}
+
+	public string ItemUseText
+	{
+		get { return _useText; }
+		set { _useText = value;}
 	}
 
 	public int ItemID 

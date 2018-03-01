@@ -38,6 +38,11 @@ public class SaveInformation
             PPSerialization.Save("PLAYER_INVENTORY", GameInformation.PlayerInventory);
         }
 
+        if (GameInformation.PlayerBoosts != null)
+        {
+            PPSerialization.Save("PLAYER_BOOSTS", GameInformation.PlayerBoosts);
+        }
+
         // if (GameInformation.PlayerPortrait != null)
         // {
         //     PPSerialization.Save("PLAYER_PORTRAIT", GameInformation.PlayerPortrait);
