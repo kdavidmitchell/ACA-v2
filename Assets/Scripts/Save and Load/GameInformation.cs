@@ -18,6 +18,7 @@ public class GameInformation : MonoBehaviour
     private static List<BaseItem> _playerInventory;
     private static Image _playerPortrait;
     private static int[] _boosts = new int[8];
+    private static BaseEnemy _enemy;
 
     public static string PlayerName
     {
@@ -83,6 +84,12 @@ public class GameInformation : MonoBehaviour
     {
         get { return _boosts; }
         set { _boosts = value; }
+    }
+
+    public static BaseEnemy Enemy
+    {
+        get { return _enemy; }
+        set { _enemy = value; }
     }
 
     void Awake()

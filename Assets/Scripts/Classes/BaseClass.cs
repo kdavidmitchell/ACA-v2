@@ -61,6 +61,39 @@ public class BaseClass
 		_abilities = null;
 	}
 
+	public BaseClass(ClassTypes type, List<BaseClass> classes)
+	{
+		if (type == ClassTypes.GLADHANDER)
+		{
+			_name = classes[0].ClassName;
+			_description = classes[0].ClassDescription;
+			_ID = classes[0].ClassID;
+			_type = type;
+			_stats = classes[0].ClassStats;
+			_abilities = classes[0].ClassAbilities;
+		}
+
+		if (type == ClassTypes.CHIEF)
+		{
+			_name = classes[1].ClassName;
+			_description = classes[1].ClassDescription;
+			_ID = classes[1].ClassID;
+			_type = type;
+			_stats = classes[1].ClassStats;
+			_abilities = classes[1].ClassAbilities;
+		}
+
+		if (type == ClassTypes.SOPHIST)
+		{
+			_name = classes[2].ClassName;
+			_description = classes[2].ClassDescription;
+			_ID = classes[2].ClassID;
+			_type = type;
+			_stats = classes[2].ClassStats;
+			_abilities = classes[2].ClassAbilities;
+		}
+	}
+
 	public string ClassName
 	{
 		get { return _name; }

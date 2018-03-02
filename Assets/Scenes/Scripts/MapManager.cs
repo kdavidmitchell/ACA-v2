@@ -19,6 +19,11 @@ public class MapManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	
+		//TESTING ONLY
+		GameInformation.Enemy = EnemyDB.enemies[0];
+		Debug.Log(GameInformation.Enemy.EnemyClass.ClassAbilities[0].AbilityCost[1]);
+		SaveInformation.SaveAllInformation();
+
 		for (int i = 0; i < QuestDB.quests.Count; i++) 
 		{
 			_pins.Add(GameObject.Find("Quest_Pin_" + (i+1)));

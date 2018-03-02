@@ -43,6 +43,11 @@ public class SaveInformation
             PPSerialization.Save("PLAYER_BOOSTS", GameInformation.PlayerBoosts);
         }
 
+        if (GameInformation.Enemy != null)
+        {
+            PPSerialization.Save("ENEMY", GameInformation.Enemy);
+        }
+
         // if (GameInformation.PlayerPortrait != null)
         // {
         //     PPSerialization.Save("PLAYER_PORTRAIT", GameInformation.PlayerPortrait);

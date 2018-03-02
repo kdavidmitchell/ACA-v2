@@ -1,0 +1,43 @@
+<Enemies>
+	<Enemy>
+		<Name>Tipsy Banker</Name>
+		<ID>1</ID>
+		<Class>GLADHANDER</Class>
+		<Difficulty>1</Difficulty>
+	</Enemy>
+
+	<Enemy>
+		<Name>Conscientious Student</Name>
+		<ID>2</ID>
+		<Class>SOPHIST</Class>
+		<Difficulty>1</Difficulty>
+	</Enemy>
+
+	<Enemy>
+		<Name>Young Millennial</Name>
+		<ID>3</ID>
+		<Class>SOPHIST</Class>
+		<Difficulty>1</Difficulty>
+	</Enemy>
+
+	<Enemy>
+		<Name>Lazy Governor</Name>
+		<ID>4</ID>
+		<Class>GLADHANDER</Class>
+		<Difficulty>1</Difficulty>
+	</Enemy>
+
+	<Enemy>
+		<Name>Desperate Citizen</Name>
+		<ID>5</ID>
+		<Class>CHIEF</Class>
+		<Difficulty>1</Difficulty>
+	</Enemy>
+
+	<Enemy>
+		<Name>Disgruntled Sailor</Name>
+		<ID>6</ID>
+		<Class>CHIEF</Class>
+		<Difficulty>1</Difficulty>
+	</Enemy>
+</Enemies>

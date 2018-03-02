@@ -42,5 +42,10 @@ public class LoadInformation
         {
             GameInformation.PlayerBoosts = (int[])PPSerialization.Load("PLAYER_BOOSTS");
         }
+
+        if (PlayerPrefs.GetString("ENEMY") != null)
+        {
+            GameInformation.Enemy = (BaseEnemy)PPSerialization.Load("ENEMY");
+        }
     }
 }
