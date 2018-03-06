@@ -101,10 +101,10 @@ public class CombatStateMachine : MonoBehaviour
 				}
 				break;
 			case (BattleStates.LOSE):
-				LoseBattle();
+				//battleScreenManager.LoseBattle();
 				break;
 			case (BattleStates.WIN):
-                WinBattle();
+                //battleScreenManager.WinBattle();
 				break;
 		}	
 	}
@@ -122,14 +122,4 @@ public class CombatStateMachine : MonoBehaviour
 			currentState = BattleStates.END_TURN;
 		}
 	}
-
-	private void WinBattle()
-	{
-		Debug.Log("won battle");
-	}
-
-	private void LoseBattle()
-	{
-		Debug.Log("lost battle");
-	}	
 }

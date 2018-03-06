@@ -24,6 +24,8 @@ public class CCManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		PlayerPrefs.DeleteAll();
+
 		_confirmation1.SetActive(false);
 		_question2.SetActive(false);
 		_classesHolder.SetActive(false);

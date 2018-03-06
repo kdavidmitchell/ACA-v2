@@ -44,6 +44,13 @@ public class BattleCalculations
 
 	public int GetEnemyAbilityCost(BaseAbility ability)
 	{
-		return _ambitionCost = ability.AbilityCost[_enemy.EnemyDifficulty];
+		if (ability.AbilityCost[0] == 0)
+		{
+			return _ambitionCost = 0;
+		}
+		else 
+		{
+			return _ambitionCost = ability.AbilityCost[_enemy.EnemyDifficulty - 1];
+		}
 	}
 }

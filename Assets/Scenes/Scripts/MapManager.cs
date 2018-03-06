@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
 	{	
 		//TESTING ONLY
 		GameInformation.Enemy = EnemyDB.enemies[0];
-		//Debug.Log(GameInformation.Enemy.EnemyClass.ClassAbilities[0].AbilityCost[1]);
+
 		SaveInformation.SaveAllInformation();
 
 		for (int i = 0; i < QuestDB.quests.Count; i++) 
@@ -87,11 +87,36 @@ public class MapManager : MonoBehaviour
 
 	public static void RemovePinFromActiveList(int index)
 	{
-		_pins.RemoveAt(index - 1);
+		
+		
+		_pins.RemoveAt(ParseIndex(index));
 	}
 
 	public static void RemoveEventFromActiveList(int index)
 	{
 		_events.RemoveAt(index - 1);
+	}
+
+	public static int ParseIndex(int index)
+	{
+		int result;
+		GameObject pin = null;
+
+		for (int i = 1; i < 11; i++)
+		{
+			if (index == i)
+			{
+				foreach (GameObject _pin in _pins)
+				{
+					if (_pin.name == ("Quest_Pin_" + i))
+					{
+						pin = _pin;
+					}
+				}
+			}
+		}
+
+		result = _pins.IndexOf(pin);
+		return result;
 	}
 }

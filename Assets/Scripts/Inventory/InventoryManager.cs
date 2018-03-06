@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
 	public static List<GameObject> _inventorySlots = new List<GameObject>();
 	public GameObject inventoryPanel;
 
+	public static Text itemName;
 	public static Text itemDescription;
 	public static Text itemUseText;
 	public static Button useButton;
@@ -26,6 +27,7 @@ public class InventoryManager : MonoBehaviour
 			_inventorySlots.Add(GameObject.Find("Inventory_Slot_" + i));
 		}
 
+		itemName = GameObject.Find("Item_Name").GetComponent<Text>();
 		itemDescription = GameObject.Find("Item_Description").GetComponent<Text>();
 		itemUseText = GameObject.Find("Item_Use_Text").GetComponent<Text>();
 		useButton = GameObject.Find("Use_Button").GetComponent<Button>();
@@ -71,6 +73,7 @@ public class InventoryManager : MonoBehaviour
 	{
 		InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
 		InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
+		InventoryManager.itemName.text = _inventory[index].ItemName;
 
 		if (_inventory[index].ItemType == BaseItem.ItemTypes.CONSUMABLE)
 		{

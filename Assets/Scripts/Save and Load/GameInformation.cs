@@ -19,6 +19,8 @@ public class GameInformation : MonoBehaviour
     private static Image _playerPortrait;
     private static int[] _boosts = new int[8];
     private static BaseEnemy _enemy;
+    private static Quest _currentQuest;
+    private static int _passedChecks;
 
     public static string PlayerName
     {
@@ -90,6 +92,18 @@ public class GameInformation : MonoBehaviour
     {
         get { return _enemy; }
         set { _enemy = value; }
+    }
+
+    public static Quest CurrentQuest
+    {
+        get { return _currentQuest; }
+        set { _currentQuest = value; }
+    }
+
+    public static int PassedChecks
+    {
+        get { return _passedChecks; }
+        set { _passedChecks = value; }
     }
 
     void Awake()

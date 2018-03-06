@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleScreenManager : MonoBehaviour 
 {
@@ -17,6 +18,11 @@ public class BattleScreenManager : MonoBehaviour
 	private int _enemyMaxHealth;
 	private int _enemyMaxAmbition;
 
+	private Quest _quest;
+	private int _passedChecks;
+	private int _xpReward;
+	private int _followerReward;
+
 	public Text playerName;
 	public Text enemyName;
 	public Image playerHealthBar;
@@ -28,6 +34,11 @@ public class BattleScreenManager : MonoBehaviour
 	public int _playerAmbition;
 	public int _enemyHealth;
 	public int _enemyAmbition;
+
+	public GameObject capitulateScreen;
+	public Text capitulateText;
+	public GameObject winScreen;
+	public Text winText;
 	
 	// Use this for initialization
 	void Start () 
@@ -46,17 +57,23 @@ public class BattleScreenManager : MonoBehaviour
 		_enemyHealth = _enemyMaxHealth;
 		_enemyAmbition = _enemyMaxAmbition;
 
+		_quest = GameInformation.CurrentQuest;
+		_passedChecks = GameInformation.PassedChecks;
+
 		playerName.text = _playerName;
 		enemyName.text = _enemyName;
+
+		capitulateScreen.SetActive(false);
+		winScreen.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		playerHealthBar.fillAmount = _playerHealth / _playerMaxHealth;
-		playerAmbitionBar.fillAmount = _playerAmbition / _playerMaxAmbition;
-		enemyHealthBar.fillAmount = _enemyHealth / _enemyMaxHealth;
-		enemyAmbitionBar.fillAmount = _enemyAmbition / _enemyMaxAmbition;
+		playerHealthBar.fillAmount = (float)_playerHealth / _playerMaxHealth;
+		playerAmbitionBar.fillAmount = (float)_playerAmbition / _playerMaxAmbition;
+		enemyHealthBar.fillAmount = (float)_enemyHealth / _enemyMaxHealth;
+		enemyAmbitionBar.fillAmount = (float)_enemyAmbition / _enemyMaxAmbition;
 	}
 
 	public void NormalAttack()
@@ -78,6 +95,34 @@ public class BattleScreenManager : MonoBehaviour
 
 	public void Capitulate()
 	{
+		capitulateScreen.SetActive(true);
+		capitulateText.text = "You're going to lose " + (int)(0.1f * GameInformation.PlayerXP) + " XP and " + (int)(0.05f * GameInformation.PlayerMoney) + " dollars, but you'll keep yourself in the race, I guess.";
+	}
 
+	public void ConfirmCapitulation()
+	{
+		Debug.Log("lose screen");
+		GameInformation.PlayerXP -= (int)(0.1f * GameInformation.PlayerXP);
+		GameInformation.PlayerMoney -= (int)(0.1f * GameInformation.PlayerMoney);
+
+		ReturnToMap();
+
+	}
+
+	public void CancelCapitulation()
+	{
+		capitulateScreen.SetActive(false);
+	}
+
+	public void ReturnToMap()
+	{
+		SceneManager.LoadScene(2);
+	}
+
+	public void WinBattle()
+	{
+		winScreen.SetActive(true);
+
+		//QuestManager.CalculateXPReward(_quest, _passedChecks); 
 	}
 }

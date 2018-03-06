@@ -219,6 +219,25 @@ public class QuestManager : MonoBehaviour
 		}
 	}
 
+	private static int CalculateXPReward(Quest quest, int passedChecks)
+	{
+		if (quest.QuestXPReward.Count > 1)
+		{
+			if (passedChecks == 0)
+			{
+				return quest.QuestXPReward[2];
+			} else if (passedChecks == 1)
+			{
+				return quest.QuestXPReward[1];
+			} else if (passedChecks >= 2)
+			{
+				return quest.QuestXPReward[0];
+			}
+		}
+
+		return 0;
+	}
+
 	private void CalculateFollowerReward()
 	{
 		if (_quest.QuestFollowerReward.Count > 1)
@@ -234,6 +253,25 @@ public class QuestManager : MonoBehaviour
 				_followerReward = _quest.QuestFollowerReward[0];
 			}
 		}
+	}
+
+	private static int CalculateFollowerReward(Quest quest, int passedChecks)
+	{
+		if (quest.QuestFollowerReward.Count > 1)
+		{
+			if (passedChecks == 0)
+			{
+				return quest.QuestFollowerReward[2];
+			} else if (passedChecks == 1)
+			{
+				return quest.QuestFollowerReward[1];
+			} else if (passedChecks >= 2)
+			{
+				return quest.QuestFollowerReward[0];
+			}
+		}
+
+		return 0;
 	}
 
 	private void SaveAndUpdateHUD()
