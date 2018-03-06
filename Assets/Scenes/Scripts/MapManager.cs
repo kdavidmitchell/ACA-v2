@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
 	{	
 		//TESTING ONLY
 		GameInformation.Enemy = EnemyDB.enemies[0];
-		Debug.Log(GameInformation.Enemy.EnemyClass.ClassAbilities[0].AbilityCost[1]);
+		//Debug.Log(GameInformation.Enemy.EnemyClass.ClassAbilities[0].AbilityCost[1]);
 		SaveInformation.SaveAllInformation();
 
 		for (int i = 0; i < QuestDB.quests.Count; i++) 
