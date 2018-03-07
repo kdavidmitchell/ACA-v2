@@ -15,6 +15,7 @@ public class BaseItem
 	private List<BaseStat> _stats = new List<BaseStat>();
 	private List<int> _modifiers = new List<int>();
 	private ItemTypes _type;
+	private int _icon;
 
 	public BaseItem(Dictionary<string,string> itemDictionary)
 	{
@@ -26,6 +27,7 @@ public class BaseItem
 		_ID = int.Parse(itemDictionary["ID"]);
 		_value = int.Parse(itemDictionary["Value"]);
 		_type = (ItemTypes)System.Enum.Parse(typeof(BaseItem.ItemTypes), itemDictionary["Type"].ToString());
+		_icon = int.Parse(itemDictionary["Icon"]);
 
 		string[] tempStats = itemDictionary["Stats"].Split(delimiter, StringSplitOptions.None);
 		for (int i = 0; i < tempStats.Length; i++)
@@ -93,5 +95,11 @@ public class BaseItem
 	{
 		get { return _type; }
 		set { _type = value;}
+	}
+
+	public int ItemIcon
+	{
+		get { return _icon; }
+		set { _icon = value; }
 	}
 }

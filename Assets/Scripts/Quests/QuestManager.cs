@@ -23,6 +23,7 @@ public class QuestManager : MonoBehaviour
 
 	private int _xpReward;
 	private int _followerReward;
+	private BaseItem _itemReward;
 
 	public GameObject questFrame;
 	public Text questTitle;
@@ -176,6 +177,7 @@ public class QuestManager : MonoBehaviour
 		{
 			CalculateXPReward();
 			CalculateFollowerReward();
+			CalculateItemReward();
 			DisplayRewards();	
 		}
 
@@ -196,7 +198,14 @@ public class QuestManager : MonoBehaviour
 	private void DisplayRewards()
 	{
 		questTitle.text = "Favor completed!";
-		questText.text = "You've earned: " + _xpReward + " XP, " + _followerReward + " followers!";
+		questText.text = "You've earned: " + _xpReward + " XP, " + _followerReward + " followers";
+		if (_itemReward != null)
+		{
+			questText.text += ", and a " + _itemReward.ItemName + "!";
+		} else 
+		{
+			questText.text += "!";
+		}
 
 		Button exitButton = Instantiate(buttonPrefab);
 		exitButton.transform.parent = questFrame.transform;
@@ -301,15 +310,29 @@ public class QuestManager : MonoBehaviour
 		return 0;
 	}
 
+	private BaseItem CalculateItemReward()
+	{
+		if (_quest.QuestItemReward[0] != 0)
+		{
+			List<int> tempChoices = _quest.QuestItemReward;
+			_itemReward = ItemDB.items[tempChoices[Random.Range(0,tempChoices.Count)] - 1];
+		} else
+		{
+			_itemReward = null;
+		}
+
+		return _itemReward;
+	}
+
 	private void SaveAndUpdateHUD()
 	{
 		GameInformation.PlayerXP += _xpReward;
 		GameInformation.PlayerFollowers += _followerReward;
+		GameInformation.PlayerInventory.Add(_itemReward);
 
 		SaveInformation.SaveAllInformation();
 
 		followerLabel.text = GameInformation.PlayerFollowers.ToString();
-		Debug.Log(GameInformation.PlayerXP);
 	}
 
 	private void DisableQuest()

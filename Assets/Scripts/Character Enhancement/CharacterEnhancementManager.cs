@@ -115,7 +115,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 	{
 		if (ID == 0)
 		{
-			if (_rhetoricBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts])
+			if (_rhetoricBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts])
 			{
 				GameInformation.PlayerStats[0].StatBaseValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts];
@@ -127,7 +127,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			}
 		} else if (ID == 1) 
 		{
-			if (_imageBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[1].StatCost[_imageBoosts])
+			if (_imageBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[1].StatCost[_imageBoosts])
 			{
 				GameInformation.PlayerStats[1].StatBaseValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[1].StatCost[_imageBoosts];
@@ -139,7 +139,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			}
 		} else if (ID == 2) 
 		{
-			if (_diplomacyBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts])
+			if (_diplomacyBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts])
 			{
 				GameInformation.PlayerStats[2].StatBaseValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts];
@@ -151,7 +151,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			}
 		} else if (ID == 3) 
 		{
-			if (_healthBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[3].StatCost[_healthBoosts])
+			if (_healthBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[3].StatCost[_healthBoosts])
 			{
 				GameInformation.PlayerStats[3].StatBaseValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[3].StatCost[_healthBoosts];
@@ -163,7 +163,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			}
 		} else if (ID == 4) 
 		{
-			if (_ambitionBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[4].StatCost[_ambitionBoosts])
+			if (_ambitionBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts])
 			{
 				GameInformation.PlayerStats[4].StatBaseValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts];
@@ -175,7 +175,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			}
 		} else if (ID == 5) 
 		{
-			if (_eloquenceBoosts < 2 && GameInformation.PlayerXP > GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts])
+			if (_eloquenceBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts])
 			{
 				GameInformation.PlayerStats[5].StatBaseValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts];
@@ -195,7 +195,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 		if (ID == 1)
 		{
 			if (_activeBoosts < GameInformation.PlayerClass.ClassAbilities[1].AbilityMaxRank && 
-				GameInformation.PlayerXP > GameInformation.PlayerClass.ClassAbilities[1].AbilityXPToLevel[_activeBoosts])
+				GameInformation.PlayerXP >= GameInformation.PlayerClass.ClassAbilities[1].AbilityXPToLevel[_activeBoosts])
 			{
 				GameInformation.PlayerClass.ClassAbilities[1].AbilityCurrentRank++;
 				GameInformation.PlayerXP -= GameInformation.PlayerClass.ClassAbilities[1].AbilityXPToLevel[_activeBoosts];
@@ -208,7 +208,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 		} else if (ID == 2)
 		{
 			if (_passiveBoosts < GameInformation.PlayerClass.ClassAbilities[2].AbilityMaxRank && 
-				GameInformation.PlayerXP > GameInformation.PlayerClass.ClassAbilities[2].AbilityXPToLevel[_passiveBoosts])
+				GameInformation.PlayerXP >= GameInformation.PlayerClass.ClassAbilities[2].AbilityXPToLevel[_passiveBoosts])
 			{
 				GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank++;
 				GameInformation.PlayerXP -= GameInformation.PlayerClass.ClassAbilities[2].AbilityXPToLevel[_passiveBoosts];

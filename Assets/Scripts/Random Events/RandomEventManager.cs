@@ -20,6 +20,7 @@ public class RandomEventManager : MonoBehaviour
 	private int _xpReward;
 	private int _moneyReward;
 	private int _followerReward;
+	private BaseItem _itemReward;
 
 	public GameObject questFrame;
 	public Text questTitle;
@@ -130,7 +131,7 @@ public class RandomEventManager : MonoBehaviour
 				{
 					button.onClick.AddListener(() => DisableQuest());
 					button.onClick.AddListener(() => MapManager.RemoveEventFromActiveList(_event.EventID));
-					button.onClick.AddListener(() => LoadDebate(_event.EventEnemy, _event.EventXPReward, _event.EventFollowersReward, _event.EventItemReward));
+					button.onClick.AddListener(() => LoadDebate(_event.EventEnemy, _event.EventXPReward, _event.EventFollowersReward));
 				} else 
 				{
 					button.onClick.AddListener(() => _resolution = _event.EventResolution1);
@@ -153,10 +154,18 @@ public class RandomEventManager : MonoBehaviour
 
 		if (_passedCheck && !_hasCombat)
 		{
-			questText.text += "Wow! You've earned: " + _xpReward + " XP, " + _followerReward + " followers, and " + _moneyReward + " dollars!";
+			questText.text += "Wow! You've earned: " + _xpReward + " XP, " + _followerReward + " followers, " + _moneyReward + " dollars";
+			if (_itemReward != null)
+			{
+				questText.text += ", and a " + _itemReward.ItemName + "!";
+			}
 		} else if (_passedCheck && _hasCombat)
 		{
 			questText.text += "Wow! You've earned: " + _xpReward + " XP, and " + _followerReward + " followers!";
+			if (_itemReward != null)
+			{
+				questText.text += ", and a " + _itemReward.ItemName + "!";
+			}
 		} else if (!_passedCheck && !_hasCombat)
 		{
 			questText.text += "You feel like you might have gotten more from this had you been more skilled. But hey, " + _moneyReward + " bucks ain't bad.";
@@ -197,13 +206,19 @@ public class RandomEventManager : MonoBehaviour
 			_xpReward = _event.EventXPReward;
 			_moneyReward = _event.EventMoneyReward;
 			_followerReward = _event.EventFollowersReward;
-			//_itemReward = _event.EventItemReward;
+			if (_event.EventItemReward != 0)
+			{
+				_itemReward = ItemDB.items[Random.Range(0, ItemDB.items.Count)];
+			} else 
+			{
+				_itemReward = null;		
+			}
 		} else
 		{
 			_xpReward = 0;
 			_followerReward = 0;
 			_moneyReward = _event.EventMoneyReward;
-			//_itemReward = _event.EventItemReward;
+			_itemReward = null;
 		}
 	}
 
@@ -212,6 +227,7 @@ public class RandomEventManager : MonoBehaviour
 		GameInformation.PlayerXP += _xpReward;
 		GameInformation.PlayerMoney += _moneyReward;
 		GameInformation.PlayerFollowers += _followerReward;
+		GameInformation.PlayerInventory.Add(_itemReward);
 
 		SaveInformation.SaveAllInformation();
 
@@ -224,12 +240,12 @@ public class RandomEventManager : MonoBehaviour
 		questFrame.SetActive(false);
 	}
 
-	private void LoadDebate(int enemyIndex, int xpReward, int followerReward, int itemIndex)
+	private void LoadDebate(int enemyIndex, int xpReward, int followerReward)
 	{
 		GameInformation.Enemy = EnemyDB.enemies[enemyIndex - 1];
 		GameInformation.EventXPReward = xpReward;
 		GameInformation.EventFollowersReward = followerReward;
-		//GameInformation.EventItemReward = itemIndex;
+		GameInformation.EventItemReward = ItemDB.items[Random.Range(0, ItemDB.items.Count)];
 
 		SaveInformation.SaveAllInformation();
 

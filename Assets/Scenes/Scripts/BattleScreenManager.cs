@@ -22,6 +22,7 @@ public class BattleScreenManager : MonoBehaviour
 	private int _passedChecks;
 	private int _xpReward;
 	private int _followerReward;
+	private BaseItem _itemReward;
 
 	public Text playerName;
 	public Text enemyName;
@@ -137,7 +138,8 @@ public class BattleScreenManager : MonoBehaviour
 		winScreen.SetActive(true);
 		int xp = GameInformation.EventXPReward;
 		int followers = GameInformation.EventFollowersReward;
-		winText.text = "Congratulations! You've earned: " + xp + " XP, and " + followers + " followers!";
+		BaseItem item = GameInformation.EventItemReward;
+		winText.text = "Congratulations! You've earned: " + xp + " XP, " + followers + " followers, and a " + item.ItemName + "!";
 	}
 
 	public void UpdateInformationFromQuestAndReturn()
@@ -156,10 +158,11 @@ public class BattleScreenManager : MonoBehaviour
 	{
 		int xp = GameInformation.EventXPReward;
 		int followers = GameInformation.EventFollowersReward;
-		//int item = GameInformation.EventItemReward;
+		BaseItem item = GameInformation.EventItemReward;
 
 		GameInformation.PlayerXP += xp;
 		GameInformation.PlayerFollowers += followers;
+		GameInformation.PlayerInventory.Add(item);
 		SaveInformation.SaveAllInformation();
 
 		ReturnToMap();

@@ -7,16 +7,17 @@ public class InventoryManager : MonoBehaviour
 {
 
 	private bool _inventoryIsActive;
-	private List<BaseItem> _equippedItems = new List<BaseItem>();
 	
+	public static List<BaseItem> _equippedItems = new List<BaseItem>();
 	public static List<BaseItem> _inventory = new List<BaseItem>();
 	public static List<GameObject> _inventorySlots = new List<GameObject>();
+	public static List<GameObject> _inventorySlotIcons = new List<GameObject>();
+	public static List<GameObject> _equipmentSlotIcons = new List<GameObject>();
 	public GameObject inventoryPanel;
 
 	public static Text itemName;
 	public static Text itemDescription;
 	public static Text itemUseText;
-	public static Button useButton;
 
 	public static InventoryManager instance = null;
 
@@ -40,20 +41,26 @@ public class InventoryManager : MonoBehaviour
 		for (int i = 0; i < 16; i++) 
 		{
 			_inventorySlots.Add(GameObject.Find("Inventory_Slot_" + i));
+			_inventorySlotIcons.Add(GameObject.Find("Inventory_Slot_" + i + "_Icon"));
 		}
+
+		_equipmentSlotIcons.Add(GameObject.Find("Head_Slot_Item_Icon"));
+		_equipmentSlotIcons.Add(GameObject.Find("Body_Slot_Item_Icon"));
+		_equipmentSlotIcons.Add(GameObject.Find("Weapon_Slot_Item_Icon"));
+		_equipmentSlotIcons.Add(GameObject.Find("Accessory_Slot_Item_Icon"));
+		_equipmentSlotIcons.Add(GameObject.Find("Feet_Slot_Item_Icon"));
 
 		itemName = GameObject.Find("Item_Name").GetComponent<Text>();
 		itemDescription = GameObject.Find("Item_Description").GetComponent<Text>();
 		itemUseText = GameObject.Find("Item_Use_Text").GetComponent<Text>();
-		useButton = GameObject.Find("Use_Button").GetComponent<Button>();
 
 		inventoryPanel.SetActive(false);
 		_inventoryIsActive = false;
 
 		GameInformation.PlayerInventory = new List<BaseItem>();
-		GameInformation.PlayerInventory.Add(ItemDB.items[0]);
-		GameInformation.PlayerInventory.Add(ItemDB.items[2]);
-		GameInformation.PlayerInventory.Add(ItemDB.items[5]);
+		GameInformation.PlayerEquippedItems = new List<BaseItem>();
+		_inventory = new List<BaseItem>();
+		_equippedItems = new List<BaseItem>();
 	}
 	
 	// Update is called once per frame
@@ -67,8 +74,29 @@ public class InventoryManager : MonoBehaviour
 
 		if (_inventoryIsActive)
 		{
+			LoadInformation.LoadAllInformation();
+
 			_equippedItems = GameInformation.PlayerEquippedItems;
 			_inventory = GameInformation.PlayerInventory;
+
+			for (int i = 0; i < _inventory.Count; i++) 
+			{
+				Color c;
+				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
+				c = itemImage.color;
+				c.a = 1;
+				itemImage.color = c;
+				itemImage.sprite = IconDB._icons[_inventory[i].ItemIcon];
+			}
+
+			for (int i = _inventory.Count; i < _inventorySlots.Count; i++) 
+			{
+				Color c;
+				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
+				c = itemImage.color;
+				c.a = 0;
+				itemImage.color = c;
+			}
 		}
 	}
 
@@ -86,16 +114,100 @@ public class InventoryManager : MonoBehaviour
 
 	public static void UpdateInformation(int index)
 	{
-		InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
-		InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
-		InventoryManager.itemName.text = _inventory[index].ItemName;
-
-		if (_inventory[index].ItemType == BaseItem.ItemTypes.CONSUMABLE)
+		if (index >= _inventory.Count)
 		{
-			useButton.interactable = true;
+			return;
 		} else 
 		{
-			useButton.interactable = false;
+			if (_inventory[index].ItemType != BaseItem.ItemTypes.CONSUMABLE)
+		{
+			InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
+			InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
+			InventoryManager.itemName.text = _inventory[index].ItemName;
+
+			for (int i = 0; i < _inventory[index].ItemStats.Count; i++) 
+			{
+				InventoryManager.itemUseText.text += "\n" + _inventory[index].ItemModifiers[i] + " " + _inventory[index].ItemStats[i].StatName; 
+			}
+		} else 
+		{
+			InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
+			InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
+			InventoryManager.itemName.text = _inventory[index].ItemName;
+		}	
+		}
+	}
+
+	public static void EquipItem(int id)
+	{
+		InventoryManager._equippedItems.Add(InventoryManager._inventory[FindItemIndexFromID(id)]);
+
+		GameInformation.PlayerInventory = InventoryManager._inventory;
+		GameInformation.PlayerEquippedItems = InventoryManager._equippedItems;
+		AddItemBonusesToPlayerStats(InventoryManager._inventory[FindItemIndexFromID(id)]);
+		
+		InventoryManager._inventory.RemoveAt(FindItemIndexFromID(id));
+		SaveInformation.SaveAllInformation();
+		UpdateInventory();
+	}
+
+	public static int FindItemIndexFromID(int id)
+	{
+		foreach (BaseItem item in InventoryManager._inventory)
+		{
+			if (item.ItemID == id)
+			{
+				return InventoryManager._inventory.IndexOf(item);
+			}
+		}
+		return 0;
+	}
+
+	public static void UpdateInventory()
+	{
+		LoadInformation.LoadAllInformation();
+
+		InventoryManager._equippedItems = GameInformation.PlayerEquippedItems;
+		InventoryManager._inventory = GameInformation.PlayerInventory;
+
+		for (int i = 0; i < _inventory.Count; i++) 
+		{
+			Color c;
+			Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
+			c = itemImage.color;
+			c.a = 1;
+			itemImage.color = c;
+			itemImage.sprite = IconDB._icons[_inventory[i].ItemIcon];
+		}
+
+		for (int i = _inventory.Count; i < _inventorySlots.Count; i++) 
+		{
+			Color c;
+			Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
+			c = itemImage.color;
+			c.a = 0;
+			itemImage.color = c;
+		}
+
+		SaveInformation.SaveAllInformation();
+	}
+
+	public static void AddItemBonusesToPlayerStats(BaseItem item)
+	{
+		for (int i = 0; i < item.ItemStats.Count; i++) 
+		{
+			BaseStat statToBeModified = item.ItemStats[i];
+			int modifier = item.ItemModifiers[i];
+
+			for (int j = 0; j < GameInformation.PlayerStats.Count; j++) 
+			{
+				if (statToBeModified.StatName == GameInformation.PlayerStats[j].StatName)
+				{
+					Debug.Log(GameInformation.PlayerStats[j].StatModifiedValue);
+					GameInformation.PlayerStats[j].StatModifiedValue += modifier;
+					Debug.Log(GameInformation.PlayerStats[j].StatModifiedValue);
+				}
+			}
 		}
 	}
 }

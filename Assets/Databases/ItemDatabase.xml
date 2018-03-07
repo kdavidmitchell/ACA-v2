@@ -8,6 +8,7 @@
 		<Value>10</Value>
 		<Stats>AMBITION</Stats>
 			<Modifier>10</Modifier>
+		<Icon>0</Icon>
 	</Item>
 
 	<Item>
@@ -19,6 +20,7 @@
 		<Value>10</Value>
 		<Stats>HEALTH</Stats>
 			<Modifier>10</Modifier>
+		<Icon>1</Icon>
 	</Item>
 
 	<Item>
@@ -31,6 +33,7 @@
 		<Value>30</Value>
 		<Stats>IMAGE</Stats>
 			<Modifier>1</Modifier>
+		<Icon>7</Icon>
 	</Item>
 
 	<Item>
@@ -43,6 +46,7 @@
 		<Value>30</Value>
 		<Stats>DIPLOMACY</Stats>
 			<Modifier>1</Modifier>
+		<Icon>7</Icon>
 	</Item>
 
 	<Item>
@@ -55,6 +59,7 @@
 		<Value>30</Value>
 		<Stats>RHETORIC</Stats>
 			<Modifier>1</Modifier>
+		<Icon>7</Icon>
 	</Item>
 
 	<Item>
@@ -69,6 +74,7 @@
 			<Modifier>-1</Modifier>
 		<Stats>IMAGE</Stats>
 			<Modifier>1</Modifier>
+		<Icon>8</Icon>
 	</Item>
 
 	<Item>
@@ -83,6 +89,7 @@
 			<Modifier>1</Modifier>
 		<Stats>IMAGE</Stats>
 			<Modifier>-1</Modifier>
+		<Icon>9</Icon>
 	</Item>
 
 	<Item>
@@ -97,6 +104,7 @@
 			<Modifier>1</Modifier>
 		<Stats>IMAGE</Stats>
 			<Modifier>-1</Modifier>
+		<Icon>10</Icon>
 	</Item>
 
 	<Item>
@@ -111,6 +119,7 @@
 			<Modifier>-1</Modifier>
 		<Stats>IMAGE</Stats>
 			<Modifier>2</Modifier>
+		<Icon>6</Icon>
 	</Item>
 
 	<Item>
@@ -125,6 +134,7 @@
 			<Modifier>2</Modifier>
 		<Stats>RHETORIC</Stats>
 			<Modifier>-1</Modifier>
+		<Icon>6</Icon>
 	</Item>
 
 	<Item>
@@ -139,6 +149,7 @@
 			<Modifier>-1</Modifier>
 		<Stats>RHETORIC</Stats>
 			<Modifier>2</Modifier>
+		<Icon>6</Icon>
 	</Item>
 
 	<Item>
@@ -153,6 +164,7 @@
 			<Modifier>2</Modifier>
 		<Stats>RHETORIC</Stats>
 			<Modifier>-1</Modifier>
+		<Icon>3</Icon>
 	</Item>
 
 	<Item>
@@ -167,6 +179,7 @@
 			<Modifier>2</Modifier>
 		<Stats>RHETORIC</Stats>
 			<Modifier>-1</Modifier>
+		<Icon>4</Icon>
 	</Item>
 
 	<Item>
@@ -181,6 +194,7 @@
 			<Modifier>-1</Modifier>
 		<Stats>RHETORIC</Stats>
 			<Modifier>2</Modifier>
+		<Icon>2</Icon>
 	</Item>
 
 	<Item>
@@ -195,6 +209,7 @@
 			<Modifier>-1</Modifier>
 		<Stats>RHETORIC</Stats>
 			<Modifier>2</Modifier>
+		<Icon>5</Icon>
 	</Item>
 
 	<Item>
@@ -209,6 +224,7 @@
 			<Modifier>-1</Modifier>
 		<Stats>IMAGE</Stats>
 			<Modifier>2</Modifier>
+		<Icon>5</Icon>
 	</Item>
 
 	<Item>
@@ -223,6 +239,7 @@
 			<Modifier>2</Modifier>
 		<Stats>IMAGE</Stats>
 			<Modifier>-1</Modifier>
+		<Icon>5</Icon>
 	</Item>
 </Items>
 

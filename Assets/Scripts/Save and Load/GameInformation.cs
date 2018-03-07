@@ -23,7 +23,7 @@ public class GameInformation : MonoBehaviour
     private static int _passedChecks;
     private static int _eventXPReward;
     private static int _eventFollowersReward;
-    private static int _eventItemReward;
+    private static BaseItem _eventItemReward;
 
     public static string PlayerName
     {
@@ -121,7 +121,7 @@ public class GameInformation : MonoBehaviour
         set { _eventFollowersReward = value; }
     }
 
-    public static int EventItemReward
+    public static BaseItem EventItemReward
     {
         get { return _eventItemReward; }
         set { _eventItemReward = value; }

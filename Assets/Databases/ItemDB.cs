@@ -87,6 +87,9 @@ public class ItemDB : MonoBehaviour
 						break;
 					case "Modifier":
 						itemModifiers.Add(content.InnerText);
+						break;
+					case "Icon":
+						itemDictionary.Add("Icon", content.InnerText);
 						break;			
 				}
 			}
