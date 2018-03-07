@@ -21,6 +21,9 @@ public class GameInformation : MonoBehaviour
     private static BaseEnemy _enemy;
     private static Quest _currentQuest;
     private static int _passedChecks;
+    private static int _eventXPReward;
+    private static int _eventFollowersReward;
+    private static int _eventItemReward;
 
     public static string PlayerName
     {
@@ -104,6 +107,24 @@ public class GameInformation : MonoBehaviour
     {
         get { return _passedChecks; }
         set { _passedChecks = value; }
+    }
+
+    public static int EventXPReward
+    {
+        get { return _eventXPReward; }
+        set { _eventXPReward = value; }
+    }
+
+    public static int EventFollowersReward
+    {
+        get { return _eventFollowersReward; }
+        set { _eventFollowersReward = value; }
+    }
+
+    public static int EventItemReward
+    {
+        get { return _eventItemReward; }
+        set { _eventItemReward = value; }
     }
 
     void Awake()

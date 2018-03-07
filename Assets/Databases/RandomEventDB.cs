@@ -97,6 +97,9 @@ public class RandomEventDB : MonoBehaviour
 						break;
 					case "Item":
 						eventDictionary.Add("Item", content.InnerText);
+						break;
+					case "Enemy":
+						eventDictionary.Add("Enemy", content.InnerText);
 						break;			
 				}
 			}

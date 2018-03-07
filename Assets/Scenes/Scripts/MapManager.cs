@@ -8,33 +8,35 @@ public class MapManager : MonoBehaviour
 
 	public static List<GameObject> _pins = new List<GameObject>();
 	public static List<RandomEvent> _events = new List<RandomEvent>();
+	public static MapManager instance = null;
 	
 	public GameObject _questFrame;
 
 	void Awake()
 	{
+		if (instance == null)
+		{
+			instance = this;
+		} else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+
 		LoadInformation.LoadAllInformation();
 	}
 
 	// Use this for initialization
 	void Start () 
 	{	
-		//TESTING ONLY
-		GameInformation.Enemy = EnemyDB.enemies[0];
-
 		SaveInformation.SaveAllInformation();
-
-		for (int i = 0; i < QuestDB.quests.Count; i++) 
-		{
-			_pins.Add(GameObject.Find("Quest_Pin_" + (i+1)));
-		}
 
 		_events = RandomEventDB.events;
 
 		QuestPinSetup();
-		DisableAllPinHovers();
-
-		DontDestroyOnLoad(gameObject);	
+		
+		DisableAllPinHovers();	
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,11 @@ public class MapManager : MonoBehaviour
 
 	private void QuestPinSetup()
 	{	
+		for (int i = 0; i < QuestDB.quests.Count; i++) 
+		{
+			_pins.Add(GameObject.Find("Quest_Pin_" + (i+1)));
+		}
+
 		for (int i = 0; i < QuestDB.quests.Count; i++) 
 		{
 			QuestPin pin;
@@ -87,14 +94,12 @@ public class MapManager : MonoBehaviour
 
 	public static void RemovePinFromActiveList(int index)
 	{
-		
-		
 		_pins.RemoveAt(ParseIndex(index));
 	}
 
-	public static void RemoveEventFromActiveList(int index)
+	public static void RemoveEventFromActiveList(int id)
 	{
-		_events.RemoveAt(index - 1);
+		_events.RemoveAt(ParseEventIndex(id));
 	}
 
 	public static int ParseIndex(int index)
@@ -117,6 +122,25 @@ public class MapManager : MonoBehaviour
 		}
 
 		result = _pins.IndexOf(pin);
+		return result;
+	}
+
+	public static int ParseEventIndex(int id)
+	{
+		int result;
+		RandomEvent randomEvent = null;
+		Debug.Log(id);
+
+		foreach (RandomEvent _event in _events)
+		{
+			Debug.Log(_event.EventID);
+			if (_event.EventID == id)
+			{
+				randomEvent = _event;
+			}
+		}
+
+		result = _events.IndexOf(randomEvent);
 		return result;
 	}
 }

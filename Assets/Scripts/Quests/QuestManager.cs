@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour 
 {
@@ -121,6 +122,7 @@ public class QuestManager : MonoBehaviour
 
 			Text buttonText = button.GetComponentInChildren<Text>();
 			buttonText.fontSize = 8;
+			
 			if (tempCheck != 0)
 			{
 				buttonText.text = responses.Dequeue() + " " + "(" + _playerPassiveName + " " + checks.Dequeue() + ")";
@@ -131,14 +133,27 @@ public class QuestManager : MonoBehaviour
 				{
 					button.interactable = true;
 					button.onClick.AddListener(() => _passedChecks++);
+					button.onClick.AddListener(() => Next());
 				}
 			} else if (tempCheck == 0)
 			{
-				buttonText.text = responses.Dequeue();
+				buttonText.text = responses.Peek();
 				checks.Dequeue();
-			}
 
-			button.onClick.AddListener(() => Next());
+				if (_quest.QuestCombat && responses.Peek() == "DEBATE!")
+				{	
+					button.onClick.AddListener(() => DisableQuest());
+					button.onClick.AddListener(() => MapManager.RemovePinFromActiveList(_quest.QuestID));
+					button.onClick.AddListener(() => MapManager.EnableActivePins());
+					button.onClick.AddListener(() => BattleScreenManager.isQuest = true);
+					button.onClick.AddListener(() => LoadDebate(_quest, _passedChecks));
+				} else 
+				{
+					button.onClick.AddListener(() => Next());
+				}
+
+				responses.Dequeue();
+			}
 		}
 	}
 
@@ -216,10 +231,13 @@ public class QuestManager : MonoBehaviour
 			{
 				_xpReward = _quest.QuestXPReward[0];
 			}
+		} else
+		{
+			_xpReward = _quest.QuestXPReward[0];
 		}
 	}
 
-	private static int CalculateXPReward(Quest quest, int passedChecks)
+	public static int CalculateXPReward(Quest quest, int passedChecks)
 	{
 		if (quest.QuestXPReward.Count > 1)
 		{
@@ -233,6 +251,9 @@ public class QuestManager : MonoBehaviour
 			{
 				return quest.QuestXPReward[0];
 			}
+		} else
+		{
+			return quest.QuestXPReward[0];
 		}
 
 		return 0;
@@ -252,10 +273,13 @@ public class QuestManager : MonoBehaviour
 			{
 				_followerReward = _quest.QuestFollowerReward[0];
 			}
+		} else
+		{
+			_followerReward = _quest.QuestFollowerReward[0];
 		}
 	}
 
-	private static int CalculateFollowerReward(Quest quest, int passedChecks)
+	public static int CalculateFollowerReward(Quest quest, int passedChecks)
 	{
 		if (quest.QuestFollowerReward.Count > 1)
 		{
@@ -269,6 +293,9 @@ public class QuestManager : MonoBehaviour
 			{
 				return quest.QuestFollowerReward[0];
 			}
+		} else
+		{
+			return quest.QuestFollowerReward[0];
 		}
 
 		return 0;
@@ -288,5 +315,15 @@ public class QuestManager : MonoBehaviour
 	private void DisableQuest()
 	{
 		questFrame.SetActive(false);
+	}
+
+	private void LoadDebate(Quest quest, int passedChecks)
+	{
+		GameInformation.CurrentQuest = quest;
+		GameInformation.PassedChecks = passedChecks;
+		GameInformation.Enemy = EnemyDB.enemies[5];
+
+		SaveInformation.SaveAllInformation();
+		SceneManager.LoadScene(3);
 	}
 }

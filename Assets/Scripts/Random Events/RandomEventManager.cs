@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RandomEventManager : MonoBehaviour 
 {
@@ -27,6 +28,21 @@ public class RandomEventManager : MonoBehaviour
 	public Text moneyLabel;
 	public Text followerLabel;
 
+	public static RandomEventManager instance = null;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		} else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -45,7 +61,6 @@ public class RandomEventManager : MonoBehaviour
 
 		int temp = Random.Range(0,MapManager._events.Count);
 		_event = MapManager._events[temp];
-		MapManager._events.RemoveAt(temp);
 
 		questFrame.SetActive(true);
 		questTitle.text = _event.EventTitle;
@@ -77,46 +92,54 @@ public class RandomEventManager : MonoBehaviour
 
 	private void CreateButtons(bool hasCombat, int num, Queue<string> options, Queue<int> checks)
 	{
-		if (!hasCombat)
+		for (int i = 1; i < num + 1; i++)
 		{
-			for (int i = 1; i < num + 1; i++)
+			int tempCheck = checks.Peek();
+
+			Button button = Instantiate(buttonPrefab);
+			button.transform.parent = questFrame.transform;
+			
+			Vector2 temp = new Vector2();
+			temp.y = questFrame.transform.position.y - 50 - (50 * i);
+			temp.x = questFrame.transform.position.x;
+			button.transform.position = temp;
+			button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+
+			Text buttonText = button.GetComponentInChildren<Text>();
+			buttonText.fontSize = 8;
+
+			if (tempCheck != 0)
 			{
-				int tempCheck = checks.Peek();
-
-				Button button = Instantiate(buttonPrefab);
-				button.transform.parent = questFrame.transform;
+				buttonText.text = options.Dequeue() + " " + "(" + _playerPassiveName + " " + checks.Dequeue() + ")";
 				
-				Vector2 temp = new Vector2();
-				temp.y = questFrame.transform.position.y - 50 - (50 * i);
-				temp.x = questFrame.transform.position.x;
-				button.transform.position = temp;
-				button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
-
-				Text buttonText = button.GetComponentInChildren<Text>();
-				buttonText.fontSize = 8;
-
-				if (tempCheck != 0)
+				if (_playerPassiveRank < tempCheck)
 				{
-					buttonText.text = options.Dequeue() + " " + "(" + _playerPassiveName + " " + checks.Dequeue() + ")";
-					
-					if (_playerPassiveRank < tempCheck)
-					{
-						button.interactable = false;
-					} else
-					{
-						button.interactable = true;
-						button.onClick.AddListener(() => _passedCheck = true);
-						button.onClick.AddListener(() => _resolution = _event.EventResolution2);
-					}
-				} else if (tempCheck == 0)
+					button.interactable = false;
+				} else
 				{
-					buttonText.text = options.Dequeue();
-					checks.Dequeue();
+					button.interactable = true;
+					button.onClick.AddListener(() => _passedCheck = true);
+					button.onClick.AddListener(() => _resolution = _event.EventResolution2);
+				}
+			} else if (tempCheck == 0)
+			{
+				buttonText.text = options.Peek();
+				checks.Dequeue();
+
+				if (_hasCombat && options.Peek() == "DEBATE!")
+				{
+					button.onClick.AddListener(() => DisableQuest());
+					button.onClick.AddListener(() => MapManager.RemoveEventFromActiveList(_event.EventID));
+					button.onClick.AddListener(() => LoadDebate(_event.EventEnemy, _event.EventXPReward, _event.EventFollowersReward, _event.EventItemReward));
+				} else 
+				{
 					button.onClick.AddListener(() => _resolution = _event.EventResolution1);
 				}
 
-				button.onClick.AddListener(() => Next(_resolution));
+				options.Dequeue();
 			}
+
+			button.onClick.AddListener(() => Next(_resolution));
 		}
 	}
 
@@ -199,5 +222,17 @@ public class RandomEventManager : MonoBehaviour
 	private void DisableQuest()
 	{
 		questFrame.SetActive(false);
+	}
+
+	private void LoadDebate(int enemyIndex, int xpReward, int followerReward, int itemIndex)
+	{
+		GameInformation.Enemy = EnemyDB.enemies[enemyIndex - 1];
+		GameInformation.EventXPReward = xpReward;
+		GameInformation.EventFollowersReward = followerReward;
+		//GameInformation.EventItemReward = itemIndex;
+
+		SaveInformation.SaveAllInformation();
+
+		SceneManager.LoadScene(3);
 	}
 }

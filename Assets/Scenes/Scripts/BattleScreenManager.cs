@@ -39,6 +39,8 @@ public class BattleScreenManager : MonoBehaviour
 	public Text capitulateText;
 	public GameObject winScreen;
 	public Text winText;
+
+	public static bool isQuest = false;
 	
 	// Use this for initialization
 	void Start () 
@@ -96,7 +98,7 @@ public class BattleScreenManager : MonoBehaviour
 	public void Capitulate()
 	{
 		capitulateScreen.SetActive(true);
-		capitulateText.text = "You're going to lose " + (int)(0.1f * GameInformation.PlayerXP) + " XP and " + (int)(0.05f * GameInformation.PlayerMoney) + " dollars, but you'll keep yourself in the race, I guess.";
+		capitulateText.text = "You're going to lose " + (int)(0.1f * GameInformation.PlayerXP) + " XP and " + (int)(0.1f * GameInformation.PlayerMoney) + " dollars, but you'll keep yourself in the race, I guess.";
 	}
 
 	public void ConfirmCapitulation()
@@ -119,10 +121,58 @@ public class BattleScreenManager : MonoBehaviour
 		SceneManager.LoadScene(2);
 	}
 
-	public void WinBattle()
+	public void WinBattleFromQuest()
 	{
 		winScreen.SetActive(true);
 
-		//QuestManager.CalculateXPReward(_quest, _passedChecks); 
+		int xp = QuestManager.CalculateXPReward(_quest, _passedChecks);
+		int followers = QuestManager.CalculateFollowerReward(_quest, _passedChecks);
+		winText.text = "Congratulations! You've earned: " + xp + " XP, and " + followers + " followers!";
+
+		isQuest = false; 
+	}
+
+	public void WinBattleFromEvent()
+	{
+		winScreen.SetActive(true);
+		int xp = GameInformation.EventXPReward;
+		int followers = GameInformation.EventFollowersReward;
+		winText.text = "Congratulations! You've earned: " + xp + " XP, and " + followers + " followers!";
+	}
+
+	public void UpdateInformationFromQuestAndReturn()
+	{
+		int xp = QuestManager.CalculateXPReward(_quest, _passedChecks);
+		int followers = QuestManager.CalculateFollowerReward(_quest, _passedChecks);
+
+		GameInformation.PlayerXP += xp;
+		GameInformation.PlayerFollowers += followers;
+		SaveInformation.SaveAllInformation();
+
+		ReturnToMap();
+	}
+
+	public void UpdateInformationFromEventAndReturn()
+	{
+		int xp = GameInformation.EventXPReward;
+		int followers = GameInformation.EventFollowersReward;
+		//int item = GameInformation.EventItemReward;
+
+		GameInformation.PlayerXP += xp;
+		GameInformation.PlayerFollowers += followers;
+		SaveInformation.SaveAllInformation();
+
+		ReturnToMap();
+	}
+
+	public void DetermineIfQuestAndExit()
+	{
+		if (isQuest)
+		{
+			UpdateInformationFromQuestAndReturn();
+		} else 
+		{
+			UpdateInformationFromEventAndReturn();	
+		}
 	}
 }

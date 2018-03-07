@@ -41,11 +41,24 @@ public class CharacterEnhancementManager : MonoBehaviour
 	public Text activeAbilityRank;
 	public Text passiveAbilityRank;
 
+	public static CharacterEnhancementManager instance = null;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		} else if (instance != null)
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
-		GameInformation.PlayerXP += 100;
-
 		enhancementPanel.SetActive(false);
 		_enhancementIsActive = false;
 
@@ -66,6 +79,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 		{
 			_enhancementIsActive = !_enhancementIsActive;
 			enhancementPanel.SetActive(_enhancementIsActive);
+
+			LoadInformation.LoadAllInformation();
 		}
 
 		if (_enhancementIsActive)

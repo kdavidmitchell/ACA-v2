@@ -19,6 +19,7 @@ public class RandomEvent
 	private int _money;
 	private int _followers;
 	private int _item;
+	private int _enemy;
 	private EventTypes _type;
 
 	public enum EventTypes
@@ -42,6 +43,7 @@ public class RandomEvent
 		_money = int.Parse(eventDictionary["Money"]);
 		_followers = int.Parse(eventDictionary["Followers"]);
 		_item = int.Parse(eventDictionary["Item"]);
+		_enemy = int.Parse(eventDictionary["Enemy"]);
 		_type = (EventTypes)System.Enum.Parse(typeof(RandomEvent.EventTypes), eventDictionary["Type"].ToString());
 	}
 
@@ -121,6 +123,12 @@ public class RandomEvent
 	{
 		get { return _item; }
 		set {_item = value; }
+	}
+
+	public int EventEnemy
+	{
+		get { return _enemy; }
+		set { _enemy = value; }
 	}
 
 	public EventTypes EventType

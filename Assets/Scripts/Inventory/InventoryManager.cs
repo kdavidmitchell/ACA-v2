@@ -18,6 +18,21 @@ public class InventoryManager : MonoBehaviour
 	public static Text itemUseText;
 	public static Button useButton;
 
+	public static InventoryManager instance = null;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		} else if (instance != null)
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
