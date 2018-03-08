@@ -88,12 +88,12 @@ public class CharacterEnhancementManager : MonoBehaviour
 			playerName.text = GameInformation.PlayerName;
 			playerClass.text = GameInformation.PlayerClass.ClassName;
 			experienceLabel.text = GameInformation.PlayerXP.ToString();
-			rhetoricLabel.text = GameInformation.PlayerStats[0].StatBaseValue.ToString();
-			imageLabel.text = GameInformation.PlayerStats[1].StatBaseValue.ToString();
-			diplomacyLabel.text = GameInformation.PlayerStats[2].StatBaseValue.ToString();
-			healthLabel.text = GameInformation.PlayerStats[3].StatBaseValue.ToString();
-			ambitionLabel.text = GameInformation.PlayerStats[4].StatBaseValue.ToString();
-			eloquenceLabel.text = GameInformation.PlayerStats[5].StatBaseValue.ToString();
+			rhetoricLabel.text = GameInformation.PlayerStats[0].StatBaseValue.ToString() + " (" + GameInformation.PlayerStats[0].StatModifiedValue.ToString() + ")";
+			imageLabel.text = GameInformation.PlayerStats[1].StatBaseValue.ToString() + " (" + GameInformation.PlayerStats[1].StatModifiedValue.ToString() + ")";
+			diplomacyLabel.text = GameInformation.PlayerStats[2].StatBaseValue.ToString() + " (" + GameInformation.PlayerStats[2].StatModifiedValue.ToString() + ")";
+			healthLabel.text = GameInformation.PlayerStats[3].StatBaseValue.ToString() + " (" + GameInformation.PlayerStats[3].StatModifiedValue.ToString() + ")";
+			ambitionLabel.text = GameInformation.PlayerStats[4].StatBaseValue.ToString() + " (" + GameInformation.PlayerStats[4].StatModifiedValue.ToString() + ")";
+			eloquenceLabel.text = GameInformation.PlayerStats[5].StatBaseValue.ToString() + " (" + GameInformation.PlayerStats[5].StatModifiedValue.ToString() + ")";
 
 			rhetoricCost.text = GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts].ToString();
 			imageCost.text = GameInformation.PlayerStats[1].StatCost[_imageBoosts].ToString();
