@@ -104,6 +104,7 @@ public class CombatStateMachine : MonoBehaviour
 				//battleScreenManager.LoseBattle();
 				break;
 			case (BattleStates.WIN):
+				Debug.Log(BattleScreenManager.isQuest);
                 if (BattleScreenManager.isQuest)
                 {
                 	battleScreenManager.WinBattleFromQuest();

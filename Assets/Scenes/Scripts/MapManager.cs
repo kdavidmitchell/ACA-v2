@@ -11,6 +11,8 @@ public class MapManager : MonoBehaviour
 	public static MapManager instance = null;
 	
 	public GameObject _questFrame;
+	public Text _moneyLabel;
+	public Text _followersLabel;
 
 	void Awake()
 	{
@@ -40,8 +42,11 @@ public class MapManager : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		_moneyLabel.text = GameInformation.PlayerMoney.ToString();
+		_followersLabel.text = GameInformation.PlayerFollowers.ToString();
+		Debug.Log(GameInformation.PlayerFollowers);	
 	}
 
 	private void QuestPinSetup()

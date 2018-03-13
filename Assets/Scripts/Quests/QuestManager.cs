@@ -32,6 +32,23 @@ public class QuestManager : MonoBehaviour
 	public Text moneyLabel;
 	public Text followerLabel;
 
+	public static QuestManager instance = null;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		} else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+
+		LoadInformation.LoadAllInformation();
+	}
+
 	// Use this for initialization
 	void Start () 
 	{

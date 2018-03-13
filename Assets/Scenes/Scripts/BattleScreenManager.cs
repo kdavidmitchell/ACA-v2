@@ -41,7 +41,7 @@ public class BattleScreenManager : MonoBehaviour
 	public GameObject winScreen;
 	public Text winText;
 
-	public static bool isQuest = false;
+	public static bool isQuest;
 	
 	// Use this for initialization
 	void Start () 
@@ -68,6 +68,8 @@ public class BattleScreenManager : MonoBehaviour
 
 		capitulateScreen.SetActive(false);
 		winScreen.SetActive(false);
+
+		Debug.Log(isQuest);
 	}
 	
 	// Update is called once per frame
@@ -137,9 +139,8 @@ public class BattleScreenManager : MonoBehaviour
 
 		int xp = QuestManager.CalculateXPReward(_quest, _passedChecks);
 		int followers = QuestManager.CalculateFollowerReward(_quest, _passedChecks);
+		Debug.Log(followers);
 		winText.text = "Congratulations! You've earned: " + xp + " XP, and " + followers + " followers!";
-
-		isQuest = false; 
 	}
 
 	public void WinBattleFromEvent()
@@ -157,7 +158,10 @@ public class BattleScreenManager : MonoBehaviour
 		int followers = QuestManager.CalculateFollowerReward(_quest, _passedChecks);
 
 		GameInformation.PlayerXP += xp;
+		Debug.Log(followers);
+		Debug.Log(GameInformation.PlayerFollowers);
 		GameInformation.PlayerFollowers += followers;
+		Debug.Log(GameInformation.PlayerFollowers);
 		SaveInformation.SaveAllInformation();
 
 		ReturnToMap();
