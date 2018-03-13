@@ -46,7 +46,6 @@ public class MapManager : MonoBehaviour
 	{
 		_moneyLabel.text = GameInformation.PlayerMoney.ToString();
 		_followersLabel.text = GameInformation.PlayerFollowers.ToString();
-		Debug.Log(GameInformation.PlayerFollowers);	
 	}
 
 	private void QuestPinSetup()

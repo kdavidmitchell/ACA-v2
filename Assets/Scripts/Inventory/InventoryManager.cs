@@ -98,21 +98,21 @@ public class InventoryManager : MonoBehaviour
 		} else 
 		{
 			if (_inventory[index].ItemType != BaseItem.ItemTypes.CONSUMABLE)
-		{
-			InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
-			InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
-			InventoryManager.itemName.text = _inventory[index].ItemName;
-
-			for (int i = 0; i < _inventory[index].ItemStats.Count; i++) 
 			{
-				InventoryManager.itemUseText.text += "\n" + _inventory[index].ItemModifiers[i] + " " + _inventory[index].ItemStats[i].StatName; 
-			}
-		} else 
-		{
-			InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
-			InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
-			InventoryManager.itemName.text = _inventory[index].ItemName;
-		}	
+				InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
+				InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
+				InventoryManager.itemName.text = _inventory[index].ItemName;
+
+				for (int i = 0; i < _inventory[index].ItemStats.Count; i++) 
+				{
+					InventoryManager.itemUseText.text += "\n" + _inventory[index].ItemModifiers[i] + " " + _inventory[index].ItemStats[i].StatName; 
+				}
+			} else 
+			{
+				InventoryManager.itemDescription.text = _inventory[index].ItemDescription;
+				InventoryManager.itemUseText.text = _inventory[index].ItemUseText;
+				InventoryManager.itemName.text = _inventory[index].ItemName;
+			}	
 		}
 	}
 
@@ -150,7 +150,7 @@ public class InventoryManager : MonoBehaviour
 
 		for (int i = 0; i < _inventory.Count; i++) 
 		{
-			if (InventoryManager._inventory != null)
+			if (InventoryManager._inventory[i] != null)
 			{
 				Color c;
 				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
