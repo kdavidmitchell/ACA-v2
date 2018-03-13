@@ -74,29 +74,7 @@ public class InventoryManager : MonoBehaviour
 
 		if (_inventoryIsActive)
 		{
-			LoadInformation.LoadAllInformation();
-
-			_equippedItems = GameInformation.PlayerEquippedItems;
-			_inventory = GameInformation.PlayerInventory;
-
-			for (int i = 0; i < _inventory.Count; i++) 
-			{
-				Color c;
-				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
-				c = itemImage.color;
-				c.a = 1;
-				itemImage.color = c;
-				itemImage.sprite = IconDB._icons[_inventory[i].ItemIcon];
-			}
-
-			for (int i = _inventory.Count; i < _inventorySlots.Count; i++) 
-			{
-				Color c;
-				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
-				c = itemImage.color;
-				c.a = 0;
-				itemImage.color = c;
-			}
+			UpdateInventory();
 		}
 	}
 
@@ -172,12 +150,15 @@ public class InventoryManager : MonoBehaviour
 
 		for (int i = 0; i < _inventory.Count; i++) 
 		{
-			Color c;
-			Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
-			c = itemImage.color;
-			c.a = 1;
-			itemImage.color = c;
-			itemImage.sprite = IconDB._icons[_inventory[i].ItemIcon];
+			if (InventoryManager._inventory != null)
+			{
+				Color c;
+				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
+				c = itemImage.color;
+				c.a = 1;
+				itemImage.color = c;
+				itemImage.sprite = IconDB._icons[InventoryManager._inventory[i].ItemIcon];
+			}
 		}
 
 		for (int i = _inventory.Count; i < _inventorySlots.Count; i++) 

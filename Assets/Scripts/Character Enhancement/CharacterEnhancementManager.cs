@@ -118,6 +118,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			if (_rhetoricBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts])
 			{
 				GameInformation.PlayerStats[0].StatBaseValue++;
+				GameInformation.PlayerStats[0].StatModifiedValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[0].StatCost[_rhetoricBoosts];
 				_rhetoricBoosts++;
 				GameInformation.PlayerBoosts[0] = _rhetoricBoosts;
@@ -130,6 +131,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			if (_imageBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[1].StatCost[_imageBoosts])
 			{
 				GameInformation.PlayerStats[1].StatBaseValue++;
+				GameInformation.PlayerStats[1].StatModifiedValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[1].StatCost[_imageBoosts];
 				_imageBoosts++;
 				GameInformation.PlayerBoosts[1] = _imageBoosts;
@@ -142,6 +144,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			if (_diplomacyBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts])
 			{
 				GameInformation.PlayerStats[2].StatBaseValue++;
+				GameInformation.PlayerStats[2].StatModifiedValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[2].StatCost[_diplomacyBoosts];
 				_diplomacyBoosts++;
 				GameInformation.PlayerBoosts[2] = _diplomacyBoosts;
@@ -154,6 +157,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			if (_healthBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[3].StatCost[_healthBoosts])
 			{
 				GameInformation.PlayerStats[3].StatBaseValue++;
+				GameInformation.PlayerStats[3].StatModifiedValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[3].StatCost[_healthBoosts];
 				_healthBoosts++;
 				GameInformation.PlayerBoosts[3] = _healthBoosts;
@@ -166,6 +170,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			if (_ambitionBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts])
 			{
 				GameInformation.PlayerStats[4].StatBaseValue++;
+				GameInformation.PlayerStats[4].StatModifiedValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts];
 				_ambitionBoosts++;
 				GameInformation.PlayerBoosts[4] = _ambitionBoosts;
@@ -178,6 +183,7 @@ public class CharacterEnhancementManager : MonoBehaviour
 			if (_eloquenceBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts])
 			{
 				GameInformation.PlayerStats[5].StatBaseValue++;
+				GameInformation.PlayerStats[5].StatModifiedValue++;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[5].StatCost[_eloquenceBoosts];
 				_eloquenceBoosts++;
 				GameInformation.PlayerBoosts[5] = _eloquenceBoosts;

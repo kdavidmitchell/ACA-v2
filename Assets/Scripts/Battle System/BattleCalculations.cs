@@ -11,6 +11,7 @@ public class BattleCalculations
 	private int _totalPlayerDamage;
 	private int _enemyDamageModifier;
 	private int _ambitionCost;
+	private float _mainStatModifier = 0.5f;
 
 	public int CalculateTotalPlayerDamage(BaseAbility ability)
 	{
@@ -20,6 +21,12 @@ public class BattleCalculations
 		_baseAbilityDamage = ability.AbilityDamage[ability.AbilityCurrentRank - 1];
 
 		_totalPlayerDamage = _playerWeaponDamage + _baseAbilityDamage;
+
+		if (ability.AbilityID != 1)
+		{
+			_totalPlayerDamage += CalculateMainStatModifier();
+		}
+		
 		CombatStateMachine.playerCompletedTurn = true;
 
 		return _totalPlayerDamage;
@@ -31,7 +38,7 @@ public class BattleCalculations
 		_enemy = GameInformation.Enemy;
 		_enemyDamageModifier = _enemy.EnemyDifficulty * 2;
 
-		_totalPlayerDamage = ability.AbilityDamage[_enemy.EnemyDifficulty];
+		_totalPlayerDamage = ability.AbilityDamage[_enemy.EnemyDifficulty] + _enemyDamageModifier;
 		CombatStateMachine.enemyCompletedTurn = true;
 
 		return _totalPlayerDamage;
@@ -52,5 +59,21 @@ public class BattleCalculations
 		{
 			return _ambitionCost = ability.AbilityCost[_enemy.EnemyDifficulty - 1];
 		}
+	}
+
+	public int CalculateMainStatModifier()
+	{
+		if (GameInformation.PlayerClass.ClassType == BaseClass.ClassTypes.GLADHANDER)
+		{
+			return (int)(GameInformation.PlayerStats[1].StatModifiedValue * _mainStatModifier);
+		} else if (GameInformation.PlayerClass.ClassType == BaseClass.ClassTypes.CHIEF)
+		{
+			return (int)(GameInformation.PlayerStats[2].StatModifiedValue * _mainStatModifier);
+		} else if (GameInformation.PlayerClass.ClassType == BaseClass.ClassTypes.SOPHIST)
+		{
+			return (int)(GameInformation.PlayerStats[0].StatModifiedValue * _mainStatModifier);
+		}
+
+		return 0;
 	}
 }

@@ -78,7 +78,7 @@ public class CombatStateMachine : MonoBehaviour
 					if (battleScreenManager._playerHealth <= 0)
 					{
 						currentState = BattleStates.LOSE;
-						Debug.Log("Lost the battle!");
+						battleScreenManager.LoseDebate();
 						break;
 					}
 				}

@@ -108,8 +108,17 @@ public class BattleScreenManager : MonoBehaviour
 		GameInformation.PlayerXP -= (int)(0.1f * GameInformation.PlayerXP);
 		GameInformation.PlayerMoney -= (int)(0.1f * GameInformation.PlayerMoney);
 
+		SaveInformation.SaveAllInformation();
+
 		ReturnToMap();
 
+	}
+
+	public void LoseDebate()
+	{
+		capitulateScreen.SetActive(true);
+		capitulateText.text = "You... actually lost. That's " + (int)(0.1f * GameInformation.PlayerXP) + " XP and " + (int)(0.1f * GameInformation.PlayerMoney) + " dollars down the drain. Oh well. Better luck next time.";
+		GameObject.Find("Capitulate_Cancel").SetActive(false);
 	}
 
 	public void CancelCapitulation()
