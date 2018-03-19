@@ -1,0 +1,11 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "ACA-Alpha-Demo.data.unityweb",
+"asmCodeUrl": "ACA-Alpha-Demo.asm.code.unityweb",
+"asmMemoryUrl": "ACA-Alpha-Demo.asm.memory.unityweb",
+"asmFrameworkUrl": "ACA-Alpha-Demo.asm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
