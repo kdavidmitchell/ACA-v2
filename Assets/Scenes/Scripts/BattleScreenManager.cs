@@ -9,8 +9,8 @@ public class BattleScreenManager : MonoBehaviour
 
 	private string _playerName;
 	private List<BaseAbility> _playerAbilities = new List<BaseAbility>();
-	private int _playerMaxHealth;
-	private int _playerMaxAmbition;
+	public int _playerMaxHealth;
+	public int _playerMaxAmbition;
 
 	private BaseEnemy _enemy;
 	private string _enemyName;
@@ -70,15 +70,6 @@ public class BattleScreenManager : MonoBehaviour
 
 		capitulateScreen.SetActive(false);
 		winScreen.SetActive(false);
-
-		//TEST PURPOSES ONLY -- DELETE WHEN FINISHED
-		GameInformation.PlayerInventory.Add(ItemDB.items[0]);
-		GameInformation.PlayerInventory.Add(ItemDB.items[1]);
-		SaveInformation.SaveAllInformation();
-		foreach (BaseItem item in GameInformation.PlayerInventory)
-		{
-			Debug.Log(item.ItemName);
-		}
 	}
 	
 	// Update is called once per frame

@@ -13,6 +13,7 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	private List<GameObject> _buttons = new List<GameObject>();
 	private List<GameObject> _icons = new List<GameObject>();
 	private List<BaseItem> _combatInventory = new List<BaseItem>();
+	private int _playerInventoryIndex;
 	
 	public GameObject hoverPrefab;
 	public GameObject useButton;
@@ -81,20 +82,22 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 				if (item.ItemType == BaseItem.ItemTypes.CONSUMABLE)
 				{
 					_combatInventory.Add(item);
-					count++;
-					
-					iconInstance = Instantiate(itemIcon, transform.position + new Vector3((55 + (55*count)), 100, 0), Quaternion.identity);
+					Debug.Log(item.ItemName);
+					_playerInventoryIndex = GameInformation.PlayerInventory.IndexOf(item);
+
+					iconInstance = Instantiate(itemIcon, transform.position + new Vector3((105 + (55*count)), 100, 0), Quaternion.identity);
 					iconInstance.transform.parent = gameObject.transform;
 					iconInstance.GetComponent<Image>().sprite = IconDB._icons[item.ItemIcon];
 					_icons.Add(iconInstance);
 					
-					buttonInstance = Instantiate(useButton, transform.position + new Vector3((55 + (55*count)), 60, 0), Quaternion.identity);
+					buttonInstance = Instantiate(useButton, transform.position + new Vector3((105 + (55*count)), 60, 0), Quaternion.identity);
 					buttonInstance.transform.parent = gameObject.transform;
 					_buttons.Add(buttonInstance);
 
-					BaseItem itemToBeUsed = new BaseItem();
-					buttonInstance.GetComponent<Button>().onClick.AddListener(() => itemToBeUsed = _combatInventory[_buttons.IndexOf(buttonInstance)]);
-					buttonInstance.GetComponent<Button>().onClick.AddListener(() => UseItem(itemToBeUsed.ItemID));
+					buttonInstance.GetComponent<Button>().onClick.AddListener(() => UseItem(item.ItemID));
+					buttonInstance.GetComponent<Button>().onClick.AddListener(() => RemoveItemFromInventory(_playerInventoryIndex));
+
+					count++;
 				}
 			}
 		}
@@ -106,10 +109,28 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	{
 		if (itemID == 1)
 		{
-			bsm._playerAmbition += 10;
+			if (bsm._playerAmbition <= (bsm._playerMaxAmbition - 10))
+			{
+				bsm._playerAmbition += 10;
+			} else if (bsm._playerAmbition > (bsm._playerMaxAmbition - 10))
+			{
+				bsm._playerAmbition = bsm._playerMaxAmbition;	
+			}
 		} else if (itemID == 2)
 		{
-			bsm._playerHealth += 10;
+			if (bsm._playerHealth <= (bsm._playerMaxHealth - 10))
+			{
+				bsm._playerHealth += 10;
+			} else if (bsm._playerHealth > (bsm._playerMaxHealth - 10))
+			{
+				bsm._playerHealth = bsm._playerMaxHealth;	
+			}
 		}
+	}
+
+	private void RemoveItemFromInventory(int index)
+	{
+		GameInformation.PlayerInventory.RemoveAt(index);
+		SaveInformation.SaveAllInformation();
 	}
 }
