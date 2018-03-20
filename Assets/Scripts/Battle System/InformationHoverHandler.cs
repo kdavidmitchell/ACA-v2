@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +9,7 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 
 	private GameObject instance;
 	private GameObject buttonInstance;
+	private List<GameObject> _buttons = new List<GameObject>();
 	
 	public GameObject hoverPrefab;
 	public GameObject useButton;
@@ -25,9 +26,9 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		Destroy(instance);
-		if (buttonInstance != null)
+		if (_buttons != null)
 		{
-			Destroy(buttonInstance);
+			
 		}
 	}
 
@@ -64,6 +65,7 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 					result += item.ItemName;
 					buttonInstance = Instantiate(useButton, transform.position, Quaternion.identity);
 					buttonInstance.transform.parent = gameObject.transform;
+					_buttons.Add(buttonInstance);
 				}
 			}
 		}
