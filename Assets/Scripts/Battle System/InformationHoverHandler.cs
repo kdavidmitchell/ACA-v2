@@ -28,7 +28,7 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 		Destroy(instance);
 		if (_buttons != null)
 		{
-			
+			Destroy(_buttons);
 		}
 	}
 
