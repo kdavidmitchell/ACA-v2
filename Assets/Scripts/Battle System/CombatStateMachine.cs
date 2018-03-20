@@ -60,8 +60,11 @@ public class CombatStateMachine : MonoBehaviour
 			case (BattleStates.CALCULATE_DAMAGE):
 				if (currentTurnOwner == BattleStates.PLAYER_TURN) 
 				{
-					battleScreenManager._enemyHealth -= battleCalculations.CalculateTotalPlayerDamage (playerAbility);
-					battleScreenManager._playerAmbition -= battleCalculations.GetPlayerAbilityCost (playerAbility);
+					if (battleCalculations.GetPlayerAbilityCost(playerAbility) <= battleScreenManager._playerAmbition)
+					{
+						battleScreenManager._enemyHealth -= battleCalculations.CalculateTotalPlayerDamage (playerAbility);
+						battleScreenManager._playerAmbition -= battleCalculations.GetPlayerAbilityCost (playerAbility);
+					}
 					
 					if (battleScreenManager._enemyHealth <= 0)
 					{

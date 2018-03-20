@@ -40,6 +40,8 @@ public class BattleScreenManager : MonoBehaviour
 	public Text capitulateText;
 	public GameObject winScreen;
 	public Text winText;
+	public Text playerHealthLabel;
+	public Text playerAmbitionLabel;
 
 	public static bool isQuest;
 	
@@ -69,7 +71,13 @@ public class BattleScreenManager : MonoBehaviour
 		capitulateScreen.SetActive(false);
 		winScreen.SetActive(false);
 
-		Debug.Log(isQuest);
+		//TEST PURPOSES ONLY -- DELETE WHEN FINISHED
+		GameInformation.PlayerInventory.Add(ItemDB.items[0]);
+		SaveInformation.SaveAllInformation();
+		foreach (BaseItem item in GameInformation.PlayerInventory)
+		{
+			Debug.Log(item.ItemName);
+		}
 	}
 	
 	// Update is called once per frame
@@ -79,6 +87,9 @@ public class BattleScreenManager : MonoBehaviour
 		playerAmbitionBar.fillAmount = (float)_playerAmbition / _playerMaxAmbition;
 		enemyHealthBar.fillAmount = (float)_enemyHealth / _enemyMaxHealth;
 		enemyAmbitionBar.fillAmount = (float)_enemyAmbition / _enemyMaxAmbition;
+
+		playerHealthLabel.text = _playerHealth.ToString();
+		playerAmbitionLabel.text = _playerAmbition.ToString();
 	}
 
 	public void NormalAttack()
