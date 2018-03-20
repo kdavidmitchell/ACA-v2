@@ -73,6 +73,7 @@ public class BattleScreenManager : MonoBehaviour
 
 		//TEST PURPOSES ONLY -- DELETE WHEN FINISHED
 		GameInformation.PlayerInventory.Add(ItemDB.items[0]);
+		GameInformation.PlayerInventory.Add(ItemDB.items[1]);
 		SaveInformation.SaveAllInformation();
 		foreach (BaseItem item in GameInformation.PlayerInventory)
 		{

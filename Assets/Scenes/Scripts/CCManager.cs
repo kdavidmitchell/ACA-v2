@@ -112,6 +112,8 @@ public class CCManager : MonoBehaviour
 		GameInformation.PlayerXP = _newPlayer.PlayerXP;
 		GameInformation.PlayerFollowers = _newPlayer.PlayerFollowers;
 		GameInformation.PlayerMoney = _newPlayer.PlayerMoney;
+		GameInformation.PlayerInventory = new List<BaseItem>();
+		GameInformation.PlayerEquippedItems = new List<BaseItem>();
 
 		SaveInformation.SaveAllInformation();
 	}

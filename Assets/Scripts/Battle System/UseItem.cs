@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseItem : MonoBehaviour {
+public class UseItem : MonoBehaviour 
+{
 
-	// Use this for initialization
-	void Start () {
-		
+	private BattleScreenManager _bsm;
+
+	void Start()
+	{
+		_bsm = GameObject.Find("BattleScreenManager").GetComponent<BattleScreenManager>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void UseCombatItem(int index)
+	{
+		if (index == 0)
+		{
+			_bsm._playerAmbition += 10;
+		} else if (index == 1)
+		{
+			_bsm._playerHealth += 10;
+		}
 	}
 }

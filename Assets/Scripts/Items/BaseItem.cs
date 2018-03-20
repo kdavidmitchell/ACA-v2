@@ -42,6 +42,11 @@ public class BaseItem
 		}
 	}
 
+	public BaseItem()
+	{
+		_name = "Default";
+	}
+
 	public enum ItemTypes
 	{
 		EQUIPMENT,

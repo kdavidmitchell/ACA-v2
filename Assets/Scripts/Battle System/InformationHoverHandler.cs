@@ -9,10 +9,15 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 
 	private GameObject instance;
 	private GameObject buttonInstance;
+	private GameObject iconInstance;
 	private List<GameObject> _buttons = new List<GameObject>();
+	private List<GameObject> _icons = new List<GameObject>();
+	private List<BaseItem> _combatInventory = new List<BaseItem>();
 	
 	public GameObject hoverPrefab;
 	public GameObject useButton;
+	public GameObject itemIcon;
+	public BattleScreenManager bsm;
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
@@ -26,9 +31,21 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		Destroy(instance);
+		
 		if (_buttons != null)
 		{
-			Destroy(_buttons);
+			foreach (GameObject button in _buttons)
+			{
+				Destroy(button);
+			}
+		}
+
+		if (_icons != null)
+		{
+			foreach (GameObject icon in _icons)
+			{
+				Destroy(icon);
+			}
 		}
 	}
 
@@ -58,18 +75,41 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 			GameInformation.PlayerClass.ClassAbilities[1].AbilityCost[GameInformation.PlayerClass.ClassAbilities[1].AbilityCurrentRank - 1] + " " + "AP)";
 		} else if (name == "Items_Button")
 		{
+			int count = 1;
 			foreach (BaseItem item in GameInformation.PlayerInventory)
 			{
 				if (item.ItemType == BaseItem.ItemTypes.CONSUMABLE)
 				{
-					result += item.ItemName;
-					buttonInstance = Instantiate(useButton, transform.position, Quaternion.identity);
+					_combatInventory.Add(item);
+					count++;
+					
+					iconInstance = Instantiate(itemIcon, transform.position + new Vector3((55 + (55*count)), 100, 0), Quaternion.identity);
+					iconInstance.transform.parent = gameObject.transform;
+					iconInstance.GetComponent<Image>().sprite = IconDB._icons[item.ItemIcon];
+					_icons.Add(iconInstance);
+					
+					buttonInstance = Instantiate(useButton, transform.position + new Vector3((55 + (55*count)), 60, 0), Quaternion.identity);
 					buttonInstance.transform.parent = gameObject.transform;
 					_buttons.Add(buttonInstance);
+
+					BaseItem itemToBeUsed = new BaseItem();
+					buttonInstance.GetComponent<Button>().onClick.AddListener(() => itemToBeUsed = _combatInventory[_buttons.IndexOf(buttonInstance)]);
+					buttonInstance.GetComponent<Button>().onClick.AddListener(() => UseItem(itemToBeUsed.ItemID));
 				}
 			}
 		}
 
 		return result;
+	}
+
+	private void UseItem(int itemID)
+	{
+		if (itemID == 1)
+		{
+			bsm._playerAmbition += 10;
+		} else if (itemID == 2)
+		{
+			bsm._playerHealth += 10;
+		}
 	}
 }

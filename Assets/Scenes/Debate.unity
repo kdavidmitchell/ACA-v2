@@ -666,6 +666,7 @@ MonoBehaviour:
   hoverPrefab: {fileID: 1076716335229190, guid: e2cc634c4899da54996873ab2484e9ec,
     type: 2}
   useButton: {fileID: 1635245900854068, guid: cf5d354590a8dbf4f8c1272988f1e76e, type: 2}
+  itemIcon: {fileID: 1756958691314716, guid: 35c6bf23fbd53c346b40421d7c687fa1, type: 2}
 --- !u!1 &328849284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2500,7 @@ MonoBehaviour:
   hoverPrefab: {fileID: 1076716335229190, guid: e2cc634c4899da54996873ab2484e9ec,
     type: 2}
   useButton: {fileID: 1635245900854068, guid: cf5d354590a8dbf4f8c1272988f1e76e, type: 2}
+  itemIcon: {fileID: 1756958691314716, guid: 35c6bf23fbd53c346b40421d7c687fa1, type: 2}
 --- !u!1 &1565814327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,6 +2639,7 @@ MonoBehaviour:
   hoverPrefab: {fileID: 1076716335229190, guid: e2cc634c4899da54996873ab2484e9ec,
     type: 2}
   useButton: {fileID: 1635245900854068, guid: cf5d354590a8dbf4f8c1272988f1e76e, type: 2}
+  itemIcon: {fileID: 1756958691314716, guid: 35c6bf23fbd53c346b40421d7c687fa1, type: 2}
 --- !u!1 &1605205736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3439,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 985.1, y: 135}
+  m_SizeDelta: {x: 1023.1, y: 135}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2135907019
 MonoBehaviour:
