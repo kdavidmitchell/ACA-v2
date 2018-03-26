@@ -1,0 +1,28 @@
+<Effects>
+	<Effect>
+		<Name>Harassment</Name>
+		<Description>Harasses the target for a certain number of turns, dealing damage over time.</Description>
+		<ID>0</ID>
+		<Type>HARASS</Type>
+		<Duration>3</Duration>
+		<Damage>3</Damage>
+	</Effect>
+
+	<Effect>
+		<Name>Stun</Name>
+		<Description>Stuns the target, disabling them for a certain number of turns.</Description>
+		<ID>1</ID>
+		<Type>STUN</Type>
+		<Duration>2</Duration>
+		<Damage>0</Damage>
+	</Effect>
+
+	<Effect>
+		<Name>Sleep</Name>
+		<Description>Puts the target to sleep for a certain number of turns.</Description>
+		<ID>2</ID>
+		<Type>SLEEP</Type>
+		<Duration>3</Duration>
+		<Damage>0</Damage>
+	</Effect>
+</Effects>

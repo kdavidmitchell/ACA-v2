@@ -10,9 +10,17 @@ public class CombatStateMachine : MonoBehaviour
 	private BattleStateEnemyTurn battleStateEnemyTurn = new BattleStateEnemyTurn();
 	private BattleCalculations battleCalculations = new BattleCalculations();
 
+	//status effect management
+	private int _startTurn;
+	private int _endTurn;
+	private int _damage = 0;
+	private bool _hasHarass;
+	private bool _hasStun;
+	private bool _hasSleep;
+
 	public BattleScreenManager battleScreenManager;
 
-	//public static int totalTurnCount;
+	public static int totalTurnCount = 0;
 	public static bool playerCompletedTurn;
 	public static bool enemyCompletedTurn;
 	public static BattleStates currentTurnOwner;
@@ -52,8 +60,15 @@ public class CombatStateMachine : MonoBehaviour
 				currentTurnOwner = BattleStates.PLAYER_TURN;
 				break;
 			case (BattleStates.ENEMY_TURN):
-				currentTurnOwner = BattleStates.ENEMY_TURN;
-				battleStateEnemyTurn.TakeTurn();
+
+				if (!_hasStun && !_hasSleep)
+				{
+					currentTurnOwner = BattleStates.ENEMY_TURN;
+					battleStateEnemyTurn.TakeTurn();
+				} else 
+				{
+					CheckForStatusEffect();	
+				}
 				//enemyCompletedTurn = true;
 				//CheckTurnOwner ();
 				break;
@@ -62,8 +77,15 @@ public class CombatStateMachine : MonoBehaviour
 				{
 					if (battleCalculations.GetPlayerAbilityCost(playerAbility) <= battleScreenManager._playerAmbition)
 					{
+						ApplyStatusEffect(playerAbility.AbilityStatusEffect);
+
 						battleScreenManager._enemyHealth -= battleCalculations.CalculateTotalPlayerDamage (playerAbility);
 						battleScreenManager._playerAmbition -= battleCalculations.GetPlayerAbilityCost (playerAbility);
+					}
+
+					if (_hasStun || _hasSleep)
+					{
+						enemyCompletedTurn = true;
 					}
 					
 					if (battleScreenManager._enemyHealth <= 0)
@@ -75,8 +97,15 @@ public class CombatStateMachine : MonoBehaviour
 				}
 				if (currentTurnOwner == BattleStates.ENEMY_TURN) 
 				{
-					battleScreenManager._playerHealth -= battleCalculations.CalculateTotalEnemyDamage (enemyAbility);
-					battleScreenManager._enemyAmbition -= battleCalculations.GetEnemyAbilityCost (enemyAbility);
+
+					if (!_hasStun && !_hasSleep)
+					{
+						battleScreenManager._playerHealth -= battleCalculations.CalculateTotalEnemyDamage (enemyAbility);
+						battleScreenManager._enemyAmbition -= battleCalculations.GetEnemyAbilityCost (enemyAbility);
+					} else 
+					{
+						break;	
+					}
 
 					if (battleScreenManager._playerHealth <= 0)
 					{
@@ -91,7 +120,8 @@ public class CombatStateMachine : MonoBehaviour
 			// 	battleStateAddStatusEffectsScript.CheckAbilityForStatusEffect (playerUsedAbility);
 			// 	break;
 			case (BattleStates.END_TURN):
-				//totalTurnCount++;
+				totalTurnCount = totalTurnCount + 1;
+				Debug.Log(totalTurnCount);
 				playerCompletedTurn = false;
 				enemyCompletedTurn = false;
 
@@ -130,6 +160,68 @@ public class CombatStateMachine : MonoBehaviour
 		} else if (playerCompletedTurn && enemyCompletedTurn) {
 			//switch to end turn state
 			currentState = BattleStates.END_TURN;
+		}
+	}
+
+	private void ApplyStatusEffect(string name)
+	{
+		if (name != "EMPTY")
+		{
+			if (name == "HARASS")
+			{
+				_hasHarass = true;
+				_startTurn = totalTurnCount;
+				_endTurn = totalTurnCount + 3;
+				_damage = 3;
+			} else if (name == "STUN")
+			{
+				_hasStun = true;
+				_startTurn = totalTurnCount;
+				_endTurn = totalTurnCount + 2;
+				_damage = 0;
+			} else if (name == "SLEEP")
+			{
+				_hasSleep = true;
+				_startTurn = totalTurnCount;
+				_endTurn = totalTurnCount + 3;
+				_damage = 0;
+			}
+		} else 
+		{
+			return;		
+		}
+	}
+
+	private void CheckForStatusEffect()
+	{
+		if (_hasHarass)
+		{
+			battleScreenManager._enemyHealth -= _damage;
+
+			if (totalTurnCount == _endTurn)
+			{
+				_hasHarass = false;
+			}
+		} else if (_hasStun)
+		{
+			currentState = BattleStates.PLAYER_TURN;
+			currentTurnOwner = BattleStates.PLAYER_TURN;
+			playerCompletedTurn = false;
+
+			if (totalTurnCount == _endTurn)
+			{
+				_hasStun = false;
+			}
+		} else if (_hasSleep)
+		{
+			currentState = BattleStates.PLAYER_TURN;
+			currentTurnOwner = BattleStates.PLAYER_TURN;
+			playerCompletedTurn = false;
+
+			if (totalTurnCount == _endTurn)
+			{
+				_hasSleep = false;
+			}
 		}
 	}
 }

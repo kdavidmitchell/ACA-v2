@@ -16,6 +16,7 @@ public class BaseAbility
 	private int _currentRank;
 	private int _maxRank;
 	private List<int> _xpToLevel = new List<int>();
+	private string _statusEffect;
 
 	public enum AbilityTypes
 	{
@@ -33,6 +34,7 @@ public class BaseAbility
 		_type = (AbilityTypes)System.Enum.Parse(typeof(BaseAbility.AbilityTypes), abilityDictionary["Type"].ToString());
 		_currentRank = int.Parse(abilityDictionary["CurrentRank"]);
 		_maxRank = int.Parse(abilityDictionary["MaxRank"]);
+		_statusEffect = abilityDictionary["StatusEffect"];
 
 		string[] tempDamage = abilityDictionary["Damage"].Split(delimiter, StringSplitOptions.None);
 		for (int i = 0; i < tempDamage.Length; i++)
@@ -105,5 +107,11 @@ public class BaseAbility
 	{
 		get { return _xpToLevel; }
 		set { _xpToLevel = value; }
+	}
+
+	public string AbilityStatusEffect
+	{
+		get { return _statusEffect; }
+		set { _statusEffect = value; }
 	}
 }

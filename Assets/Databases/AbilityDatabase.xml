@@ -21,7 +21,7 @@
 
 	<Ability>
 		<Name>To My Aide!</Name>
-		<Description>Summons an underpaid, overworked intern to harass your enemies with requests for overdue paperwork.</Description>
+		<Description>Summons an underpaid, overworked intern to harass your enemies with requests for overdue paperwork. Deals 9 damage over 3 turns.</Description>
 		<ID>2</ID>
 		<Type>COMBAT</Type>
 		<Damage>4</Damage>
@@ -40,7 +40,7 @@
 		<XPToLevel>50</XPToLevel>
 		<XPToLevel>100</XPToLevel>
 		<XPToLevel>200</XPToLevel>
-		<StatusEffect>HARASSED</StatusEffect>
+		<StatusEffect>HARASS</StatusEffect>
 	</Ability>
 
 	<Ability>
@@ -60,7 +60,7 @@
 
 	<Ability>
 		<Name>The Big Stick of Diplomacy</Name>
-		<Description>You brandish your weapon of choice menacingly and bash your opponent, stunning them for 1 turn.</Description>
+		<Description>You brandish your weapon of choice menacingly and bash your opponent, stunning them for 2 turns.</Description>
 		<ID>4</ID>
 		<Type>COMBAT</Type>
 		<Damage>2</Damage>
@@ -79,7 +79,7 @@
 		<XPToLevel>50</XPToLevel>
 		<XPToLevel>100</XPToLevel>
 		<XPToLevel>200</XPToLevel>
-		<StatusEffect>DAZED</StatusEffect>
+		<StatusEffect>STUN</StatusEffect>
 	</Ability>
 
 	<Ability>
@@ -99,7 +99,7 @@
 
 	<Ability>
 		<Name>Long-Winded Tirade</Name>
-		<Description>Your skill in filibustering is legend, and almost all of your speeches have been known to put your foes into a deep sleep.</Description>
+		<Description>Your skill in filibustering is legend, and almost all of your speeches have been known to put your foes into a deep sleep. Sleeps the target for 3 turns.</Description>
 		<ID>6</ID>
 		<Type>COMBAT</Type>
 		<Damage>2</Damage>
@@ -118,7 +118,7 @@
 		<XPToLevel>50</XPToLevel>
 		<XPToLevel>100</XPToLevel>
 		<XPToLevel>200</XPToLevel>
-		<StatusEffect>SNOOZE</StatusEffect>
+		<StatusEffect>SLEEP</StatusEffect>
 	</Ability>
 
 	<Ability>
