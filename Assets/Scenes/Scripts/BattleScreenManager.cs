@@ -30,6 +30,8 @@ public class BattleScreenManager : MonoBehaviour
 	public Image playerAmbitionBar;
 	public Image enemyHealthBar;
 	public Image enemyAmbitionBar;
+	public Image playerPortrait;
+	public Image enemyPortrait;
 
 	public int _playerHealth;
 	public int _playerAmbition;
@@ -50,8 +52,8 @@ public class BattleScreenManager : MonoBehaviour
 	{
 		LoadInformation.LoadAllInformation();	
 		_playerName = GameInformation.PlayerName;
-		_playerMaxHealth = GameInformation.PlayerClass.ClassStats[3].StatModifiedValue;
-		_playerMaxAmbition = GameInformation.PlayerClass.ClassStats[4].StatModifiedValue;
+		_playerMaxHealth = GameInformation.PlayerStats[3].StatModifiedValue;
+		_playerMaxAmbition = GameInformation.PlayerStats[4].StatModifiedValue;
 		_playerHealth = _playerMaxHealth;
 		_playerAmbition = _playerMaxAmbition;
 
@@ -61,6 +63,9 @@ public class BattleScreenManager : MonoBehaviour
 		_enemyMaxAmbition = _enemy.EnemyClass.ClassStats[4].StatModifiedValue * _enemy.EnemyDifficulty;
 		_enemyHealth = _enemyMaxHealth;
 		_enemyAmbition = _enemyMaxAmbition;
+
+		playerPortrait.sprite = PortraitDB._portraits[GameInformation.PlayerPortrait - 1];
+		enemyPortrait.sprite = PortraitDB._portraits[Random.Range(0, PortraitDB._portraits.Count)];
 
 		_quest = GameInformation.CurrentQuest;
 		_passedChecks = GameInformation.PassedChecks;

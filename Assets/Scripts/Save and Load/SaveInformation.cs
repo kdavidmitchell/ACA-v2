@@ -12,6 +12,7 @@ public class SaveInformation
         PlayerPrefs.SetInt("PLAYER_XP", GameInformation.PlayerXP);
         PlayerPrefs.SetInt("PLAYER_MONEY", GameInformation.PlayerMoney);
         PlayerPrefs.SetInt("PLAYER_FOLLOWERS", GameInformation.PlayerFollowers);
+        PlayerPrefs.SetInt("PLAYER_PORTRAIT", GameInformation.PlayerPortrait);
 
         if (GameInformation.PlayerClass != null)
         {

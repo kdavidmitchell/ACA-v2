@@ -227,7 +227,11 @@ public class RandomEventManager : MonoBehaviour
 		GameInformation.PlayerXP += _xpReward;
 		GameInformation.PlayerMoney += _moneyReward;
 		GameInformation.PlayerFollowers += _followerReward;
-		GameInformation.PlayerInventory.Add(_itemReward);
+
+		if (_itemReward != null)
+		{
+			GameInformation.PlayerInventory.Add(_itemReward);
+		}
 
 		SaveInformation.SaveAllInformation();
 

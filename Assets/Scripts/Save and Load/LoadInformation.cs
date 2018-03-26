@@ -12,6 +12,7 @@ public class LoadInformation
         GameInformation.PlayerXP = PlayerPrefs.GetInt("PLAYER_XP");
         GameInformation.PlayerMoney = PlayerPrefs.GetInt("PLAYER_MONEY");
         GameInformation.PlayerFollowers = PlayerPrefs.GetInt("PLAYER_FOLLOWERS");
+        GameInformation.PlayerPortrait = PlayerPrefs.GetInt("PLAYER_PORTRAIT");
 
         if (PlayerPrefs.GetString("PLAYER_CLASS") != null)
         {

@@ -156,8 +156,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 		{
 			if (_healthBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[3].StatCost[_healthBoosts])
 			{
-				GameInformation.PlayerStats[3].StatBaseValue++;
-				GameInformation.PlayerStats[3].StatModifiedValue++;
+				GameInformation.PlayerStats[3].StatBaseValue += 5;
+				GameInformation.PlayerStats[3].StatModifiedValue += 5;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[3].StatCost[_healthBoosts];
 				_healthBoosts++;
 				GameInformation.PlayerBoosts[3] = _healthBoosts;
@@ -169,8 +169,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 		{
 			if (_ambitionBoosts < 2 && GameInformation.PlayerXP >= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts])
 			{
-				GameInformation.PlayerStats[4].StatBaseValue++;
-				GameInformation.PlayerStats[4].StatModifiedValue++;
+				GameInformation.PlayerStats[4].StatBaseValue += 5;
+				GameInformation.PlayerStats[4].StatModifiedValue += 5;
 				GameInformation.PlayerXP -= GameInformation.PlayerStats[4].StatCost[_ambitionBoosts];
 				_ambitionBoosts++;
 				GameInformation.PlayerBoosts[4] = _ambitionBoosts;

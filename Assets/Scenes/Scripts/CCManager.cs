@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class CCManager : MonoBehaviour 
 {
 	private BasePlayer _newPlayer = new BasePlayer();
-	
-	private Image _selectedPortrait;
 
 	public GameObject _question1;
 	public GameObject _confirmation1;
@@ -36,9 +34,8 @@ public class CCManager : MonoBehaviour
 
 	public void DeterminePlayerPortrait(int index)
 	{
-		_selectedPortrait = GameObject.Find("Image_" + index).GetComponent<Image>();
-		_newPlayer.PlayerPortrait = _selectedPortrait;
-		GameInformation.PlayerPortrait = _selectedPortrait;
+		_newPlayer.PlayerPortrait = index;
+		GameInformation.PlayerPortrait = _newPlayer.PlayerPortrait;
 
 		_confirmation1.SetActive(true);
 	}

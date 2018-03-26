@@ -53,7 +53,7 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	// Use this for initialization
 	void Start () 
 	{
-		LoadInformation.LoadAllInformation();	
+	
 	}
 	
 	// Update is called once per frame
@@ -76,28 +76,33 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 			GameInformation.PlayerClass.ClassAbilities[1].AbilityCost[GameInformation.PlayerClass.ClassAbilities[1].AbilityCurrentRank - 1] + " " + "AP)";
 		} else if (name == "Items_Button")
 		{
-			int count = 1;
-			foreach (BaseItem item in GameInformation.PlayerInventory)
+			LoadInformation.LoadAllInformation();
+
+			if (GameInformation.PlayerInventory.Count != 0)
 			{
-				if (item.ItemType == BaseItem.ItemTypes.CONSUMABLE)
+				int count = 1;
+				foreach (BaseItem item in GameInformation.PlayerInventory)
 				{
-					_combatInventory.Add(item);
-					Debug.Log(item.ItemName);
-					_playerInventoryIndex = GameInformation.PlayerInventory.IndexOf(item);
+					if (item.ItemType == BaseItem.ItemTypes.CONSUMABLE)
+					{
+						_combatInventory.Add(item);
+						Debug.Log(item.ItemName);
+						_playerInventoryIndex = GameInformation.PlayerInventory.IndexOf(item);
 
-					iconInstance = Instantiate(itemIcon, transform.position + new Vector3((105 + (55*count)), 100, 0), Quaternion.identity);
-					iconInstance.transform.parent = gameObject.transform;
-					iconInstance.GetComponent<Image>().sprite = IconDB._icons[item.ItemIcon];
-					_icons.Add(iconInstance);
-					
-					buttonInstance = Instantiate(useButton, transform.position + new Vector3((105 + (55*count)), 60, 0), Quaternion.identity);
-					buttonInstance.transform.parent = gameObject.transform;
-					_buttons.Add(buttonInstance);
+						iconInstance = Instantiate(itemIcon, transform.position + new Vector3((105 + (55*count)), 100, 0), Quaternion.identity);
+						iconInstance.transform.parent = gameObject.transform;
+						iconInstance.GetComponent<Image>().sprite = IconDB._icons[item.ItemIcon];
+						_icons.Add(iconInstance);
+						
+						buttonInstance = Instantiate(useButton, transform.position + new Vector3((105 + (55*count)), 60, 0), Quaternion.identity);
+						buttonInstance.transform.parent = gameObject.transform;
+						_buttons.Add(buttonInstance);
 
-					buttonInstance.GetComponent<Button>().onClick.AddListener(() => UseItem(item.ItemID));
-					buttonInstance.GetComponent<Button>().onClick.AddListener(() => RemoveItemFromInventory(_playerInventoryIndex));
+						buttonInstance.GetComponent<Button>().onClick.AddListener(() => UseItem(item.ItemID));
+						buttonInstance.GetComponent<Button>().onClick.AddListener(() => RemoveItemFromInventory(_playerInventoryIndex));
 
-					count++;
+						count++;
+					}
 				}
 			}
 		}

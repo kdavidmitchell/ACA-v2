@@ -16,7 +16,7 @@ public class BasePlayer : BaseClass
 	private List<BaseItem> _equippedItems = new List<BaseItem>();
 	private List<BaseItem> _inventory = new List<BaseItem>();
 	private List<Quest> _completedQuests = new List<Quest>();
-	private Image _portrait;
+	private int _portrait;
 
 	public string PlayerName
 	{
@@ -72,7 +72,7 @@ public class BasePlayer : BaseClass
 		set { _completedQuests = value; }
 	}
 
-	public Image PlayerPortrait
+	public int PlayerPortrait
 	{
 		get { return _portrait; }
 		set { _portrait = value; }

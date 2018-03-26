@@ -56,11 +56,6 @@ public class InventoryManager : MonoBehaviour
 
 		inventoryPanel.SetActive(false);
 		_inventoryIsActive = false;
-
-		GameInformation.PlayerInventory = new List<BaseItem>();
-		GameInformation.PlayerEquippedItems = new List<BaseItem>();
-		_inventory = new List<BaseItem>();
-		_equippedItems = new List<BaseItem>();
 	}
 	
 	// Update is called once per frame
@@ -119,12 +114,13 @@ public class InventoryManager : MonoBehaviour
 	public static void EquipItem(int id)
 	{
 		InventoryManager._equippedItems.Add(InventoryManager._inventory[FindItemIndexFromID(id)]);
-
-		GameInformation.PlayerInventory = InventoryManager._inventory;
 		GameInformation.PlayerEquippedItems = InventoryManager._equippedItems;
+		
 		AddItemBonusesToPlayerStats(InventoryManager._inventory[FindItemIndexFromID(id)]);
 		
 		InventoryManager._inventory.RemoveAt(FindItemIndexFromID(id));
+		GameInformation.PlayerInventory = InventoryManager._inventory;
+
 		SaveInformation.SaveAllInformation();
 		UpdateInventory();
 	}
@@ -144,24 +140,25 @@ public class InventoryManager : MonoBehaviour
 	public static void UpdateInventory()
 	{
 		LoadInformation.LoadAllInformation();
-
-		InventoryManager._equippedItems = GameInformation.PlayerEquippedItems;
 		InventoryManager._inventory = GameInformation.PlayerInventory;
 
-		for (int i = 0; i < _inventory.Count; i++) 
+		if (InventoryManager._inventory.Count != 0)
 		{
-			if (InventoryManager._inventory[i] != null)
+			for (int i = 0; i < InventoryManager._inventory.Count; i++) 
 			{
-				Color c;
-				Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();
-				c = itemImage.color;
-				c.a = 1;
-				itemImage.color = c;
-				itemImage.sprite = IconDB._icons[InventoryManager._inventory[i].ItemIcon];
+				if (InventoryManager._inventory[i] != null)
+				{
+					Color c;
+					Image itemImage = InventoryManager._inventorySlotIcons[i].GetComponent<Image>();
+					c = itemImage.color;
+					c.a = 1;
+					itemImage.color = c;
+					itemImage.sprite = IconDB._icons[InventoryManager._inventory[i].ItemIcon];
+				}
 			}
 		}
 
-		for (int i = _inventory.Count; i < _inventorySlots.Count; i++) 
+		for (int i = InventoryManager._inventory.Count; i < InventoryManager._inventorySlots.Count; i++) 
 		{
 			Color c;
 			Image itemImage = _inventorySlotIcons[i].GetComponent<Image>();

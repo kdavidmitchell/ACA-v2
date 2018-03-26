@@ -16,7 +16,7 @@ public class GameInformation : MonoBehaviour
     private static List<Quest> _playerCompletedQuests;
     private static List<BaseItem> _playerEquippedItems;
     private static List<BaseItem> _playerInventory;
-    private static Image _playerPortrait;
+    private static int _playerPortrait;
     private static int[] _boosts = new int[8];
     private static BaseEnemy _enemy;
     private static Quest _currentQuest;
@@ -79,7 +79,7 @@ public class GameInformation : MonoBehaviour
         set { _playerInventory = value; }
     }
 
-    public static Image PlayerPortrait
+    public static int PlayerPortrait
     {
         get { return _playerPortrait; }
         set { _playerPortrait = value; }
