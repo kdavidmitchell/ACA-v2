@@ -52,8 +52,9 @@ public class RandomEventManager : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		_playerPassiveRank = GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank;
 	}
 
 	public void ChooseAndLoadRandomEvent()
@@ -148,7 +149,13 @@ public class RandomEventManager : MonoBehaviour
 	{
 		DestroyButtons();
 
-		questText.text = resolution + "\n\n";
+		if (resolution != "N/A")
+		{
+			questText.text = resolution + "\n\n";
+		} else 
+		{
+			questText.text = "";
+		}
 
 		CalculateRewards(_passedCheck);
 
