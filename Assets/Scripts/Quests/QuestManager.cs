@@ -133,7 +133,7 @@ public class QuestManager : MonoBehaviour
 			button.transform.parent = questFrame.transform;
 			
 			Vector2 temp = new Vector2();
-			temp.y = questFrame.transform.position.y - 50 - (50 * i);
+			temp.y = questFrame.transform.position.y - 75 - (50 * i);
 			temp.x = questFrame.transform.position.x;
 			button.transform.position = temp;
 			button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour 
 {
@@ -13,6 +14,7 @@ public class MapManager : MonoBehaviour
 	public GameObject _questFrame;
 	public Text _moneyLabel;
 	public Text _followersLabel;
+	public GameObject _victoryScreen;
 
 	void Awake()
 	{
@@ -39,6 +41,8 @@ public class MapManager : MonoBehaviour
 		QuestPinSetup();
 		
 		DisableAllPinHovers();	
+
+		_victoryScreen.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -46,6 +50,11 @@ public class MapManager : MonoBehaviour
 	{
 		_moneyLabel.text = GameInformation.PlayerMoney.ToString();
 		_followersLabel.text = GameInformation.PlayerFollowers.ToString();
+
+		if (GameInformation.PlayerFollowers >= 50)
+		{
+			DisplayAreaVictory();
+		}
 	}
 
 	private void QuestPinSetup()
@@ -146,5 +155,15 @@ public class MapManager : MonoBehaviour
 
 		result = _events.IndexOf(randomEvent);
 		return result;
+	}
+
+	public void DisplayAreaVictory()
+	{
+		_victoryScreen.SetActive(true);
+	}
+
+	public void ReturnToMenu()
+	{
+		SceneManager.LoadScene(0);
 	}
 }
