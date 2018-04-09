@@ -50,4 +50,9 @@ public class SoundManager : MonoBehaviour
 		StopTrack();
 		SwitchTrack(level - 1);
 	}
+
+	public void Mute()
+	{
+		currentSource.mute = !currentSource.mute; 
+	}
 }

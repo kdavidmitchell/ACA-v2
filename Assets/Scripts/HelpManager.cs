@@ -7,6 +7,7 @@ public class HelpManager : MonoBehaviour
 	private bool _helpIsActive;
 
 	public GameObject helpPanel;
+	public GameObject welcomeMenu;
 	public static HelpManager instance = null;
 
 	void Awake()
@@ -36,5 +37,10 @@ public class HelpManager : MonoBehaviour
 			_helpIsActive = !_helpIsActive;
 			helpPanel.SetActive(_helpIsActive);
 		}
+	}
+
+	public void CloseHelpMenu()
+	{
+		welcomeMenu.SetActive(false);
 	}
 }
