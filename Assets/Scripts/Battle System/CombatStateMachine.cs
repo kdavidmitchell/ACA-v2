@@ -17,6 +17,7 @@ public class CombatStateMachine : MonoBehaviour
 	private bool _hasHarass;
 	private bool _hasStun;
 	private bool _hasSleep;
+	private SoundManager sm;
 
 	public BattleScreenManager battleScreenManager;
 
@@ -46,6 +47,8 @@ public class CombatStateMachine : MonoBehaviour
 	{
 		LoadInformation.LoadAllInformation();
 		currentState = BattleStates.START;
+
+		sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -73,6 +76,7 @@ public class CombatStateMachine : MonoBehaviour
 				//CheckTurnOwner ();
 				break;
 			case (BattleStates.CALCULATE_DAMAGE):
+				sm.PlaySingleEfx(1);
 				if (currentTurnOwner == BattleStates.PLAYER_TURN) 
 				{
 					if (battleCalculations.GetPlayerAbilityCost(playerAbility) <= battleScreenManager._playerAmbition)
