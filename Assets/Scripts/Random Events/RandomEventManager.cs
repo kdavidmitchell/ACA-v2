@@ -22,6 +22,8 @@ public class RandomEventManager : MonoBehaviour
 	private int _followerReward;
 	private BaseItem _itemReward;
 
+	private SoundManager sm;
+
 	public GameObject questFrame;
 	public Text questTitle;
 	public Text questText;
@@ -49,6 +51,8 @@ public class RandomEventManager : MonoBehaviour
 	{
 		_playerPassiveName = GameInformation.PlayerClass.ClassAbilities[2].AbilityName;
 		_playerPassiveRank = GameInformation.PlayerClass.ClassAbilities[2].AbilityCurrentRank;
+
+		sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -67,6 +71,7 @@ public class RandomEventManager : MonoBehaviour
 		questFrame.SetActive(true);
 		questTitle.text = _event.EventTitle;
 		questText.text = _event.EventDescription;
+		sm.PlaySingleEfx(2);
 
 		EnqueueOptions();
 		EnqueueChecks();
@@ -190,6 +195,9 @@ public class RandomEventManager : MonoBehaviour
 		Text buttonText = exitButton.GetComponentInChildren<Text>();
 		buttonText.fontSize = 8;
 		buttonText.text = "Moving on!";
+
+		sm.PlaySingleEfx(0);
+
 		exitButton.onClick.AddListener(() => SaveAndUpdateHUD());
 		exitButton.onClick.AddListener(() => MapManager.RemoveEventFromActiveList(_event.EventID));
 		exitButton.onClick.AddListener(() => DisableQuest());

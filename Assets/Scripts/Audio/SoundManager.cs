@@ -7,7 +7,9 @@ public class SoundManager : MonoBehaviour
 {
 
 	private AudioSource currentSource = null;
+	private AudioSource currentEfx;
 
+	public AudioSource[] efxSources;
 	public AudioSource[] musicSources;
 	public static SoundManager instance = null;
 
@@ -54,5 +56,11 @@ public class SoundManager : MonoBehaviour
 	public void Mute()
 	{
 		currentSource.mute = !currentSource.mute; 
+	}
+
+	public void PlaySingleEfx(int index)
+	{
+		currentEfx = efxSources[index];
+		currentEfx.Play();
 	}
 }

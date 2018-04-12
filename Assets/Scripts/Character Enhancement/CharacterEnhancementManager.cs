@@ -16,6 +16,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 	private int _activeBoosts = 0;
 	private int _passiveBoosts = 0;
 
+	private SoundManager sm;
+
 	public GameObject enhancementPanel;
 	public Text playerName;
 	public Text playerClass;
@@ -62,6 +64,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 		enhancementPanel.SetActive(false);
 		_enhancementIsActive = false;
 
+		sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+
 		_rhetoricBoosts = GameInformation.PlayerBoosts[0];
 		_imageBoosts = GameInformation.PlayerBoosts[1];
 		_diplomacyBoosts = GameInformation.PlayerBoosts[2];
@@ -79,6 +83,8 @@ public class CharacterEnhancementManager : MonoBehaviour
 		{
 			_enhancementIsActive = !_enhancementIsActive;
 			enhancementPanel.SetActive(_enhancementIsActive);
+
+			sm.PlaySingleEfx(4);
 
 			LoadInformation.LoadAllInformation();
 		}

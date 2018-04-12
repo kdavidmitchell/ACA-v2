@@ -25,6 +25,8 @@ public class QuestManager : MonoBehaviour
 	private int _followerReward;
 	private BaseItem _itemReward;
 
+	private SoundManager sm;
+
 	public GameObject questFrame;
 	public Text questTitle;
 	public Text questText;
@@ -54,6 +56,8 @@ public class QuestManager : MonoBehaviour
 	{
 		questFrame.SetActive(false);
 		_playerPassiveName = GameInformation.PlayerClass.ClassAbilities[2].AbilityName;
+
+		sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -214,6 +218,8 @@ public class QuestManager : MonoBehaviour
 
 	private void DisplayRewards()
 	{
+		sm.PlaySingleEfx(0);
+
 		questTitle.text = "Favor completed!";
 		questText.text = "You've earned: " + _xpReward + " XP, " + _followerReward + " followers";
 		if (_itemReward != null)

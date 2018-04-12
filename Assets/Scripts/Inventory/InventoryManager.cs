@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
 
 	private bool _inventoryIsActive;
+	private SoundManager sm;
 	
 	public static List<BaseItem> _equippedItems = new List<BaseItem>();
 	public static List<BaseItem> _inventory = new List<BaseItem>();
@@ -37,6 +38,7 @@ public class InventoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
 		for (int i = 0; i < 16; i++) 
 		{
@@ -65,6 +67,8 @@ public class InventoryManager : MonoBehaviour
 		{
 			_inventoryIsActive = !_inventoryIsActive;
 			inventoryPanel.SetActive(_inventoryIsActive);
+
+			sm.PlaySingleEfx(5);
 		}
 
 		if (_inventoryIsActive)
@@ -113,6 +117,8 @@ public class InventoryManager : MonoBehaviour
 
 	public static void EquipItem(int id)
 	{
+		GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySingleEfx(3);
+
 		InventoryManager._equippedItems.Add(InventoryManager._inventory[FindItemIndexFromID(id)]);
 		GameInformation.PlayerEquippedItems = InventoryManager._equippedItems;
 		
