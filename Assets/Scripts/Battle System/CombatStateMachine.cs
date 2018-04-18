@@ -18,6 +18,8 @@ public class CombatStateMachine : MonoBehaviour
 	private bool _hasStun;
 	private bool _hasSleep;
 	private SoundManager sm;
+	private Animator playerAnimator;
+	private Animator enemyAnimator;
 
 	public BattleScreenManager battleScreenManager;
 
@@ -49,6 +51,8 @@ public class CombatStateMachine : MonoBehaviour
 		currentState = BattleStates.START;
 
 		sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+		playerAnimator = GameObject.Find("Player_Portrait").GetComponent<Animator>();
+		enemyAnimator = GameObject.Find("Enemy_Portrait").GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -83,6 +87,7 @@ public class CombatStateMachine : MonoBehaviour
 					{
 						ApplyStatusEffect(playerAbility.AbilityStatusEffect);
 
+						playerAnimator.SetTrigger("isAttacking");
 						battleScreenManager._enemyHealth -= battleCalculations.CalculateTotalPlayerDamage (playerAbility);
 						battleScreenManager._playerAmbition -= battleCalculations.GetPlayerAbilityCost (playerAbility);
 					}
@@ -104,6 +109,7 @@ public class CombatStateMachine : MonoBehaviour
 
 					if (!_hasStun && !_hasSleep)
 					{
+						enemyAnimator.SetTrigger("isAttacking");
 						battleScreenManager._playerHealth -= battleCalculations.CalculateTotalEnemyDamage (enemyAbility);
 						battleScreenManager._enemyAmbition -= battleCalculations.GetEnemyAbilityCost (enemyAbility);
 					} else 
