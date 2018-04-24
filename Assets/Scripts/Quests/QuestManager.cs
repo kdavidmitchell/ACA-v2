@@ -18,14 +18,13 @@ public class QuestManager : MonoBehaviour
 
 	private int _passedChecks = 0;
 	private string _playerPassiveName;
-
 	private int _nextCounter = 1;
-
 	private int _xpReward;
 	private int _followerReward;
 	private BaseItem _itemReward;
-
 	private SoundManager sm;
+	private bool _pastFirstScreen = false;
+	private GameObject closeButton;
 
 	public GameObject questFrame;
 	public Text questTitle;
@@ -54,6 +53,8 @@ public class QuestManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		closeButton = GameObject.Find("Quest_Close_Button");
+
 		questFrame.SetActive(false);
 		_playerPassiveName = GameInformation.PlayerClass.ClassAbilities[2].AbilityName;
 
@@ -82,6 +83,28 @@ public class QuestManager : MonoBehaviour
 
 		DestroyButtons();
 		CreateButtons(_quest.QuestResponses1.Count, _questResponses1, _questChecks1);
+
+		Debug.Log(_pastFirstScreen);
+
+		if (!_pastFirstScreen)
+		{
+			closeButton.SetActive(true);
+		}
+	}
+
+	public void UnloadQuest()
+	{
+		_nextCounter = 1;
+		_passedChecks = 0;
+		_quest = null;
+
+		_questText.Clear();
+		_questResponses1.Clear();
+		_questResponses2.Clear();
+		_questResponses3.Clear();
+		_questChecks1.Clear();
+		_questChecks2.Clear();
+		_questChecks3.Clear();
 	}
 
 	private void EnqueueQuestText()
@@ -137,7 +160,7 @@ public class QuestManager : MonoBehaviour
 			button.transform.parent = questFrame.transform;
 			
 			Vector2 temp = new Vector2();
-			temp.y = questFrame.transform.position.y - 90 - (80 * i);
+			temp.y = questFrame.transform.position.y - 60 - (80 * i);
 			temp.x = questFrame.transform.position.x;
 			button.transform.position = temp;
 			button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
@@ -182,6 +205,11 @@ public class QuestManager : MonoBehaviour
 	private void Next()
 	{
 		DestroyButtons();
+		if (!_pastFirstScreen)
+		{
+			closeButton.SetActive(false);
+			_pastFirstScreen = true;
+		}
 
 		if (_nextCounter != 3)
 		{
@@ -234,7 +262,7 @@ public class QuestManager : MonoBehaviour
 		exitButton.transform.parent = questFrame.transform;
 			
 		Vector2 temp = new Vector2();
-		temp.y = questFrame.transform.position.y - 90;
+		temp.y = questFrame.transform.position.y - 85;
 		temp.x = questFrame.transform.position.x;
 		exitButton.transform.position = temp;
 		exitButton.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
@@ -246,7 +274,6 @@ public class QuestManager : MonoBehaviour
 		exitButton.onClick.AddListener(() => MapManager.RemovePinFromActiveList(_quest.QuestID));
 		exitButton.onClick.AddListener(() => MapManager.EnableActivePins());
 		exitButton.onClick.AddListener(() => DisableQuest());
-
 	}
 
 	private void CalculateXPReward()
@@ -352,6 +379,7 @@ public class QuestManager : MonoBehaviour
 		GameInformation.PlayerXP += _xpReward;
 		GameInformation.PlayerFollowers += _followerReward;
 		GameInformation.PlayerInventory.Add(_itemReward);
+		_pastFirstScreen = false;
 
 		SaveInformation.SaveAllInformation();
 

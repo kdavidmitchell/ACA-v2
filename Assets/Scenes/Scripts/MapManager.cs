@@ -97,6 +97,14 @@ public class MapManager : MonoBehaviour
 		}
 	}
 
+	public void EnableActivePinsFromQuestExit()
+	{
+		foreach (GameObject pin in _pins)
+		{
+			pin.SetActive(true);
+		}
+	}
+
 	public static void EnableActivePins()
 	{
 		foreach (GameObject pin in _pins)
