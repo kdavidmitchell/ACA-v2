@@ -22,8 +22,10 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		instance = Instantiate(hoverPrefab, transform.position + new Vector3(240, 0, 0), Quaternion.identity);
-		instance.transform.parent = gameObject.transform;
+		instance = Instantiate(hoverPrefab);
+		//instance.transform.parent = gameObject.transform;
+		instance.transform.SetParent(gameObject.transform, false);
+		instance.transform.position = transform.position + new Vector3(240, 0, 0);
 
 		Text hoverText = instance.GetComponentInChildren<Text>();
 		hoverText.text = Parse(name);
@@ -89,13 +91,17 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 						Debug.Log(item.ItemName);
 						_playerInventoryIndex = GameInformation.PlayerInventory.IndexOf(item);
 
-						iconInstance = Instantiate(itemIcon, transform.position + new Vector3((105 + (55*count)), 100, 0), Quaternion.identity);
-						iconInstance.transform.parent = gameObject.transform;
+						iconInstance = Instantiate(itemIcon);
+						//iconInstance.transform.parent = gameObject.transform;
+						iconInstance.transform.SetParent(gameObject.transform, false);
+						iconInstance.transform.position = transform.position + new Vector3((105 + (55*count)), 100, 0);
 						iconInstance.GetComponent<Image>().sprite = IconDB._icons[item.ItemIcon];
 						_icons.Add(iconInstance);
 						
-						buttonInstance = Instantiate(useButton, transform.position + new Vector3((105 + (55*count)), 60, 0), Quaternion.identity);
-						buttonInstance.transform.parent = gameObject.transform;
+						buttonInstance = Instantiate(useButton);
+						//buttonInstance.transform.parent = gameObject.transform;
+						buttonInstance.transform.SetParent(gameObject.transform, false);
+						buttonInstance.transform.position = transform.position + new Vector3((105 + (55*count)), 60, 0);
 						_buttons.Add(buttonInstance);
 
 						buttonInstance.GetComponent<Button>().onClick.AddListener(() => UseItem(item.ItemID));

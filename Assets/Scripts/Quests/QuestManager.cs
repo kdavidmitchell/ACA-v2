@@ -157,7 +157,7 @@ public class QuestManager : MonoBehaviour
 			int tempCheck = checks.Peek();
 
 			Button button = Instantiate(buttonPrefab);
-			button.transform.parent = questFrame.transform;
+			//button.transform.parent = questFrame.transform;
 			button.transform.SetParent(questFrame.transform, false);
 			
 			Vector2 temp = new Vector2();
@@ -260,7 +260,7 @@ public class QuestManager : MonoBehaviour
 		}
 
 		Button exitButton = Instantiate(buttonPrefab);
-		exitButton.transform.parent = questFrame.transform;
+		//exitButton.transform.parent = questFrame.transform;
 		exitButton.transform.SetParent(questFrame.transform, false);
 			
 		Vector2 temp = new Vector2();

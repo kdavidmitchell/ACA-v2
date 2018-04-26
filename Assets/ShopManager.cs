@@ -58,7 +58,8 @@ public class ShopManager : MonoBehaviour
 		foreach (BaseItem item in _shopItems)
 		{
 			GameObject itemToBeInstantiated = Instantiate(itemPrefab, shopInventoryPanel.transform.position, Quaternion.identity);
-			itemToBeInstantiated.transform.parent = shopInventoryPanel.transform;
+			//itemToBeInstantiated.transform.parent = shopInventoryPanel.transform;
+			itemToBeInstantiated.transform.SetParent(shopInventoryPanel.transform, false);
 
 			_shopitemPrefabs.Add(itemToBeInstantiated);
 
