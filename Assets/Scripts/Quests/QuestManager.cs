@@ -161,7 +161,8 @@ public class QuestManager : MonoBehaviour
 			button.transform.SetParent(questFrame.transform, false);
 			
 			Vector2 temp = new Vector2();
-			temp.y = questFrame.transform.position.y - 60 - (80 * i);
+			RectTransform rt = button.GetComponent<RectTransform>();
+			temp.y = questFrame.transform.position.y - 40 - ((rt.rect.height + 20) * i);
 			temp.x = questFrame.transform.position.x;
 			button.transform.position = temp;
 			button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
@@ -264,7 +265,7 @@ public class QuestManager : MonoBehaviour
 		exitButton.transform.SetParent(questFrame.transform, false);
 			
 		Vector2 temp = new Vector2();
-		temp.y = questFrame.transform.position.y - 85;
+		temp.y = questFrame.transform.position.y - 65;
 		temp.x = questFrame.transform.position.x;
 		exitButton.transform.position = temp;
 		exitButton.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);

@@ -4,8 +4,8 @@
 		<Description>You are a well of infinite charm. A good smile, a strong chin, and a head of neatly coifed hair: these are the tools of the gladhander. Make friends out of enemies, summon your most devout constituents to aid you, and flash those pearly whites.</Description>
 		<ID>1</ID>
 		<Type>GLADHANDER</Type>
-		<Stat>7</Stat>
-		<Stat>9</Stat>
+		<Stat>6</Stat>
+		<Stat>10</Stat>
 		<Stat>8</Stat>
 		<Stat>60</Stat>
 		<Stat>30</Stat>
@@ -21,8 +21,8 @@
 		<ID>2</ID>
 		<Type>CHIEF</Type>
 		<Stat>8</Stat>
-		<Stat>7</Stat>
-		<Stat>9</Stat>
+		<Stat>6</Stat>
+		<Stat>10</Stat>
 		<Stat>100</Stat>
 		<Stat>15</Stat>
 		<Stat>2</Stat>
@@ -36,9 +36,9 @@
 		<Description>You've always known that the pen is mightier than the sword. In vocal power and eloquence, you have no equal. Bore your enemies to death with long speeches, lull them to sleep with the rich cadence of your voice, or outsmart their every move.</Description>
 		<ID>3</ID>
 		<Type>SOPHIST</Type>
-		<Stat>9</Stat>
+		<Stat>10</Stat>
 		<Stat>8</Stat>
-		<Stat>7</Stat>
+		<Stat>6</Stat>
 		<Stat>50</Stat>
 		<Stat>35</Stat>
 		<Stat>4</Stat>
