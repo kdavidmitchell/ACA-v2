@@ -23,9 +23,10 @@ public class InformationHoverHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	public void OnPointerEnter(PointerEventData eventData)
 	{
 		instance = Instantiate(hoverPrefab);
+		RectTransform rt = instance.GetComponent<RectTransform>();
 		//instance.transform.parent = gameObject.transform;
 		instance.transform.SetParent(gameObject.transform, false);
-		instance.transform.position = transform.position + new Vector3(240, 0, 0);
+		instance.transform.position = transform.position + new Vector3(rt.rect.width, 0, 0);
 
 		Text hoverText = instance.GetComponentInChildren<Text>();
 		hoverText.text = Parse(name);
