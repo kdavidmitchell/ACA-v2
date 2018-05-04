@@ -162,7 +162,7 @@ public class QuestManager : MonoBehaviour
 			
 			Vector2 temp = new Vector2();
 			RectTransform rt = button.GetComponent<RectTransform>();
-			temp.y = questFrame.transform.position.y - 20 - ((rt.rect.height + 40) * i);
+			temp.y = questFrame.transform.position.y - 20 - ((rt.rect.height + 80) * i);
 			temp.x = questFrame.transform.position.x;
 			button.transform.position = temp;
 			button.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
